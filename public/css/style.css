@@ -1,0 +1,82 @@
+/*Google Font*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap");
+/*google*/
+:root {
+  --Montserrat: "Montserrat", cursive;
+  --light-gray: #f7f7f7;
+  --yellow-p: #feb724;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: var(--Montserrat);
+}
+
+.coba {
+  font-weight: 600;
+}
+
+.navbar {
+  background-color: white !important;
+}
+
+.button-p {
+  border: none;
+  background-color: var(--yellow-p);
+  color: black;
+  font-weight: 700;
+}
+
+.button-p:hover {
+  border: none;
+  background-color: black;
+  color: white;
+}
+
+header,
+section {
+  overflow-x: hidden;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a.hover {
+  background: var(--yellow-p);
+}
+
+.header a {
+  font-family: var(--Montserrat);
+  font-weight: bold;
+  color: yellow;
+}
+
+.jumbotron img {
+  width: 400px;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+hr {
+  width: 200px;
+  border-top: 3px solid #424242;
+}
+body {
+  font: Montserrat;
+}
+.product {
+  background-color: #0000 !important;
+}
+
+.slick-slide img {
+  width: 100%;
+  box-shadow: black;
+}
+
+.slick-slide {
+  margin: 30px 15px;
+}
