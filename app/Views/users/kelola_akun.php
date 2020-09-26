@@ -65,7 +65,7 @@
             <div class="navbar-nav">
                 <a class="nav-link btn px-2 active" role="button" href="/Home/profile">Halo, <?= $nama; ?>! <span
                         class="sr-only">(current)</span></a>
-                <a class="nav-link btn px-2" role="button" href="../Config/logout">LOGOUT</a>
+                <a class="nav-link btn px-2" role="button" href="/Config/logout">LOGOUT</a>
             </div>
         </div>
     </nav>

@@ -33,7 +33,7 @@ class Home extends BaseController
 	public function index()
 	{
 		$products = $this->productsModel->findAll();
-		$promotions = $this->promotionsModel->findAll();
+		$promotions = $this->promotionsModel->where('status', 'active')->findAll();
 
 		// jumlah slot twitter_profile_needs
 		$tpn = $this->productsModel->where('category', 'twitter_profile_needs')->findAll();

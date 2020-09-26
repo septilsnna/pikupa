@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <title>Dashboard Admin PIKUPA</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
@@ -23,66 +23,142 @@
     </script>
 </head>
 
-<body style="background-color:#f7f7f7; font-family: Montserrat; font-style: normal; color: #424242;">
+<body>
     <div class="wrapper">
-        <!-- Sidebar -->
+        <!-- Sidebar  -->
         <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Bootstrap Sidebar</h3>
+            <div class="sidebar-header text-center">
+                <img class="rounded" src="/logo/logos.png" style="width: 90%;">
+                <h5 class="text-center mt-3 mb-0" style="color: #424242;">Halo Admin PIKUPA</h5>
             </div>
             <ul class="list-unstyled components">
-                <p>Dummy Heading</p>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
+                    <a href="/Admin/dashboard">Home</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="/Admin/orders">Orders</a>
                 </li>
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
-                        class="dropdown-toggle">Pages</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
+                    <a href="/Admin/manage_product">Products</a>
                 </li>
                 <li>
-                    <a href="#">Portfolio</a>
+                    <a href="/Admin/promotions">Promotions</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="/Admin/manage_user">Manage User</a>
+                </li>
+                <li>
+                    <a href="../Config/logout">Logout</a>
                 </li>
             </ul>
         </nav>
+
+        <!-- Page Content  -->
         <div id="content">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
-                    </button>
-
+            <button type="button" id="sidebarCollapse" class="btn" style="background-color: #febb31; color: #f7f7f7">
+                <i class="fas fa-align-left"></i>
+                <span>MENU</span>
+            </button>
+            <div class="container">
+                <div class="row my-3">
+                    <h2>Dashboard Admin PIKUPA</h2>
                 </div>
-            </nav>
+                <div class="row my-3">
+                    <h5 style="color:gray">Pemesanan Produk di Website PIKUPA</h5>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-3">
+                        <div class="card bg-light mb-3 shadow"
+                            style="border-left-color: #FFCE67; border-width: 1px 1px 1px 5px;">
+                            <div class="card-header py-4" style="font-size: large;">
+                                <h2><?= $review; ?></h2> ON REVIEW
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light mb-3 shadow"
+                            style="border-left-color: #C4C4C4; border-width: 1px 1px 1px 5px;">
+                            <div class="card-header py-4" style="font-size: large;">
+                                <h2><?= $process; ?></h2> PROCESS
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light mb-3 shadow"
+                            style="border-left-color: #B5F3AB; border-width: 1px 1px 1px 5px;">
+                            <div class="card-header py-4" style="font-size: large;">
+                                <h2><?= $finish; ?></h2> FINISH
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light mb-3 shadow"
+                            style="border-left-color: #FF6767; border-width: 1px 1px 1px 5px;">
+                            <div class="card-header py-4" style="font-size: large;">
+                                <h2><?= $reject; ?></h2> REJECT
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <h5 style="color:gray">Pemasukan PIKUPA</h5>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-6">
+                        <div class="card bg-light mb-3 shadow"
+                            style="border-left-color:  #fed98b; border-width: 1px 1px 1px 5px;">
+                            <div class="card-header py-4" style="font-size: large;">
+                                <h2>Rp<?= $pendapatan; ?></h2> MELALUI WEBSITE
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card bg-light mb-3 shadow"
+                            style="border-left-color:  #fed98b; border-width: 1px 1px 1px 5px;">
+                            <div class="card-header py-4" style="font-size: large;">
+                                <h2>Rp<?= $promosi; ?></h2> MELALUI IKLAN PROMOSI
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <h5 style="color:gray">TOTAL</h5>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-6">
+                        <div class="card bg-light mb-3 shadow"
+                            style="border-left-color:  #fed98b; border-width: 1px 1px 1px 5px;">
+                            <div class="card-header py-4" style="font-size: large;">
+                                <h2><?= $user; ?></h2> AKUN PENGGUNA
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card bg-light mb-3 shadow"
+                            style="border-left-color:  #fed98b; border-width: 1px 1px 1px 5px;">
+                            <div class="card-header py-4" style="font-size: large;">
+                                <h2><?= $finish; ?></h2> TERJUAL
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card bg-light mb-3 shadow"
+                            style="border-left-color:  #fed98b; border-width: 1px 1px 1px 5px;">
+                            <div class="card-header py-4" style="font-size: large;">
+                                <h2>Rp<?= $pendapatan + $promosi; ?></h2> PENDAPATAN
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card bg-light mb-3 shadow"
+                            style="border-left-color:  #fed98b; border-width: 1px 1px 1px 5px;">
+                            <div class="card-header py-4" style="font-size: large;">
+                                <h2><?= $p_promosi; ?></h2> PRODUK PROMOSI
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -99,6 +175,13 @@
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
     </script>
 
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#sidebarCollapse').on('click', function() {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+    </script>
 </body>
 
 </html>

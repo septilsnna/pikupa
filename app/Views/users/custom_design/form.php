@@ -63,7 +63,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <div class="navbar-nav">
                 <a class="nav-link btn px-2" role="button" href="/Home/profile">Halo, <?= $nama; ?>!</a>
-                <a class="nav-link btn px-2" role="button" href="../Config/logout">LOGOUT</a>
+                <a class="nav-link btn px-2" role="button" href="/Config/logout">LOGOUT</a>
             </div>
         </div>
     </nav>
@@ -75,34 +75,36 @@
         <p style="font-size: 16px; color: #424242;">Tolong lengkapi formulir di bawah ini ya kak~</p>
         <div class="row justify-content-center">
             <div class="col-md-7">
-                <div class="card text-center py-2 my-2">
-                    <div class="card-body">
-                        <table class="table table-borderless">
-                            <tr>
-                                <td scope="col" style="text-align: left">Nama pemesan</td>
-                                <td style="text-align: right; font-weight: bold"><?= $user[0]['name']; ?></td>
-                            </tr>
-                            <tr>
-                                <td scope="col" style="text-align: left">Produk</td>
-                                <td style="text-align: right; font-weight: bold">
-                                    <?= $product[0]['sub_category_name']; ?></td>
-                            </tr>
-                            <tr>
-                                <td scope="col" style="text-align: left">Harga (DP)</td>
-                                <td style="text-align: right; font-weight: bold">Rp <?= $id[0]['price']; ?></td>
-                            </tr>
-                            <tr style="border-bottom-style: solid;">
-                                <td scope="col" style="text-align: left">Diskon</td>
-                                <td style="text-align: right; font-weight: bold"><?= $product[0]['discount']; ?>%</td>
-                            </tr>
-                            <tr>
-                                <td scope="col" style="text-align: left">Total Pembayaran</td>
-                                <td style="text-align: right; font-weight: bold">Rp <?= $total; ?></td>
-                            </tr>
-                        </table>
-                        <form action="/Config/ordering/<?= $_SESSION['category']; ?>" method="post"
-                            enctype="multipart/form-data">
-                            <?= csrf_field(); ?>
+                <form
+                    action="/Config/ordering/<?= $_SESSION['category']; ?>/<?= $_SESSION['sub_category'] ?>/<?= $_SESSION['product_id'] ?>"
+                    method="post" enctype="multipart/form-data">
+                    <?= csrf_field(); ?>
+                    <div class="card text-center py-2 my-2">
+                        <div class="card-body">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td scope="col" style="text-align: left">Nama pemesan</td>
+                                    <td style="text-align: right; font-weight: bold"><?= $user[0]['name']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td scope="col" style="text-align: left">Produk</td>
+                                    <td style="text-align: right; font-weight: bold">
+                                        <?= $product[0]['sub_category_name']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td scope="col" style="text-align: left">Harga (DP)</td>
+                                    <td style="text-align: right; font-weight: bold">Rp <?= $id[0]['price']; ?></td>
+                                </tr>
+                                <tr style="border-bottom-style: solid;">
+                                    <td scope="col" style="text-align: left">Diskon</td>
+                                    <td style="text-align: right; font-weight: bold"><?= $product[0]['discount']; ?>%
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td scope="col" style="text-align: left">Total Pembayaran</td>
+                                    <td style="text-align: right; font-weight: bold">Rp <?= $total; ?></td>
+                                </tr>
+                            </table>
                             <div class="form-group row text-justify my-5 mx-2">
                                 <label for="contact" class="row-md-4 row-form-label" style="font-weight: bold;">Mau
                                     dihubungi lewat mana?</label>
@@ -177,8 +179,8 @@
                                         <label for="invoice">Upload bukti pembayaran kamu disini</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="invoice" name="invoice"
-                                                    required>
+                                                <input type="file" class="custom-file-input" id="invoice"
+                                                    name="invoice">
                                                 <label class="custom-file-label" for="invoice"
                                                     aria-describedby="inputGroupFileAddon02">Choose file</label>
                                             </div>
@@ -186,16 +188,42 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row justify-content-center my-5">
-                    <div class="col">
-                        <button type="submit" class="btn"
-                            style="background-color: #DAA520; color:white; border-radius:20px">KIRIM
-                            FORM</button>
+                    <div class="form-group row justify-content-center my-5">
+                        <div class="col">
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter"
+                                style="background-color: #DAA520; color:white; border-radius:20px">KIRIM
+                                FORM</button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Konfirmasi Pesanan</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h3 style="font-style: bold;">Yakin data kamu<br>sudah benar?</h3>
+                                            <p>Kami tidak bertanggung jawab jika username/email yang kamu berikan salah.
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn"
+                                                style="background-color: #FEB724; border-radius:20px">YAKIN
+                                                BANGET!</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

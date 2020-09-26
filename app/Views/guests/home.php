@@ -82,17 +82,19 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="/img/poster.jpg" alt="First slide">
+                <img class="d-block w-100" src="/img/<?= $promotions[1]['file'] ?>"
+                    alt="<?= $promotions[1]['title'] ?>">
             </div>
 
             <div class="carousel-item">
-                <img class="d-block w-100" src="/img/hampers.jpg" alt="Second slide">
+                <img class="d-block w-100" src="/img/<?= $promotions[0]['file'] ?>"
+                    alt="<?= $promotions[1]['title'] ?>">
             </div>
 
             <div class="carousel-item">
-                <img class="d-block w-100" src="/img/poster.jpg" alt="Second slide">
+                <img class="d-block w-100" src="/img/<?= $promotions[1]['file'] ?>"
+                    alt="<?= $promotions[1]['title'] ?>">
             </div>
-
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

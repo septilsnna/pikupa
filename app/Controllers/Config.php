@@ -3,24 +3,22 @@
 namespace App\Controllers;
 
 session_start();
+date_default_timezone_set("Asia/Bangkok");
 
 use App\Models\UsersModel;
 use App\Models\OrdersModel;
-use App\Models\OrderProgressModel;
 use App\Models\ProductsModel;
 
 class Config extends BaseController
 {
     protected $usersModel;
     protected $ordersModel;
-    protected $orderProgressModel;
     protected $productsModel;
 
     public function __construct()
     {
         $this->usersModel = new UsersModel();
         $this->ordersModel = new OrdersModel();
-        $this->orderProgressModel = new OrderProgressModel();
         $this->productsModel = new ProductsModel();
     }
 
@@ -114,30 +112,10 @@ class Config extends BaseController
 
     public function ordering($category, $sub_category, $product_id)
     {
-        /*validasi file
-        if (!$this->validate([
-            'invoice' => [
-                'rules' => 'uploaded[invoice]|max_size[invoice,1024]|is_image[sampul]|mime_in[sampul,image/jpg,image/jpeg,image/png]',
-                'errors' => [
-                    'uploaded' => 'Upload bukti pembayaran terlebih dahulu ya kak~',
-                    'max_size' => 'Ukuran gambar terlalu besar kak!',
-                    'is_image' => 'Yang kakak pilih bukan gambar :(',
-                    'mime_in' => 'Yang kakak pilih bukan gambar :('
-                ]
-            ]
-        ])) {
-            $validation = \Config\Services::validation();
-            var_dump($validation);
-        }*/
         // input dari user
         $contact_method = $this->request->getVar('contact');
         $contact = htmlspecialchars($this->request->getVar('contactin'));
         $payment_method = $this->request->getVar('payment_method');
-        //$invoice = htmlspecialchars($this->request->getVar('invoice'));
-        //var_dump($contact_method);
-        //var_dump($contact);
-        //var_dump($payment_method);
-        //var_dump($invoice);
 
         $product = $this->productsModel->where(array('category' => $category, 'sub_category' => $sub_category))->findAll();
 
@@ -151,9 +129,13 @@ class Config extends BaseController
 
         $order = count($this->ordersModel->findAll());
 
+        $user = $this->usersModel->where('id', $_SESSION['user_id'])->findAll();
+
         $data = [
             'id' => 'PKPA00' . $order,
             'user_id' => $_SESSION['user_id'],
+            'nama_user' => $user[0]['name'],
+            'email_user' => $user[0]['email'],
             'product_id' => $product[0]['id'],
             'product_name' => $product[0]['sub_category_name'],
             'note' => $product_id,
