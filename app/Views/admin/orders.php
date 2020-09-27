@@ -124,6 +124,10 @@
                                                                     (<?= $d['payment_method']; ?>)
                                                                 </td>
                                                             </tr>
+                                                            <tr>
+                                                                <td>Proof of Payment</td>
+                                                                <td><?= $d['proof_of_payment']; ?></td>
+                                                            </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>

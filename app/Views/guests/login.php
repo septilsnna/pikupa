@@ -23,7 +23,7 @@
             <div class="col-md-7 my-2 px-5">
                 <form action="/Config/login" method="post">
                     <?= csrf_field(); ?>
-                    <div class="card px-2">
+                    <div class="card px-2 shadow p-3 mb-5 bg-white">
                         <div class="card-body">
                             <div class="form-group row px-3">
                                 <h3>Welcome back!</h3>
@@ -33,7 +33,7 @@
                                     <label style="font-weight: normal;" for="email">Email</label>
                                     <input type="email" class="form-control"
                                         style="border-radius: 10px; background-color: C4C4C4; opacity: 0.8" id="email"
-                                        name="email" placeholder="ex: ironman@marvel.com" required>
+                                        name="email" placeholder="ex: ironman@marvel.com" required autofocus>
                                 </div>
                                 <div class="col-md-12 py-2">
                                     <label style="font-weight: normal;" for="password">Password</label>

@@ -75,14 +75,14 @@
     <div class="container my-4 py-5">
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-7">
+                <div class="col-md-7">
                     <h2>Kamu Ada Ide Desain?<br>Kita Coba Buat Realisasikan!<br>Selamat Datang Kakak~</h2>
                     <h5><small class="text-secondary">Kami Menyediakan Jasa Desain Grafis Harga Kaki Lima<br>Kualitas
                             Bintang Lima! Kakak Bisa Memesan
                             Sesuai Dengan<br>Tema Yang Telah Kami Sediakan Maupun Sesuai Dengan Permintaan.</small>
                     </h5>
                 </div>
-                <div class="col-5">
+                <div class="col-md-5 mt-3">
                     <img src="/logo/logos.png" style="max-width: 100%;" alt="">
                 </div>
             </div>

@@ -7,5 +7,5 @@ use CodeIgniter\Model;
 class PromotionsModel extends Model
 {
     protected $table = 'promotions';
-    protected $allowedFields = ['file'];
+    protected $allowedFields = ['title', 'file', 'price', 'status'];
 }

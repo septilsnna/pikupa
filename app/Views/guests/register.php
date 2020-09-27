@@ -23,7 +23,7 @@
             <div class="col-md-7 my-2 px-5">
                 <form action="/Config/register" method="post">
                     <?= csrf_field(); ?>
-                    <div class="card px-2">
+                    <div class="card px-2 shadow p-3 mb-5 bg-white">
                         <div class="card-body">
                             <div class="form-group row px-3">
                                 <h5>Sign Up To PIKUPA</h5>

@@ -76,12 +76,37 @@ class ConfigAdmin extends BaseController
             'price' => $this->request->getVar('price'),
             'discount' => $this->request->getVar('discount')
         ];
+
         $this->productsModel
             ->where('id', $param)
             ->set($data)
             ->update();
 
         return redirect()->to('../Admin/manage_product');
+    }
+
+    public function inactivated($id)
+    {
+        $this->promotionsModel
+            ->where('id', $id)
+            ->set(['status' => 'inactive'])
+            ->update();
+
+        return redirect()->to('../Admin/promotions');
+    }
+
+    public function add_promotions()
+    {
+        $data = [
+            'title' => $this->request->getVar('title'),
+            'file' => '',
+            'price' => $this->request->getVar('price'),
+            'status' => 'active'
+        ];
+
+        $this->promotionsModel->insert($data);
+
+        return redirect()->to('../Admin/promotions');
     }
 
     //--------------------------------------------------------------------

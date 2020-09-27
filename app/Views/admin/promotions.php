@@ -64,7 +64,54 @@
                     <h2>Kelola Promosi di PIKUPA</h2>
                 </div>
                 <div class="row my-3">
-                    <h5 style="color:gray">Promosi Aktif</h5>
+                    <div class="col-md-10">
+                        <h5 style="color:gray">Promosi Aktif</h5>
+                    </div>
+                    <div class="col-md-2">
+                        <!-- Button trigger modal -->
+                        <a href="" class="btn text-center" data-toggle="modal" data-target="#ModalCenter"
+                            style="background-color: #B5F3AB;border-radius: 10px;">Tambahkan
+                            Promosi</a>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog"
+                            aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="ModalLongTitle">Tambahkan Promosi Baru</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form action="../ConfigAdmin/add_promotions" method="post">
+                                        <div class="modal-body">
+                                            <div class="form-group row">
+                                                <label for="title"
+                                                    class="col-md-4 col-form-label text-right">Judul</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" name="title" id="title"
+                                                        placeholder="ex: Odading Mang Oleh">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="price"
+                                                    class="col-md-4 col-form-label text-right">Harga</label>
+                                                <div class="col-md-6">
+                                                    <input type="number" class="form-control" name="price" id="price"
+                                                        id="price" placeholder="ex: 20000">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn"
+                                                style="background-color: #B5F3AB; border-radius: 10px;">Tambahkan</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row my-3">
                     <?php foreach ($active as $d) : ?>
@@ -72,7 +119,8 @@
                         <img src="/img/<?= $d['file'] ?>" style="width: 100%">
                         <hr class="my-4">
                         <h5><?= $d['title']; ?></h5>
-                        <a class="btn" href="#" role="button" style="background-color: #FF6767; color: #f7f7f7;">Masa
+                        <a class="btn" href="../ConfigAdmin/inactivated/<?= $d['id'] ?>" role="button"
+                            style="background-color: #FF6767; color: #f7f7f7;">Masa
                             Waktu Habis</a>
                     </div>
                     <?php endforeach; ?>
