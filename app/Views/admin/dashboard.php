@@ -69,7 +69,7 @@
                 <div class="row my-3">
                     <div class="col-md-3">
                         <div class="card bg-light mb-3 shadow"
-                            style="border-left-color: #FFCE67; border-width: 1px 1px 1px 5px;">
+                            style="border-left-color: #FFCE67; border-width: 0px 0px 0px 10px;">
                             <div class="card-header py-4" style="font-size: large;">
                                 <h2><?= $review; ?></h2> ON REVIEW
                             </div>
@@ -77,7 +77,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="card bg-light mb-3 shadow"
-                            style="border-left-color: #C4C4C4; border-width: 1px 1px 1px 5px;">
+                            style="border-left-color: #C4C4C4; border-width: 0px 0px 0px 10px;">
                             <div class="card-header py-4" style="font-size: large;">
                                 <h2><?= $process; ?></h2> PROCESS
                             </div>
@@ -85,7 +85,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="card bg-light mb-3 shadow"
-                            style="border-left-color: #B5F3AB; border-width: 1px 1px 1px 5px;">
+                            style="border-left-color: #B5F3AB; border-width: 0px 0px 0px 10px;">
                             <div class="card-header py-4" style="font-size: large;">
                                 <h2><?= $finish; ?></h2> FINISH
                             </div>
@@ -93,7 +93,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="card bg-light mb-3 shadow"
-                            style="border-left-color: #FF6767; border-width: 1px 1px 1px 5px;">
+                            style="border-left-color: #FF6767; border-width: 0px 0px 0px 10px;">
                             <div class="card-header py-4" style="font-size: large;">
                                 <h2><?= $reject; ?></h2> REJECT
                             </div>
@@ -106,7 +106,7 @@
                 <div class="row my-3">
                     <div class="col-md-6">
                         <div class="card bg-light mb-3 shadow"
-                            style="border-left-color:  #fed98b; border-width: 1px 1px 1px 5px;">
+                            style="border-left-color: #424242; border-width: 0px 0px 0px 10px;">
                             <div class="card-header py-4" style="font-size: large;">
                                 <h2>Rp<?= $pendapatan; ?></h2> MELALUI WEBSITE
                             </div>
@@ -114,7 +114,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card bg-light mb-3 shadow"
-                            style="border-left-color:  #fed98b; border-width: 1px 1px 1px 5px;">
+                            style="border-left-color: #424242; border-width: 0px 0px 0px 10px;">
                             <div class="card-header py-4" style="font-size: large;">
                                 <h2>Rp<?= $promosi; ?></h2> MELALUI IKLAN PROMOSI
                             </div>
@@ -127,7 +127,7 @@
                 <div class="row my-3">
                     <div class="col-md-6">
                         <div class="card bg-light mb-3 shadow"
-                            style="border-left-color:  #fed98b; border-width: 1px 1px 1px 5px;">
+                            style="border-left-color: #424242; border-width: 0px 0px 0px 10px;">
                             <div class="card-header py-4" style="font-size: large;">
                                 <h2><?= $user; ?></h2> AKUN PENGGUNA
                             </div>
@@ -135,15 +135,15 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card bg-light mb-3 shadow"
-                            style="border-left-color:  #fed98b; border-width: 1px 1px 1px 5px;">
+                            style="border-left-color: #424242; border-width: 0px 0px 0px 10px;">
                             <div class="card-header py-4" style="font-size: large;">
-                                <h2><?= $finish; ?></h2> TERJUAL
+                                <h2><?= $finish; ?></h2> PRODUK TERJUAL
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="card bg-light mb-3 shadow"
-                            style="border-left-color:  #fed98b; border-width: 1px 1px 1px 5px;">
+                            style="border-left-color: #424242; border-width: 0px 0px 0px 10px;">
                             <div class="card-header py-4" style="font-size: large;">
                                 <h2>Rp<?= $pendapatan + $promosi; ?></h2> PENDAPATAN
                             </div>
@@ -151,7 +151,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card bg-light mb-3 shadow"
-                            style="border-left-color:  #fed98b; border-width: 1px 1px 1px 5px;">
+                            style="border-left-color: #424242; border-width: 0px 0px 0px 10px;">
                             <div class="card-header py-4" style="font-size: large;">
                                 <h2><?= $p_promosi; ?></h2> PRODUK PROMOSI
                             </div>

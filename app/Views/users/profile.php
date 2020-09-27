@@ -114,7 +114,7 @@
             </div>
         </div>
         <div class="row py-3 pb-5">
-            <table class="table table-borderless">
+            <table class="table table-borderless  table-hover ">
                 <thead>
                     <tr style="font-size: 16px; color:gray">
                         <th class="text-center" scope="col">ID Pemesanan</th>

@@ -139,7 +139,7 @@
                                     <div class="col-md-12 mt-3">
                                         <label for="contactin">Cantumkan username/email kamu disini</label>
                                         <input type="text" class="form-control" id="contactin" name="contactin"
-                                            required>
+                                            placeholder="ex: @pikuupa" required>
                                     </div>
                                 </div>
                             </div>
