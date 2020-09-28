@@ -96,9 +96,13 @@ class ConfigAdmin extends BaseController
 
     public function add_promotions()
     {
+        $file = $this->request->getFile('promotion');     // ambil file bukti bayar
+        $nama = $file->getRandomName();                   // generate nama random
+        $file->move('promotions', $nama);                 // pindahkan ke folder promotions
+
         $data = [
             'title' => $this->request->getVar('title'),
-            'file' => '',
+            'file' => $nama,
             'price' => $this->request->getVar('price'),
             'status' => 'active'
         ];

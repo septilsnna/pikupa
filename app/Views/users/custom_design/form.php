@@ -195,26 +195,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row text-justify my-5 mx-2">
-                                <label for="payment_method" class="row-md-4 row-form-label"
-                                    style="font-weight: bold;">Untuk memverifikasi bahwa kamu adalah pelajar/mahasiswa,
-                                    lampirkan foto kartu pelajar/mahasiswa kamu yaa</label>
-                                <div class="row">
-                                    <div class="col-md-12 mt-3">
-                                        <label for="id_card">Tenang saja, data kamu tidak akan disalahgunakan</label>
-                                        <div class="custom-file">
-                                            <input type="file"
-                                                class="custom-file-input <?= ($validation->hasError('id_card')) ? 'is-invalid' : ''; ?>"
-                                                id="id_card" name="id_card" onchange="previewIdcard()">
-                                            <div class="invalid-feedback">
-                                                <?= $validation->getError('id_card'); ?>
-                                            </div>
-                                            <label class="custom-file-label label2" for="id_card"
-                                                aria-describedby="inputGroupFileAddon02">Choose file</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="form-group row justify-content-center my-5">
@@ -285,12 +265,6 @@
         const invoice = document.querySelector('#invoice');
         const invoiceLabel = document.querySelector('.label1');
         invoiceLabel.textContent = invoice.files[0].name;
-    }
-
-    function previewIdcard() {
-        const id_card = document.querySelector('#id_card');
-        const id_cardLabel = document.querySelector('.label2');
-        id_cardLabel.textContent = id_card.files[0].name;
     }
     </script>
 </body>

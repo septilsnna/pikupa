@@ -84,7 +84,8 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <form action="../ConfigAdmin/add_promotions" method="post">
+                                    <form action="../ConfigAdmin/add_promotions" method="post"
+                                        enctype="multipart/form-data">
                                         <div class="modal-body">
                                             <div class="form-group row">
                                                 <label for="title"
@@ -102,6 +103,18 @@
                                                         id="price" placeholder="ex: 20000">
                                                 </div>
                                             </div>
+                                            <div class="form-group row">
+                                                <label for="promotion" class="col-md-4 col-form-label text-right">File
+                                                    Banner Promosi</label>
+                                                <div class="col-md-6">
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="promotion"
+                                                            name="promotion" onchange="previewPromotion()">
+                                                        <label class="custom-file-label" for="promotion"
+                                                            aria-describedby="inputGroupFileAddon02">Choose file</label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" class="btn"
@@ -116,7 +129,7 @@
                 <div class="row my-3">
                     <?php foreach ($active as $d) : ?>
                     <div class="jumbotron">
-                        <img src="/img/<?= $d['file'] ?>" style="width: 100%">
+                        <img src="/promotions/<?= $d['file'] ?>" style="width: 100%">
                         <hr class="my-4">
                         <h5><?= $d['title']; ?></h5>
                         <a class="btn" href="../ConfigAdmin/inactivated/<?= $d['id'] ?>" role="button"
@@ -131,7 +144,7 @@
                 <div class="row my-3">
                     <?php foreach ($history as $d) : ?>
                     <div class="jumbotron">
-                        <img src="/img/<?= $d['file'] ?>" style="width: 100%">
+                        <img src="/promotions/<?= $d['file'] ?>" style="width: 100%">
                         <hr class="my-4">
                         <h5><?= $d['title']; ?></h5>
                         <h6>Status : <?= $d['status']; ?></h6>
@@ -160,6 +173,14 @@
                 $('#sidebar').toggleClass('active');
             });
         });
+        </script>
+
+        <script>
+        function previewPromotion() {
+            const promotion = document.querySelector('#promotion');
+            const promotionLabel = document.querySelector('.custom-file-label');
+            promotionLabel.textContent = promotion.files[0].name;
+        }
         </script>
 </body>
 
