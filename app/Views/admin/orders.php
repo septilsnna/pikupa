@@ -126,7 +126,8 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>Proof of Payment</td>
-                                                                <td><?= $d['proof_of_payment']; ?></td>
+                                                                <td><img src="/invoices/<?= $d['proof_of_payment']; ?>"
+                                                                        style="width: 100%;"></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>

@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-session_start();
 date_default_timezone_set("Asia/Bangkok");
 
 use App\Models\UsersModel;
@@ -24,6 +23,34 @@ class Config extends BaseController
 
     public function register()
     {
+        // validasi input
+        if (!$this->validate([
+            'name' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama harus diisi.'
+                ]
+            ],
+            'id' => [
+                'rules' => 'required|is_unique[users.id]',
+                'errors' => [
+                    'required' => 'Username harus diisi.',
+                    'is_unique' => 'Username sudah terdaftar'
+                ]
+            ],
+            'password' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'required' => 'Pssword harus diisi.',
+                    'min_length' => 'Password minimal terdiri dari 8 karakter'
+                ]
+            ],
+        ])) {
+            $validation = \Config\Services::validation();
+            $data['validation'] = $validation;
+            return redirect()->to('')->withInput()->with('validation', $validation);
+        }
+
         // dapatkan input user
         $name = htmlspecialchars($this->request->getVar('name'));
         $id = htmlspecialchars($this->request->getVar('id'));
@@ -112,10 +139,46 @@ class Config extends BaseController
 
     public function ordering($category, $sub_category, $product_id)
     {
-        // input dari user
-        $contact_method = $this->request->getVar('contact');
-        $contact = htmlspecialchars($this->request->getVar('contactin'));
-        $payment_method = $this->request->getVar('payment_method');
+        // validasi input
+        if (!$this->validate([
+            'contactin' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kontak harus diisi.'
+                ]
+            ],
+            'invoice' => [
+                'rules' => 'uploaded[invoice]|max_size[invoice,1024]|is_image[invoice]|mime_in[invoice,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Pilih gambar bukti pembayaran.',
+                    'max_size' => 'Ukuran gambar terlalu besar.',
+                    'is_image' => 'Upss, yang kamu pilih bukan gambar.',
+                    'mime_in' => 'Upss, yang kamu pilih bukan gambar.'
+                ]
+            ],
+            // 'id_card' => [
+            //     'rules' => 'uploaded[id_card]|max_size[id_card,1024]|is_image[id_card]|mime_in[id_card,image/jpg,image/jpeg,image/png]',
+            //     'errors' => [
+            //         'uploaded' => 'Pilih gambar bukti pembayaran.',
+            //         'max_size' => 'Ukuran gambar terlalu besar.',
+            //         'is_image' => 'Upss, yang kamu pilih bukan gambar.',
+            //         'mime_in' => 'Upss, yang kamu pilih bukan gambar.'
+            //     ]
+            // ],
+        ])) {
+            // $validation = \Config\Services::validation();
+            // $data['validation'] = $validation;
+            // return redirect()->to('../Home/order/' . $category . '/' . $sub_category . '/' . $product_id)->withInput()->with('validation', $validation);
+            return redirect()->to('../Home/order/' . $category . '/' . $sub_category . '/' . $product_id)->withInput();
+        }
+
+        $file = $this->request->getFile('invoice');     // ambil file bukti bayar
+        $judul = $file->getRandomName();                // generate nama random
+        $file->move('invoices', $judul);                 // pindahkan ke folder invoice
+
+        // $file2 = $this->request->getFile('id_card');     // ambil file idcard
+        // $idcard = $file2->getRandomName();                // generate nama random
+        // $file2->move('idcard', $idcard);                 // pindahkan ke folder idcard
 
         $product = $this->productsModel->where(array('category' => $category, 'sub_category' => $sub_category))->findAll();
 
@@ -139,9 +202,11 @@ class Config extends BaseController
             'product_id' => $product[0]['id'],
             'product_name' => $product[0]['sub_category_name'],
             'note' => $product_id,
-            'contact_method' => $contact_method,
-            'contact' => $contact,
-            'payment_method' => $payment_method,
+            'contact_method' => $this->request->getVar('contact'),
+            'contact' => $this->request->getVar('contactin'),
+            'payment_method' => $this->request->getVar('payment_method'),
+            'proof_of_payment' => $judul,
+            //'id_card' => $idcard,
             'status' => 'On Review',
             'total_payment' => $total,
         ];

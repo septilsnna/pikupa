@@ -139,8 +139,13 @@
                                     </div>
                                     <div class="col-md-12 mt-3">
                                         <label for="contactin">Cantumkan username/email kamu disini</label>
-                                        <input type="text" class="form-control" id="contactin" name="contactin"
-                                            placeholder="ex: @pikuupa" required>
+                                        <input type="text"
+                                            class="form-control <?= ($validation->hasError('contactin')) ? 'is-invalid' : ''; ?>"
+                                            id="contactin" name="contactin" placeholder="ex: @pikuupa"
+                                            value="<?= old('contactin'); ?>">
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('contactin'); ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -178,13 +183,15 @@
                                     </div>
                                     <div class="col-md-12 mt-3">
                                         <label for="invoice">Upload bukti pembayaran kamu disini</label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="invoice"
-                                                    name="invoice">
-                                                <label class="custom-file-label" for="invoice"
-                                                    aria-describedby="inputGroupFileAddon02">Choose file</label>
+                                        <div class="custom-file">
+                                            <input type="file"
+                                                class="custom-file-input <?= ($validation->hasError('invoice')) ? 'is-invalid' : ''; ?>"
+                                                id="invoice" name="invoice" onchange="previewInvoice()">
+                                            <div class="invalid-feedback">
+                                                <?= $validation->getError('invoice'); ?>
                                             </div>
+                                            <label class="custom-file-label" for="invoice"
+                                                aria-describedby="inputGroupFileAddon02">Choose file</label>
                                         </div>
                                     </div>
                                 </div>
@@ -253,6 +260,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
         integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
         crossorigin="anonymous"></script>
+
+    <script>
+    function previewInvoice() {
+        const invoice = document.querySelector('#invoice');
+        const invoiceLabel = document.querySelector('.custom-file-label');
+        invoiceLabel.textContent = invoice.files[0].name;
+    }
+    </script>
 </body>
 
 <footer>

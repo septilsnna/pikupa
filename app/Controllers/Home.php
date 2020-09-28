@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-session_start();
-
 use App\Models\ProductsModel;
 use App\Models\PromotionsModel;
 use App\Models\PortofoliosModel;
@@ -228,6 +226,7 @@ class Home extends BaseController
 					//var_dump($total);
 					$data['id'] = $prods;
 					$data['total'] = $total;
+					$data['validation'] = \Config\Services::validation();
 					$_SESSION['product_id'] = $product_id;
 					return view('users/' . $category . '/form', $data);
 				} else {											// user udah pilih kategori dan belum milih produk -> pilih produk
