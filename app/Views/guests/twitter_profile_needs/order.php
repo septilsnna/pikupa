@@ -89,7 +89,7 @@
         <div class="row py-5 align-items-center">
             <?php for ($i = 0; $i <= count($categories) - 1; $i++) : ?>
             <div class="col-md-4 pt-4">
-                <div class="card text-center">
+                <div class="card text-center shadow p-3 bg-white">
                     <div class="container" id="size" style="background-color: #424242; height: 250px;">
                     </div>
                     <div class="card-body py-3 px-3">
