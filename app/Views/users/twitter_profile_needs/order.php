@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
         integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
         crossorigin="anonymous" />
-    <title>PIKUPA</title>
+    <title>Order Twitter Profile Needs - PIKUPA</title>
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" style="color:#424242;">
         <a class="navbar-brand px-4 mx-5 justify-content-end" href="/Home/index"><img src="/logo/logo.png" height="30"
                 alt="Logo Pikupa"></a>
@@ -90,7 +90,7 @@
         <div class="row align-items-center">
             <?php for ($i = 0; $i <= count($categories) - 1; $i++) : ?>
             <div class="col-md-4 pt-4">
-                <div class="card text-center">
+                <div class="card text-center shadow p-3 bg-white">
                     <div class="container" id="size" style="background-color: #424242; height: 250px;">
                     </div>
                     <div class="card-body py-3 px-3">
