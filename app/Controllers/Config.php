@@ -20,6 +20,7 @@ class Config extends BaseController
         $this->ordersModel = new OrdersModel();
         $this->productsModel = new ProductsModel();
         $this->email = \Config\Services::email();
+        $this->session = \Config\Services::session();
     }
 
     public function register()
@@ -29,86 +30,64 @@ class Config extends BaseController
             'name' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Nama harus diisi.'
+                    'required' => 'Nama harus diisi'
                 ]
             ],
             'id' => [
                 'rules' => 'required|is_unique[users.id]',
                 'errors' => [
-                    'required' => 'Username harus diisi.',
+                    'required' => 'Username harus diisi',
                     'is_unique' => 'Username sudah terdaftar'
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|is_unique[users.email]|valid_email',
+                'errors' => [
+                    'required' => 'Email harus diisi',
+                    'is_unique' => 'Email sudah terdaftar',
+                    'valid_email' => 'Email tidak valid'
                 ]
             ],
             'password' => [
                 'rules' => 'required|min_length[8]',
                 'errors' => [
-                    'required' => 'Pssword harus diisi.',
+                    'required' => 'Password harus diisi',
                     'min_length' => 'Password minimal terdiri dari 8 karakter'
                 ]
             ],
+            'password2' => [
+                'rules' => 'required|matches[password]',
+                'errors' => [
+                    'required' => 'Password konfirmasi harus diisi',
+                    'matches' => 'Password konfirmasi tidak sesuai'
+                ]
+            ],
         ])) {
-            $validation = \Config\Services::validation();
-            $data['validation'] = $validation;
-            return redirect()->to('')->withInput()->with('validation', $validation);
-        }
 
-        // dapatkan input user
-        $name = htmlspecialchars($this->request->getVar('name'));
-        $id = htmlspecialchars($this->request->getVar('id'));
-        $email = htmlspecialchars($this->request->getVar('email'));
-        $password = $this->request->getVar('password');
-        $password2 = $this->request->getVar('password2');
-
-        // cek email
-        if ($this->usersModel->where('email', $email)->findAll() != null) {
-            echo "<script>
-            alert('Email sudah terdaftar!');
-            </script>";
-            return false;
-        }
-
-        // cek username
-        if ($this->usersModel->getUser($id) != null) {
-            echo "<script>
-            alert('username sudah terdaftar!');
-            </script>";
-            return false;
-        }
-
-        // password minimal 8 karakter
-        if (strlen($password) <= 8) {
-            echo "<script>
-                    alert('Password harus lebih dari 8 karakter!');
-                    </script>";
-            return false;
-        }
-
-        // cek password confirm
-        if ($password != $password2) {
-            echo "<script>
-            alert('Password konfirmasi tidak sesuai!');
-            </script>";
-            return false;
+            return redirect()->to('/register')->withInput();
         }
 
         // enkripsi password
-        $password = password_hash($password, PASSWORD_DEFAULT);
+        $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
 
         $newuser = [
-            'id' => $id,
-            'name' => $name,
-            'email' => $email,
+            'id' => htmlspecialchars($this->request->getVar('id')),
+            'name' => htmlspecialchars($this->request->getVar('name')),
+            'email' => htmlspecialchars($this->request->getVar('email')),
             'password' => $password
         ];
-        $this->usersModel->insert($newuser);
 
-        $this->email->setFrom('pikuupa@gmail.com', 'Pikupa.id');
-        $this->email->setTo($email);
-        $this->email->setSubject('Verifikasi Email');
-        $this->email->setMessage('<h1>Tes Email Pikupa</h1><p>ini tes email</p>');
-        $this->email->send();
+        //$this->usersModel->insert($newuser);
 
-        return redirect()->to('../Home/login');
+        // $this->email->setFrom('pikuupa@gmail.com', 'Pikupa.id');
+        // $this->email->setTo(htmlspecialchars($this->request->getVar('email')));
+        // $this->email->setSubject('Verifikasi Email');
+        // $this->email->setMessage('<h1>Tes Email Pikupa</h1><p>ini tes email</p>');
+        // $this->email->send();
+        $_SESSION['message'] = 'Kami baru saja mengirimkan email untuk memverifikasikan akun sebelum mulai order.';
+        $this->session->markAsTempdata('message', 20);
+
+        return redirect()->to('/register');
     }
 
     public function login()
@@ -126,7 +105,7 @@ class Config extends BaseController
                     return redirect()->to('/Admin/dashboard');
                 } else {
                     $_SESSION['user_id'] = $user[0]['id'];
-                    return redirect()->to('/Home/index');
+                    return redirect()->to('/home');
                 }
             } else {
                 echo "<script>

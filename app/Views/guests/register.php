@@ -28,39 +28,69 @@
                             <div class="form-group row px-3">
                                 <h5>Sign Up To PIKUPA</h5>
                             </div>
+                            <?php if (isset($_SESSION['message'])) : ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Yay! Cek Email Kamu Ya.</strong> <?= $_SESSION['message']; ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <?php endif; ?>
                             <div class="form-group row px-3">
                                 <div class="col-md-12 py-2">
                                     <label style="font-weight: normal;" for="name">Nama</label>
-                                    <input type="text" class="form-control"
+                                    <input type="text"
+                                        class="form-control <?= ($validation->hasError('name')) ? 'is-invalid' : ''; ?>"
                                         style="border-radius: 10px; background-color: C4C4C4; opacity: 0.8" id="name"
-                                        name="name" placeholder="ex: Iron Man" autofocus required>
+                                        name="name" placeholder="ex: Iron Man" value="<?= old('name'); ?>" autofocus>
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('name'); ?>
+                                    </div>
                                 </div>
                                 <div class="col-md-12 py-2">
                                     <label style="font-weight: normal;" for="id">Username</label>
-                                    <input type="text" class="form-control"
+                                    <input type="text"
+                                        class="form-control <?= ($validation->hasError('id')) ? 'is-invalid' : ''; ?>"
                                         style="border-radius: 10px; background-color: C4C4C4; opacity: 0.8" id="id"
-                                        name="id" placeholder="ex: akangIronMan" required>
+                                        name="id" placeholder="ex: akangIronMan" value="<?= old('id'); ?>">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('id'); ?>
+                                    </div>
                                 </div>
                                 <div class="col-md-12 py-2">
                                     <label style="font-weight: normal;" for="email">Email</label>
-                                    <input type="email" class="form-control"
+                                    <input type="text"
+                                        class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>"
                                         style="border-radius: 10px; background-color: C4C4C4; opacity: 0.8" id="email"
-                                        name="email" placeholder="ex: ironman@marvel.com" required>
+                                        name="email" placeholder="ex: ironman@marvel.com" value="<?= old('email'); ?>">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('email'); ?>
+                                    </div>
                                 </div>
                                 <div class="col-md-12 py-2">
                                     <label style="font-weight: normal;" for="password">Password</label>
-                                    <input type="password" class="form-control"
+                                    <input type="password"
+                                        class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>"
                                         style="border-radius: 10px; background-color: C4C4C4; opacity: 0.8"
-                                        id="password" name="password" placeholder="ex: ironmanaliastonystark" required>
+                                        id="password" name="password" placeholder="ex: ironmanaliastonystark"
+                                        value="<?= old('password'); ?>">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('password'); ?>
+                                    </div>
                                 </div>
                                 <div class="col-md-12 py-2">
                                     <label style="font-weight: normal;" for="password2">Konfirmasi Password</label>
-                                    <input type="password" class="form-control"
+                                    <input type="password"
+                                        class="form-control <?= ($validation->hasError('password2')) ? 'is-invalid' : ''; ?>"
                                         style="border-radius: 10px; background-color: C4C4C4; opacity: 0.8"
                                         id="password2" name="password2" placeholder="ex: ironmanaliastonystark"
-                                        required>
+                                        value="<?= old('password2'); ?>">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('password2'); ?>
+                                    </div>
                                 </div>
                             </div>
+
                             <div class="form-group row px-3 justify-content-center">
                                 <div class="col-md-5">
                                     <button type="submit" class="btn btn-block"
@@ -72,6 +102,7 @@
                         </div>
                     </div>
                 </form>
+
             </div>
             <!--<div class="col-md-6 px-5 mb-5 mt-3">
                 <div class="row justify-content-center">
