@@ -81,17 +81,17 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="/img/<?= $promotions[1]['file'] ?>"
+                <img class="d-block w-100" src="/promotions/<?= $promotions[1]['file'] ?>"
                     alt="<?= $promotions[1]['title'] ?>">
             </div>
 
             <div class="carousel-item">
-                <img class="d-block w-100" src="/img/<?= $promotions[0]['file'] ?>"
+                <img class="d-block w-100" src="/promotions/<?= $promotions[0]['file'] ?>"
                     alt="<?= $promotions[1]['title'] ?>">
             </div>
 
             <div class="carousel-item">
-                <img class="d-block w-100" src="/img/<?= $promotions[1]['file'] ?>"
+                <img class="d-block w-100" src="/promotions/<?= $promotions[1]['file'] ?>"
                     alt="<?= $promotions[1]['title'] ?>">
             </div>
         </div>

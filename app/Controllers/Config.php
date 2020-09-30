@@ -19,6 +19,7 @@ class Config extends BaseController
         $this->usersModel = new UsersModel();
         $this->ordersModel = new OrdersModel();
         $this->productsModel = new ProductsModel();
+        $this->email = \Config\Services::email();
     }
 
     public function register()
@@ -100,6 +101,12 @@ class Config extends BaseController
             'password' => $password
         ];
         $this->usersModel->insert($newuser);
+
+        $this->email->setFrom('pikuupa@gmail.com', 'Pikupa.id');
+        $this->email->setTo($email);
+        $this->email->setSubject('Testing email Pikupa');
+        $this->email->setMessage('<h1>Tes Email Pikupa</h1><p>ini tes email</p>');
+        $this->email->send();
 
         return redirect()->to('../Home/login');
     }
