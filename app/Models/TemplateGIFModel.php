@@ -7,4 +7,9 @@ use CodeIgniter\Model;
 class TemplateGIFModel extends Model
 {
     protected $table = 'template_gif';
+
+    public function getTemplate($id = null)
+    {
+        return $this->where('id', $id)->findAll();
+    }
 }

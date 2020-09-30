@@ -15,7 +15,7 @@
             <div class="col-md-7 px-5">
                 <div class="row mt-4 mb-3">
                     <p>Sudah punya akun?</p>
-                    <a href="/Home/login" class="mx-2" style="color: #feb724;">Login
+                    <a href="/login" class="mx-2" style="color: #feb724;">Login
                         Disini</a>
                     </p>
                 </div>

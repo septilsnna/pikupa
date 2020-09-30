@@ -15,7 +15,7 @@
         crossorigin="anonymous" />
     <title>Order Twitter Profile Needs - PIKUPA</title>
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" style="color:#424242;">
-        <a class="navbar-brand px-4 mx-5 justify-content-end" href="/Home/index"><img src="/logo/logo.png" height="30"
+        <a class="navbar-brand px-4 mx-5 justify-content-end" href="/Home"><img src="/logo/logo.png" height="30"
                 alt="Logo Pikupa"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,10 +24,10 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link px-4 mx-2" href="/Home/index">HOME</a>
+                    <a class="nav-link px-4 mx-2" href="/Home">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-4 mx-2" href="/Home/about">ABOUT</a>
+                    <a class="nav-link px-4 mx-2" href="/About">ABOUT</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle px-4 mx-2" href="#" id="navbarDropdownMenuLink"
@@ -36,12 +36,12 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                         style="border: none; padding:15px">
-                        <a class="dropdown-item" href="/Home/portfolio/twitter_profile_needs/11"
+                        <a class="dropdown-item" href="/Portofolios/index/twitter_profile_needs/11"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile
                             Needs</a>
-                        <a class="dropdown-item disabled" href="/Home/portfolio/instagram_feeds">Instagram
+                        <a class="dropdown-item disabled" href="/Portofolios/index/instagram_feeds">Instagram
                             Feeds</a>
-                        <a class="dropdown-item disabled" href="/Home/portfolio/custom_design">Custom
+                        <a class="dropdown-item disabled" href="/Portofolios/index/custom_design">Custom
                             Design</a>
                     </div>
                 </li>
@@ -52,10 +52,10 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                         style="border: none; padding:15px">
-                        <a class="dropdown-item" href="/Home/order/twitter_profile_needs"
+                        <a class="dropdown-item" href="/Order/index/twitter_profile_needs"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile Needs</a>
-                        <a class="dropdown-item disabled" href="/Home/order/instagram_feeds">Instagram Feeds</a>
-                        <a class="dropdown-item" href="/Home/order/custom_design"
+                        <a class="dropdown-item disabled" href="/Order/index/instagram_feeds">Instagram Feeds</a>
+                        <a class="dropdown-item" href="/Order/index/custom_design"
                             style="background-color:#f7f7f7; color:#424242">Custom Design</a>
                     </div>
                 </li>
@@ -63,8 +63,8 @@
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <div class="navbar-nav">
-                <a class="nav-link btn px-2" role="button" href="/Home/login">Login</a>
-                <a class="nav-link btn px-2" role="button" href="/Home/register">Sign Up</a>
+                <a class="nav-link btn px-2" role="button" href="/Login">Login</a>
+                <a class="nav-link btn px-2" role="button" href="/Register">Sign Up</a>
             </div>
         </div>
     </nav>
@@ -80,7 +80,7 @@
         </div>
         <div class="row">
             <div class="col pt-3 px-lg-5">
-                <a href="/Home/portfolio/twitter_profile_needs/11"><small class="text-secondary"
+                <a href="/Portofolios/index/twitter_profile_needs/11"><small class="text-secondary"
                         style="font-weight: normal; font-size: 16px; line-height: 29px; color: #424242; text-decoration-line: underline;">Lihat
                         Portofolio Kami Disini</small>
                 </a>
@@ -104,7 +104,7 @@
                         <?php else : ?>
                         <p><?= $categories[$i]['stock']; ?> Slot Tersedia</p>
                         <p style="font-size: 12px;">Start from IDR <?= $categories[$i]['estimated_price']; ?></p>
-                        <a href="/Home/order/twitter_profile_needs/<?= $categories[$i]['sub_category'] ?>" class="btn"
+                        <a href="/Order/index/twitter_profile_needs/<?= $categories[$i]['sub_category'] ?>" class="btn"
                             style="background-color: #DAA520; color:white; border-radius: 20px">ORDER HERE</a>
                         <?php endif; ?>
                     </div>

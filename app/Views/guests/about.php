@@ -15,7 +15,7 @@
         crossorigin="anonymous" />
     <title>Tentang PIKUPA</title>
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" style="color:#424242;">
-        <a class="navbar-brand px-4 mx-5 justify-content-end" href="/Home/index"><img src="/logo/logo.png" height="30"
+        <a class="navbar-brand px-4 mx-5 justify-content-end" href="/home"><img src="/logo/logo.png" height="30"
                 alt="Logo Pikupa"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,11 +24,10 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link px-4 mx-2" href="/Home/index">HOME</a>
+                    <a class="nav-link px-4 mx-2" href="/home">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active px-4 mx-2" href="/Home/about">ABOUT <span
-                            class="sr-only">(current)</span></a>
+                    <a class="nav-link active px-4 mx-2" href="/about">ABOUT <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle px-4 mx-2" href="#" id="navbarDropdownMenuLink"
@@ -37,12 +36,12 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                         style="border: none; padding:15px">
-                        <a class="dropdown-item" href="/Home/portfolio/twitter_profile_needs/11"
+                        <a class="dropdown-item" href="/portofolios/index/twitter_profile_needs/11"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile
                             Needs</a>
-                        <a class="dropdown-item disabled" href="/Home/portfolio/instagram_feeds">Instagram
+                        <a class="dropdown-item disabled" href="/portofolios/index/instagram_feeds">Instagram
                             Feeds</a>
-                        <a class="dropdown-item disabled" href="/Home/portfolio/custom_design">Custom
+                        <a class="dropdown-item disabled" href="/portofolios/index/custom_design">Custom
                             Design</a>
                     </div>
                 </li>
@@ -53,10 +52,10 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                         style="border: none; padding:15px">
-                        <a class="dropdown-item" href="/Home/order/twitter_profile_needs"
+                        <a class="dropdown-item" href="/order/index/twitter_profile_needs"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile Needs</a>
-                        <a class="dropdown-item disabled" href="/Home/order/instagram_feeds">Instagram Feeds</a>
-                        <a class="dropdown-item" href="/Home/order/custom_design"
+                        <a class="dropdown-item disabled" href="/order/index/instagram_feeds">Instagram Feeds</a>
+                        <a class="dropdown-item" href="/order/index/custom_design"
                             style="background-color:#f7f7f7; color:#424242">Custom Design</a>
                     </div>
                 </li>
@@ -64,8 +63,8 @@
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <div class="navbar-nav">
-                <a class="nav-link btn px-2" role="button" href="/Home/login">Login</a>
-                <a class="nav-link btn px-2" role="button" href="/Home/register">Sign Up</a>
+                <a class="nav-link btn px-2" role="button" href="/login">Login</a>
+                <a class="nav-link btn px-2" role="button" href="/register">Sign Up</a>
             </div>
         </div>
     </nav>
@@ -171,7 +170,7 @@
                         <?php if ($jtpn >= 0) : ?>
                         <?php if ($jtpn > 0) : ?>
                         <p>Slot tersedia: <?= $jtpn; ?></p>
-                        <a href="/Home/order/twitter_profile_needs" class="btn"
+                        <a href="/order/index/twitter_profile_needs" class="btn"
                             style="background-color: #DAA520; color:white; border-radius: 20px">ORDER HERE</a>
                         <?php else : ?>
                         <p>Slot tersedia: <?= $jtpn; ?></p>
@@ -206,7 +205,7 @@
                             STOCK</button>
                         <?php else : ?>
                         <p>Slot tersedia: <?= $jif; ?></p>
-                        <a href="/Home/order/instagram_feeds" class="btn"
+                        <a href="/order/index/instagram_feeds" class="btn"
                             style="background-color: #DAA520; color:white; border-radius: 20px">ORDER HERE</a>
                         <?php endif; ?>
                         <?php endif; ?>
@@ -231,7 +230,7 @@
                             STOCK</button>
                         <?php else : ?>
                         <p>Slot tersedia: <?= $jcd; ?></p>
-                        <a href="/Home/order/custom_design" class="btn"
+                        <a href="/order/index/custom_design" class="btn"
                             style="background-color: #DAA520; color:white; border-radius: 20px">ORDER HERE</a>
                         <?php endif; ?>
                         <?php endif; ?>

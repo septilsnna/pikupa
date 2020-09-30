@@ -68,7 +68,7 @@ class Config extends BaseController
         }
 
         // cek username
-        if ($this->usersModel->where('id', $id)->findAll() != null) {
+        if ($this->usersModel->getUser($id) != null) {
             echo "<script>
             alert('username sudah terdaftar!');
             </script>";
@@ -104,7 +104,7 @@ class Config extends BaseController
 
         $this->email->setFrom('pikuupa@gmail.com', 'Pikupa.id');
         $this->email->setTo($email);
-        $this->email->setSubject('Testing email Pikupa');
+        $this->email->setSubject('Verifikasi Email');
         $this->email->setMessage('<h1>Tes Email Pikupa</h1><p>ini tes email</p>');
         $this->email->send();
 
@@ -132,7 +132,7 @@ class Config extends BaseController
                 echo "<script>
                     alert('Password tidak sesuai!');
                 </script>";
-                return redirect()->to('../Home/login');
+                return redirect()->to('/login');
             }
         }
     }
@@ -187,7 +187,7 @@ class Config extends BaseController
         // $idcard = $file2->getRandomName();                // generate nama random
         // $file2->move('idcard', $idcard);                 // pindahkan ke folder idcard
 
-        $product = $this->productsModel->where(array('category' => $category, 'sub_category' => $sub_category))->findAll();
+        $product = $this->productsModel->getSubProduct($category, $sub_category);
 
         // update stok yang tersedia
         $this->productsModel
@@ -197,9 +197,9 @@ class Config extends BaseController
 
         $total = $product[0]['price'] - ($product[0]['price'] * $product[0]['discount'] / 100);
 
-        $order = count($this->ordersModel->findAll());
+        $order = count($this->ordersModel->getOrder());
 
-        $user = $this->usersModel->where('id', $_SESSION['user_id'])->findAll();
+        $user = $this->usersModel->getUser($_SESSION['user_id']);
 
         $data = [
             'id' => 'PKPA00' . $order,
@@ -228,7 +228,7 @@ class Config extends BaseController
         $ud  = $_POST['size11'] . $_POST['size21'] . $_POST['size31'];
         //var_dump($_SESSION['category']);
         //var_dump($ud);        // ukuran custom gif
-        return redirect()->to('../Home/order/twitter_profile_needs/custom_gif/' . $ud);
+        return redirect()->to('../order/index/twitter_profile_needs/custom_gif/' . $ud);
     }
 
     public function password_update()
@@ -259,7 +259,7 @@ class Config extends BaseController
         // update password user
         $this->usersModel->where('id', $_SESSION['user_id'])->set(['password' => $password])->update();
 
-        return redirect()->to('../Home/profile');
+        return redirect()->to('/profile');
     }
 
     public function email_update()
@@ -270,7 +270,7 @@ class Config extends BaseController
         // update email user
         $this->usersModel->where('id', $_SESSION['user_id'])->set(['email' => $email])->update();
 
-        return redirect()->to('../Home/profile');
+        return redirect()->to('/profile');
     }
 
     //--------------------------------------------------------------------
