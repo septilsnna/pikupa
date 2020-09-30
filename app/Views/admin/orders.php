@@ -125,6 +125,18 @@
                                                                     (<?= $d['payment_method']; ?>)
                                                                 </td>
                                                             </tr>
+                                                            <?php $ab = str_split($d['product_id']);
+                                                                if ($ab[0] == 'C') : ?>
+                                                            <tr>
+                                                                <td>Deadline</td>
+                                                                <td><?= $d['deadline']; ?></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Proof of Identity</td>
+                                                                <td><img src="/idcard/<?= $d['id_card']; ?>"
+                                                                        style="width: 100%;"></td>
+                                                            </tr>
+                                                            <?php endif; ?>
                                                             <tr>
                                                                 <td>Proof of Payment</td>
                                                                 <td><img src="/invoices/<?= $d['proof_of_payment']; ?>"

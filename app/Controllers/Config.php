@@ -142,13 +142,22 @@ class Config extends BaseController
     {
         session_unset();
         session_destroy();
-        return redirect()->to('../Home/index');
+        return redirect()->to('/home');
     }
 
-    public function ordering($category, $sub_category, $product_id)
+    public function ordering_cd($sub_category, $product_id)
     {
         // validasi input
         if (!$this->validate([
+            'id_card' => [
+                'rules' => 'uploaded[id_card]|max_size[id_card,1024]|is_image[id_card]|mime_in[id_card,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Pilih gambar bukti pembayaran.',
+                    'max_size' => 'Ukuran gambar terlalu besar.',
+                    'is_image' => 'Upss, yang kamu pilih bukan gambar.',
+                    'mime_in' => 'Upss, yang kamu pilih bukan gambar.'
+                ]
+            ],
             'contactin' => [
                 'rules' => 'required',
                 'errors' => [
@@ -164,31 +173,19 @@ class Config extends BaseController
                     'mime_in' => 'Upss, yang kamu pilih bukan gambar.'
                 ]
             ],
-            // 'id_card' => [
-            //     'rules' => 'uploaded[id_card]|max_size[id_card,1024]|is_image[id_card]|mime_in[id_card,image/jpg,image/jpeg,image/png]',
-            //     'errors' => [
-            //         'uploaded' => 'Pilih gambar bukti pembayaran.',
-            //         'max_size' => 'Ukuran gambar terlalu besar.',
-            //         'is_image' => 'Upss, yang kamu pilih bukan gambar.',
-            //         'mime_in' => 'Upss, yang kamu pilih bukan gambar.'
-            //     ]
-            // ],
         ])) {
-            // $validation = \Config\Services::validation();
-            // $data['validation'] = $validation;
-            // return redirect()->to('../Home/order/' . $category . '/' . $sub_category . '/' . $product_id)->withInput()->with('validation', $validation);
-            return redirect()->to('../Home/order/' . $category . '/' . $sub_category . '/' . $product_id)->withInput();
+            return redirect()->to('/order/index/custom_design/' . $sub_category . '/' . $product_id)->withInput();
         }
 
         $file = $this->request->getFile('invoice');     // ambil file bukti bayar
         $judul = $file->getRandomName();                // generate nama random
         $file->move('invoices', $judul);                 // pindahkan ke folder invoice
 
-        // $file2 = $this->request->getFile('id_card');     // ambil file idcard
-        // $idcard = $file2->getRandomName();                // generate nama random
-        // $file2->move('idcard', $idcard);                 // pindahkan ke folder idcard
+        $file2 = $this->request->getFile('id_card');     // ambil file idcard
+        $idcard = $file2->getRandomName();                // generate nama random
+        $file2->move('idcard', $idcard);                 // pindahkan ke folder idcard
 
-        $product = $this->productsModel->getSubProduct($category, $sub_category);
+        $product = $this->productsModel->getSubProduct('custom_design', $sub_category);
 
         // update stok yang tersedia
         $this->productsModel
@@ -214,14 +211,77 @@ class Config extends BaseController
             'contact' => $this->request->getVar('contactin'),
             'payment_method' => $this->request->getVar('payment_method'),
             'proof_of_payment' => $judul,
-            //'id_card' => $idcard,
+            'id_card' => $idcard,
+            'deadline' => $this->request->getVar('deadline'),
             'status' => 'On Review',
             'total_payment' => $total,
         ];
 
         $this->ordersModel->insert($data);
 
-        return redirect()->to('../Home/order_sucess');
+        return redirect()->to('/order/order_sucess');
+    }
+
+    public function ordering_tpn($sub_category, $product_id)
+    {
+        // validasi input
+        if (!$this->validate([
+            'contactin' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kontak harus diisi.'
+                ]
+            ],
+            'invoice' => [
+                'rules' => 'uploaded[invoice]|max_size[invoice,1024]|is_image[invoice]|mime_in[invoice,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Pilih gambar bukti pembayaran.',
+                    'max_size' => 'Ukuran gambar terlalu besar.',
+                    'is_image' => 'Upss, yang kamu pilih bukan gambar.',
+                    'mime_in' => 'Upss, yang kamu pilih bukan gambar.'
+                ]
+            ],
+        ])) {
+            return redirect()->to('/order/index/twitter_profile_needs/' . $sub_category . '/' . $product_id)->withInput();
+        }
+
+        $file = $this->request->getFile('invoice');     // ambil file bukti bayar
+        $judul = $file->getRandomName();                // generate nama random
+        $file->move('invoices', $judul);                 // pindahkan ke folder invoice
+
+        $product = $this->productsModel->getSubProduct('twitter_profile_needs', $sub_category);
+
+        // update stok yang tersedia
+        $this->productsModel
+            ->where('sub_category', $sub_category)
+            ->set(['stock' => $product[0]['stock'] - 1])
+            ->update();
+
+        $total = $product[0]['price'] - ($product[0]['price'] * $product[0]['discount'] / 100);
+
+        $order = count($this->ordersModel->getOrder());
+
+        $user = $this->usersModel->getUser($_SESSION['user_id']);
+
+        $data = [
+            'id' => 'PKPA00' . $order,
+            'user_id' => $_SESSION['user_id'],
+            'nama_user' => $user[0]['name'],
+            'email_user' => $user[0]['email'],
+            'product_id' => $product[0]['id'],
+            'product_name' => $product[0]['sub_category_name'],
+            'note' => $product_id,
+            'contact_method' => $this->request->getVar('contact'),
+            'contact' => $this->request->getVar('contactin'),
+            'payment_method' => $this->request->getVar('payment_method'),
+            'proof_of_payment' => $judul,
+            'status' => 'On Review',
+            'total_payment' => $total,
+        ];
+
+        $this->ordersModel->insert($data);
+
+        return redirect()->to('/order/order_sucess');
     }
 
     public function order_custom_gif()
@@ -229,7 +289,7 @@ class Config extends BaseController
         $ud  = $_POST['size11'] . $_POST['size21'] . $_POST['size31'];
         //var_dump($_SESSION['category']);
         //var_dump($ud);        // ukuran custom gif
-        return redirect()->to('../order/index/twitter_profile_needs/custom_gif/' . $ud);
+        return redirect()->to('/order/index/twitter_profile_needs/custom_gif/' . $ud);
     }
 
     public function password_update()

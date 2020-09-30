@@ -75,8 +75,7 @@
         <p style="font-size: 16px; color: #424242;">Tolong lengkapi formulir di bawah ini ya kak~</p>
         <div class="row justify-content-center">
             <div class="col-md-7">
-                <form
-                    action="/Config/ordering/<?= $_SESSION['category']; ?>/<?= $_SESSION['sub_category'] ?>/<?= $_SESSION['product_id'] ?>"
+                <form action="/Config/ordering_cd/<?= $_SESSION['sub_category'] ?>/<?= $_SESSION['product_id'] ?>"
                     method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
                     <div class="card text-center py-2 my-2">
@@ -105,6 +104,27 @@
                                     <td style="text-align: right; font-weight: bold">Rp <?= $total; ?></td>
                                 </tr>
                             </table>
+                            <div class="form-group row text-justify my-5 mx-2">
+                                <label for="id_card" class="row-md-4 row-form-label" style="font-weight: bold;">Tanda
+                                    bukti bahwa kamu pelajar (Kartu Pelajar/KTM)</label>
+                                <div class="custom-file">
+                                    <input type="file"
+                                        class="custom-file-input <?= ($validation->hasError('id_card')) ? 'is-invalid' : ''; ?>"
+                                        id="id_card" name="id_card" onchange="previewid_card()">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('id_card'); ?>
+                                    </div>
+                                    <label class="custom-file-label label2" for="id_card"
+                                        aria-describedby="inputGroupFileAddon02">Choose file</label>
+                                </div>
+                            </div>
+                            <div class="form-group row text-justify my-5 mx-2">
+                                <label for="deadline" class="row-md-4 row-form-label"
+                                    style="font-weight: bold;">Deadline
+                                    pengumpulan</label>
+                                <input class="form-control" type="date" name="deadline" id="deadline"
+                                    value="<?= old('deadline'); ?>">
+                            </div>
                             <div class="form-group row text-justify my-5 mx-2">
                                 <label for="contact" class="row-md-4 row-form-label" style="font-weight: bold;">Mau
                                     dihubungi lewat mana?</label>
@@ -265,6 +285,12 @@
         const invoice = document.querySelector('#invoice');
         const invoiceLabel = document.querySelector('.label1');
         invoiceLabel.textContent = invoice.files[0].name;
+    }
+
+    function previewid_card() {
+        const id_card = document.querySelector('#id_card');
+        const id_cardLabel = document.querySelector('.label2');
+        id_cardLabel.textContent = id_card.files[0].name;
     }
     </script>
 </body>
