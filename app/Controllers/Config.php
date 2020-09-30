@@ -69,21 +69,31 @@ class Config extends BaseController
 
         // enkripsi password
         $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
+        $token = substr(sha1(time()), 0, 100);
 
         $newuser = [
             'id' => htmlspecialchars($this->request->getVar('id')),
             'name' => htmlspecialchars($this->request->getVar('name')),
             'email' => htmlspecialchars($this->request->getVar('email')),
+            'token' => $token,
             'password' => $password
         ];
 
-        //$this->usersModel->insert($newuser);
+        $this->usersModel->insert($newuser);
 
-        // $this->email->setFrom('pikuupa@gmail.com', 'Pikupa.id');
-        // $this->email->setTo(htmlspecialchars($this->request->getVar('email')));
-        // $this->email->setSubject('Verifikasi Email');
-        // $this->email->setMessage('<h1>Tes Email Pikupa</h1><p>ini tes email</p>');
-        // $this->email->send();
+        $this->email->setFrom('pikuupa@gmail.com', 'Pikupa.id');
+        $this->email->setTo(htmlspecialchars($this->request->getVar('email')));
+        $this->email->setSubject('Verifikasi Email');
+        $this->email->setMessage('<h3 class="my-3">Verifikasi Email Kamu Sekarang!</h3>
+        <h4>
+          Selamat ya! Data registrasi kamu telah berhasil kami simpan.
+          <br />Verifikasi email kamu dengan klik
+          <a href="' . base_url() . '/verification/token/' . $token . '">Link Verifikasi</a><br />
+          agar akun kamu lebih aman.
+        </h4>
+        <h3>Piku tunggu pesanan kamu di Pikupa.id!</h3>');
+        $this->email->send();
+
         $_SESSION['message'] = 'Kami baru saja mengirimkan email untuk memverifikasikan akun sebelum mulai order.';
         $this->session->markAsTempdata('message', 20);
 
@@ -97,22 +107,34 @@ class Config extends BaseController
         $password = $this->request->getVar('password');
 
         $user = $this->usersModel->where('email', $email)->findAll();
-        $password_hash = $user[0]['password'];
 
         if ($user != null) {
+            $password_hash = $user[0]['password'];
             if (password_verify($password, $password_hash)) {
                 if ($email == 'akuadmin@iya.com') {
                     return redirect()->to('/Admin/dashboard');
                 } else {
-                    $_SESSION['user_id'] = $user[0]['id'];
-                    return redirect()->to('/home');
+                    if ($user[0]['verified'] == 1) {
+                        $_SESSION['user_id'] = $user[0]['id'];
+                        return redirect()->to('/home');
+                    } else {
+                        $_SESSION['verified'] = 'Email belum terverifikasi, silahkan verifikasi email kamu.';
+                        $this->session->markAsTempdata('verified', 10);
+
+                        return redirect()->to('/login')->withInput();
+                    }
                 }
             } else {
-                echo "<script>
-                    alert('Password tidak sesuai!');
-                </script>";
-                return redirect()->to('/login');
+                $_SESSION['wrong_password'] = 'Password tidak sesuai, cek kembali password kamu.';
+                $this->session->markAsTempdata('wrong_password', 10);
+
+                return redirect()->to('/login')->withInput();
             }
+        } else {
+            $_SESSION['not_found'] = 'Email belum terdaftar, cek kembali email kamu.';
+            $this->session->markAsTempdata('not_found', 10);
+
+            return redirect()->to('/login')->withInput();
         }
     }
 

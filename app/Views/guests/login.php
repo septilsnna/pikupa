@@ -28,12 +28,37 @@
                             <div class="form-group row px-3">
                                 <h3>Welcome back!</h3>
                             </div>
+                            <?php if (isset($_SESSION['verified'])) : ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong><?= $_SESSION['verified']; ?></strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <?php endif; ?>
+                            <?php if (isset($_SESSION['wrong_password'])) : ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong><?= $_SESSION['wrong_password']; ?></strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <?php endif; ?>
+                            <?php if (isset($_SESSION['not_found'])) : ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong><?= $_SESSION['not_found']; ?></strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <?php endif; ?>
                             <div class="form-group row px-3">
                                 <div class="col-md-12 py-2">
                                     <label style="font-weight: normal;" for="email">Email</label>
                                     <input type="email" class="form-control"
                                         style="border-radius: 10px; background-color: C4C4C4; opacity: 0.8" id="email"
-                                        name="email" placeholder="ex: ironman@marvel.com" required autofocus>
+                                        name="email" placeholder="ex: ironman@marvel.com" value="<?= old('email'); ?>"
+                                        required autofocus>
                                 </div>
                                 <div class="col-md-12 py-2">
                                     <label style="font-weight: normal;" for="password">Password</label>
