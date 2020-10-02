@@ -87,14 +87,6 @@ class Config extends BaseController
         $this->email->setFrom('pikuupa@gmail.com', 'Pikupa.id');
         $this->email->setTo($email);
         $this->email->setSubject('Verifikasi Alamat Email Kamu di Pikupa.id');
-        $this->email->setMessage('<h3 class="my-3">Verifikasi Email Kamu Sekarang!</h3>
-        <h4>
-          Selamat ya! Data registrasi kamu telah berhasil kami simpan.
-          <br />Verifikasi email kamu dengan klik
-          <a href="' . base_url() . '/verification/token/' . $token . '">Link Verifikasi</a><br />
-          agar akun kamu lebih aman.
-        </h4>
-        <h3>Piku tunggu pesanan kamu di Pikupa.id!</h3>');
         $this->email->setMessage('<div style="font-family: Montserrat; text-align: center; padding-top: 50px; padding-bottom: 50px; font-size: 18px; color: #424242;">
         <h3>Verifikasi Email Kamu Sekarang!</h3>
         <p>Hai Kak ' . $nama . ',</p>
@@ -387,6 +379,97 @@ class Config extends BaseController
         $this->session->markAsTempdata('update', 20);
 
         return redirect()->to('/profile/index');
+    }
+
+    public function forget_pass()
+    {
+        $token = substr(sha1(time()), 0, 100);
+        $email = $this->request->getVar('email');
+
+        // update token, verivied, password
+        $this->usersModel
+            ->where('email', $email)
+            ->set(['token' => $token, 'verified' => 0, 'password' => ''])
+            ->update();
+
+        $user = $this->usersModel->where('email', $email)->findAll();
+
+        $this->email->setFrom('pikuupa@gmail.com', 'Pikupa.id');
+        $this->email->setTo($email);
+        $this->email->setSubject('Permintaan Pengubahan Kata Sandi');
+        $this->email->setMessage('<div style="font-family: Montserrat; text-align: center; padding-top: 50px; padding-bottom: 50px; font-size: 18px; color: #424242;">
+        <h3>Ubah Kata Sandi Kamu Sekarang!</h3>
+        <p>Hai Kak ' . $user[0]['name'] . ',</p>
+        <p>
+          Kakak telah mengajukan pengubahan password melalui alamat email ' . $email . ' sebagai alamat email kakak
+          di Pikupa.id
+        </p>
+        <p>
+          Silahkan klik link berikut ini untuk melakukan perubahan password akun Kakak
+          agar bisa segera masuk ke website kami.
+        </p>
+          <a style="
+              background-color: #ffce67;
+              color: #424242;
+              border-radius: 15px;
+              border: none;
+              padding: 15px 32px;
+              text-decoration: none;
+              display: inline-block;
+              margin: 4px 2px;
+              cursor: pointer;
+            "
+            href="' . base_url() . '/verification/forget_pass/' . $token . '">
+            Perbarui Password Saya
+          </a>
+        </p>
+        <h4>Piku tunggu pesanan kakak di Pikupa.id!</h4>
+      </div>');
+        $this->email->send();
+
+        $_SESSION['forget'] = 'Link verifikasi update password berhasil dikirimkan ke ' .
+            $email . ', segera lakukan verifikasi ya Kak :)';
+        $this->session->markAsTempdata('forget', 20);
+
+        return redirect()->to('/login');
+    }
+
+    public function update_pass($token)
+    {
+        // validasi input
+        if (!$this->validate([
+            'password' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'required' => 'Password harus diisi',
+                    'min_length' => 'Password minimal terdiri dari 8 karakter'
+                ]
+            ],
+            'password2' => [
+                'rules' => 'required|matches[password]',
+                'errors' => [
+                    'required' => 'Password konfirmasi harus diisi',
+                    'matches' => 'Password konfirmasi tidak sesuai'
+                ]
+            ],
+        ])) {
+
+            return redirect()->to('/forget/index/' . $token)->withInput();
+        }
+
+        // dapatkan input user
+        $password = $this->request->getVar('password');
+
+        // enkripsi password
+        $password = password_hash($password, PASSWORD_DEFAULT);
+
+        // update password user
+        $this->usersModel->where('token', $token)->set(['password' => $password, 'verified' => 1])->update();
+
+        $_SESSION['update'] = 'Password berhasil diperbarui!';
+        $this->session->markAsTempdata('update', 10);
+
+        return redirect()->to('/login');
     }
 
     //--------------------------------------------------------------------

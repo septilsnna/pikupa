@@ -22,7 +22,6 @@
             </div>
             <div class="col-md-7 my-2 px-5">
                 <form action="/Config/login" method="post">
-                    <?= csrf_field(); ?>
                     <div class="card px-2 shadow p-3 mb-5 bg-white">
                         <div class="card-body">
                             <div class="form-group row px-3">
@@ -52,6 +51,22 @@
                                 </button>
                             </div>
                             <?php endif; ?>
+                            <?php if (isset($_SESSION['forget'])) : ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Yay! </strong><?= $_SESSION['forget']; ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <?php endif; ?>
+                            <?php if (isset($_SESSION['update'])) : ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Yay! </strong><?= $_SESSION['update']; ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <?php endif; ?>
                             <div class="form-group row px-3">
                                 <div class="col-md-12 py-2">
                                     <label style="font-weight: normal;" for="email">Email</label>
@@ -60,14 +75,17 @@
                                         name="email" placeholder="ex: ironman@marvel.com" value="<?= old('email'); ?>"
                                         required autofocus>
                                 </div>
-                                <div class="col-md-12 py-2">
+                                <div class="col-md-12 pt-2">
                                     <label style="font-weight: normal;" for="password">Password</label>
                                     <input type="password" class="form-control"
                                         style="border-radius: 10px; background-color: C4C4C4; opacity: 0.8"
                                         id="password" name="password" placeholder="ex: ironmanaliastonystark" required>
                                 </div>
                             </div>
-                            <div class="form-group row px-3 justify-content-center">
+                            <!-- Button trigger modal -->
+                            <a href="" class="px-3 text-center" data-toggle="modal" data-target="#ModalCenter"
+                                style="color: red; border-radius: 10px;">Lupa Password?</a>
+                            <div class="form-group row px-3 pt-4 justify-content-center">
                                 <div class="col-md-5">
                                     <button type="submit" class="btn btn-block"
                                         style="font-weight: bold; background-color: #FEB724; border-radius: 20px">Login</button>
@@ -76,6 +94,41 @@
                         </div>
                     </div>
                 </form>
+                <!-- Modal -->
+                <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLongTitle">Lupa Password?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form action="/Config/forget_pass" method="post">
+                                <div class="modal-body">
+                                    <p class="text-center"><strong>Tenang saja!</strong> Kami akan
+                                        mengirimkan link verifikasi
+                                        melalui email kamu, agar kamu
+                                        dapat mengubah
+                                        password.</p>
+                                    <div class="form-group row mx-1">
+                                        <label for="email" class="col-md-2 col-form-label">Email</label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="email" id="email"
+                                                placeholder="ex: ironman@marvel.com" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn"
+                                        style="background-color: #B5F3AB; border-radius: 10px;">Kirim Link
+                                        Email</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!--<div class="col-md-6 px-5 mb-5 mt-3">
                 <div class="row justify-content-center">
