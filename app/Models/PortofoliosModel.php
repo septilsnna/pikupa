@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class PortofoliosModel extends Model
 {
     protected $table = 'portofolios';
-    protected $allowedFields = ['category', 'file'];
+    protected $allowedFields = ['category', 'file', 'note'];
     //protected $useTimestamps = true;
 
     public function getPortofolio($category, $note)

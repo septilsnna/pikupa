@@ -41,6 +41,9 @@
                 <li>
                     <a href="/Admin/manage_product">Products</a>
                 </li>
+                <li>
+                    <a href="/Admin/manage_portofolios">Portofolios</a>
+                </li>
                 <li class="active">
                     <a href="/Admin/promotions">Promotions</a>
                 </li>
@@ -61,13 +64,10 @@
             </button>
             <div class="container">
                 <div class="row my-3">
-                    <h2>Kelola Promosi di PIKUPA</h2>
-                </div>
-                <div class="row my-3">
-                    <div class="col-md-10">
-                        <h5 style="color:gray">Promosi Aktif</h5>
+                    <div class="col-md-">
+                        <h2>Kelola Promosi di PIKUPA</h2>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md">
                         <!-- Button trigger modal -->
                         <a href="" class="btn text-center" data-toggle="modal" data-target="#ModalCenter"
                             style="background-color: #B5F3AB;border-radius: 10px;">Tambahkan
@@ -124,6 +124,11 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-9">
+                        <h5 style="color:gray">Promosi Aktif</h5>
                     </div>
                 </div>
                 <div class="row my-3">

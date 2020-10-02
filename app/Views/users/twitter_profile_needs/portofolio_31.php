@@ -105,7 +105,7 @@
         <div class="row justify-content-center">
             <?php for ($i = 0; $i <= count($portofolios) - 1; $i++) : ?>
             <div class="col-md-8 py-4">
-                <img src="/31/<?= $portofolios[$i]['file']; ?>.gif" class="card-img-top">
+                <img src="/31/<?= $portofolios[$i]['file']; ?>" class="card-img-top">
             </div>
             <?php endfor; ?>
         </div>

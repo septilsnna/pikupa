@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\OrdersModel;
 use App\Models\ProductsModel;
+use App\Models\PortofoliosModel;
 use App\Models\PromotionsModel;
 use App\Models\UsersModel;
 
@@ -12,6 +13,7 @@ class Admin extends BaseController
     protected $orderProgressModel;
     protected $ordersModel;
     protected $productsModel;
+    protected $portofoliosModel;
     protected $promotionsModel;
     protected $usersModel;
 
@@ -19,6 +21,7 @@ class Admin extends BaseController
     {
         $this->ordersModel = new OrdersModel();
         $this->productsModel = new ProductsModel();
+        $this->portofoliosModel = new PortofoliosModel();
         $this->promotionsModel = new PromotionsModel();
         $this->usersModel = new UsersModel();
     }
@@ -74,9 +77,13 @@ class Admin extends BaseController
         return view('admin/products', $data);
     }
 
-    public function manage_portfolios()
+    public function manage_portofolios()
     {
-        // manage portfolio
+        $data = [];
+        $data['p_tpn'] = $this->portofoliosModel->where('category', 'twitter_profile_needs')->findAll();
+        $data['p_if'] = $this->portofoliosModel->where('category', 'instagram_feeds')->findAll();
+        $data['p_cd'] = $this->portofoliosModel->where('category', 'custom_design')->findAll();
+        return view('admin/portofolios', $data);
     }
 
     public function promotions()
