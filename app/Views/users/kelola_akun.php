@@ -97,18 +97,24 @@
                                         <div class="col-md-9 py-2">
                                             <label style="font-weight: normal;" for="password">Masukkan Kata Sandi
                                                 Baru</label>
-                                            <input type="password" class="form-control"
+                                            <input type="password"
+                                                class="form-control  <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>"
                                                 style="border-radius: 10px; background-color: rgba(196, 196, 196, 0.3)"
-                                                id="password" name="password" placeholder="kata sandi baru disini"
-                                                required>
+                                                id="password" name="password" placeholder="kata sandi baru disini">
+                                            <div class="invalid-feedback">
+                                                <?= $validation->getError('password'); ?>
+                                            </div>
                                         </div>
                                         <div class="col-md-9 py-2">
                                             <label style="font-weight: normal;" for="password2">Konfirmasi Kata
                                                 Sandi</label>
-                                            <input type="password" class="form-control"
+                                            <input type="password"
+                                                class="form-control  <?= ($validation->hasError('password2')) ? 'is-invalid' : ''; ?>"
                                                 style="border-radius: 10px; background-color: rgba(196, 196, 196, 0.3)"
-                                                id="password2" name="password2"
-                                                placeholder="konfirmasikan kata sandi barumu" required>
+                                                id="password2" name="password2" placeholder="kata sandi baru disini">
+                                            <div class="invalid-feedback">
+                                                <?= $validation->getError('password2'); ?>
+                                            </div>
                                         </div>
                                         <div class="col-md-5 py-2">
                                             <button type="submit" class="btn btn-block"
@@ -154,9 +160,14 @@
                                         <div class="col-md-9 py-2">
                                             <label style="font-weight: normal;" for="email">Masukkan Email
                                                 Baru</label>
-                                            <input type="email" class="form-control"
+                                            <input type="email"
+                                                class="form-control  <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>"
                                                 style="border-radius: 10px; background-color: rgba(196, 196, 196, 0.3)"
-                                                id="email" name="email" placeholder="email baru disini" required>
+                                                id="email" name="email" placeholder="email baru disini"
+                                                value="<?= old('email'); ?>">
+                                            <div class="invalid-feedback">
+                                                <?= $validation->getError('email'); ?>
+                                            </div>
                                         </div>
                                         <div class="col-md-5 py-2">
                                             <button type="submit" class="btn btn-block"

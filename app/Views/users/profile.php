@@ -102,6 +102,18 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-md-12">
+                <?php if (isset($_SESSION['update'])) : ?>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong><?= $_SESSION['update']; ?></strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <?php endif; ?>
+            </div>
+        </div>
+        <div class="row">
             <div class="col mt-3">
                 <h3 style="font-weight: bold; font-size: 28px; color: #FEB724;">Order List</h3>
             </div>

@@ -53,6 +53,7 @@ class profile extends BaseController
             'nama' => $nama[0],
         ];
 
+        $data['validation'] = \Config\Services::validation();
         return view('users/kelola_akun', $data);
     }
 

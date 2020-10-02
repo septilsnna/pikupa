@@ -323,25 +323,29 @@ class Config extends BaseController
 
     public function password_update()
     {
+        // validasi input
+        if (!$this->validate([
+            'password' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'required' => 'Password harus diisi',
+                    'min_length' => 'Password minimal terdiri dari 8 karakter'
+                ]
+            ],
+            'password2' => [
+                'rules' => 'required|matches[password]',
+                'errors' => [
+                    'required' => 'Password konfirmasi harus diisi',
+                    'matches' => 'Password konfirmasi tidak sesuai'
+                ]
+            ],
+        ])) {
+
+            return redirect()->to('/profile/edit_profile')->withInput();
+        }
+
         // dapatkan input user
         $password = $this->request->getVar('password');
-        $password2 = $this->request->getVar('password2');
-
-        // password minimal 8 karakter
-        if (strlen($password) <= 8) {
-            echo "<script>
-                    alert('Password harus lebih dari 8 karakter!');
-                    </script>";
-            return false;
-        }
-
-        // cek password confirm
-        if ($password != $password2) {
-            echo "<script>
-            alert('Password konfirmasi tidak sesuai!');
-            </script>";
-            return false;
-        }
 
         // enkripsi password
         $password = password_hash($password, PASSWORD_DEFAULT);
@@ -349,16 +353,38 @@ class Config extends BaseController
         // update password user
         $this->usersModel->where('id', $_SESSION['user_id'])->set(['password' => $password])->update();
 
+        $_SESSION['update'] = 'Password berhasil diperbarui!';
+        $this->session->markAsTempdata('update', 10);
+
         return redirect()->to('/profile/index');
     }
 
     public function email_update()
     {
+        // validasi input
+        if (!$this->validate([
+            'email' => [
+                'rules' => 'required|is_unique[users.email]|valid_email',
+                'errors' => [
+                    'required' => 'Email harus diisi',
+                    'is_unique' => 'Email sudah terdaftar',
+                    'valid_email' => 'Email tidak valid'
+                ]
+            ],
+        ])) {
+
+            return redirect()->to('/profile/edit_profile')->withInput();
+        }
+
         // dapatkan input user
         $email = $this->request->getVar('email');
 
         // update email user
         $this->usersModel->where('id', $_SESSION['user_id'])->set(['email' => $email])->update();
+
+        $_SESSION['update'] = 'Email berhasil diperbarui! Segera verifikasikan email kamu melalui link yang telah Piku kirim ke ' .
+            $email . ' ya :)';
+        $this->session->markAsTempdata('update', 20);
 
         return redirect()->to('/profile/index');
     }
