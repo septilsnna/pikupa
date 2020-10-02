@@ -371,8 +371,43 @@ class Config extends BaseController
         // dapatkan input user
         $email = $this->request->getVar('email');
 
-        // update email user
-        $this->usersModel->where('id', $_SESSION['user_id'])->set(['email' => $email])->update();
+        // update email user dan status verified nya
+        $this->usersModel->where('id', $_SESSION['user_id'])->set(['email' => $email, 'verified' => 0])->update();
+
+        $user = $this->usersModel->where('email', $email)->findAll();
+
+        $this->email->setFrom('pikuupa@gmail.com', 'Pikupa.id');
+        $this->email->setTo($email);
+        $this->email->setSubject('Permintaan Pengubahan Alamat Email');
+        $this->email->setMessage('<div style="font-family: Montserrat; text-align: center; padding-top: 50px; padding-bottom: 50px; font-size: 18px; color: #424242;">
+        <h3>Verifikasi Email Kamu Sekarang!</h3>
+        <p>Hai Kak ' . $user[0]['name'] . ',</p>
+        <p>
+          Kakak telah mendaftarkan email ' . $email . ' sebagai alamat email kakak
+          di Pikupa.id
+        </p>
+        <p>
+          Silahkan klik link berikut ini untuk melakukan verifikasi akun Kakak
+          agar bisa segera masuk ke website kami.
+        </p>
+          <a style="
+              background-color: #ffce67;
+              color: #424242;
+              border-radius: 15px;
+              border: none;
+              padding: 15px 32px;
+              text-decoration: none;
+              display: inline-block;
+              margin: 4px 2px;
+              cursor: pointer;
+            "
+            href="' . base_url() . '/verification/token/' . $user[0]['token'] . '">
+            Aktivasi Akun Saya
+          </a>
+        </p>
+        <h4>Piku tunggu pesanan kakak di Pikupa.id!</h4>
+      </div>');
+        $this->email->send();
 
         $_SESSION['update'] = 'Email berhasil diperbarui! Segera verifikasikan email kamu melalui link yang telah Piku kirim ke ' .
             $email . ' ya :)';
