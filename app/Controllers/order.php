@@ -78,7 +78,7 @@ class order extends BaseController
                 'template' => $template,
             ];
             if ($sub_category != null) {                                        // guest udah pilih kategori -> login
-                return redirect()->to('../Home/login');
+                return redirect()->to('../login');
             } else {                                                // guest belum pilih kategori -> pilih kategori
                 return view('guests/' . $category . '/order', $data);
             }

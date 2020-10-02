@@ -90,7 +90,7 @@
             <?php for ($i = 0; $i <= count($template) - 1; $i++) : ?>
             <div class="col-md-4 pt-4">
                 <div class="card text-center">
-                    <img src="/tem/<?= $template[$i]['file']; ?>.gif" class="card-img-top" alt="...">
+                    <img src="/temp/<?= $template[$i]['file']; ?>" class="card-img-top">
                     <div class="card-body py-3 px-3">
                         <h5 class="card-title"><?= $template[$i]['title']; ?></h5>
                         <p class="card-text">IDR <?= $template[$i]['estimated_price']; ?></p>

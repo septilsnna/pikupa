@@ -100,30 +100,35 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td scope="col" style="text-align: left">Total Pembayaran</td>
+                                    <td scope="col" style="text-align: left">Total Pembayaran Awal</td>
                                     <td style="text-align: right; font-weight: bold">Rp <?= $total; ?></td>
                                 </tr>
                             </table>
                             <div class="form-group row text-justify my-5 mx-2">
-                                <label for="id_card" class="row-md-4 row-form-label" style="font-weight: bold;">Tanda
-                                    bukti bahwa kamu pelajar (Kartu Pelajar/KTM)</label>
-                                <div class="custom-file">
-                                    <input type="file"
-                                        class="custom-file-input <?= ($validation->hasError('id_card')) ? 'is-invalid' : ''; ?>"
-                                        id="id_card" name="id_card" onchange="previewid_card()">
-                                    <div class="invalid-feedback">
-                                        <?= $validation->getError('id_card'); ?>
+                                <label for="payment_method" class="row-md-4 row-form-label"
+                                    style="font-weight: bold;">Bayar Yuk!</label>
+                                <p>Scan QR code di bawah menggunakan OVO / GOPAY / DANA / ShopeePay / M-banking BCA /
+                                    Jenius atau
+                                    mobile banking lainnya. Masukkan nominal
+                                    sesuai yang di atas ya :)</p>
+                                <div class="row text-center">
+                                    <div class="col">
+                                        <img style="width: 60%;" src="/img/qris.jpeg" alt="">
                                     </div>
-                                    <label class="custom-file-label label2" for="id_card"
-                                        aria-describedby="inputGroupFileAddon02">Choose file</label>
+                                    <div class="col-md-12 mt-3">
+                                        <label for="invoice">Upload bukti pembayaran kamu disini</label>
+                                        <div class="custom-file">
+                                            <input type="file"
+                                                class="custom-file-input <?= ($validation->hasError('invoice')) ? 'is-invalid' : ''; ?>"
+                                                id="invoice" name="invoice" onchange="previewInvoice()">
+                                            <div class="invalid-feedback">
+                                                <?= $validation->getError('invoice'); ?>
+                                            </div>
+                                            <label class="custom-file-label" for="invoice"
+                                                aria-describedby="inputGroupFileAddon02">Choose file</label>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row text-justify my-5 mx-2">
-                                <label for="deadline" class="row-md-4 row-form-label"
-                                    style="font-weight: bold;">Deadline
-                                    pengumpulan</label>
-                                <input class="form-control" type="date" name="deadline" id="deadline"
-                                    value="<?= old('deadline'); ?>">
                             </div>
                             <div class="form-group row text-justify my-5 mx-2">
                                 <label for="contact" class="row-md-4 row-form-label" style="font-weight: bold;">Mau
@@ -169,52 +174,27 @@
                                 </div>
                             </div>
                             <div class="form-group row text-justify my-5 mx-2">
-                                <label for="payment_method" class="row-md-4 row-form-label"
-                                    style="font-weight: bold;">Pembayaran ke nomor
-                                    087784578085, mau via apa?</label>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="payment_method"
-                                                id="payment_method1" value="OVO" checked>
-                                            <label class="form-check-label" for="payment_method1">
-                                                OVO
-                                            </label>
-                                        </div>
+                                <label for="id_card" class="row-md-4 row-form-label" style="font-weight: bold;">Tanda
+                                    bukti bahwa kamu pelajar (Kartu Pelajar/KTM)</label>
+                                <div class="custom-file">
+                                    <input type="file"
+                                        class="custom-file-input <?= ($validation->hasError('id_card')) ? 'is-invalid' : ''; ?>"
+                                        id="id_card" name="id_card" onchange="previewid_card()">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('id_card'); ?>
                                     </div>
-                                    <div class="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="payment_method"
-                                                id="payment_method1" value="DANA">
-                                            <label class="form-check-label" for="payment_method1">
-                                                DANA
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="payment_method"
-                                                id="payment_method1" value="GOPAY">
-                                            <label class="form-check-label" for="payment_method1">
-                                                GOPAY
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 mt-3">
-                                        <label for="invoice">Upload bukti pembayaran kamu disini</label>
-                                        <div class="custom-file">
-                                            <input type="file"
-                                                class="custom-file-input <?= ($validation->hasError('invoice')) ? 'is-invalid' : ''; ?>"
-                                                id="invoice" name="invoice" onchange="previewInvoice()">
-                                            <div class="invalid-feedback">
-                                                <?= $validation->getError('invoice'); ?>
-                                            </div>
-                                            <label class="custom-file-label label1" for="invoice"
-                                                aria-describedby="inputGroupFileAddon02">Choose file</label>
-                                        </div>
-                                    </div>
+                                    <label class="custom-file-label label2" for="id_card"
+                                        aria-describedby="inputGroupFileAddon02">Choose file</label>
                                 </div>
                             </div>
+                            <div class="form-group row text-justify my-5 mx-2">
+                                <label for="deadline" class="row-md-4 row-form-label"
+                                    style="font-weight: bold;">Deadline
+                                    pengumpulan</label>
+                                <input class="form-control" type="date" name="deadline" id="deadline"
+                                    value="<?= old('deadline'); ?>">
+                            </div>
+
                         </div>
                     </div>
                     <div class="form-group row justify-content-center my-5">

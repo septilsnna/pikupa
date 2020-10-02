@@ -11,7 +11,7 @@ class login extends BaseController
         ];
 
         if (isset($_SESSION['user_id'])) {
-            return redirect()->to('../Home/index');    // users	no
+            return redirect()->to('../home');           // users	no
         } else {
             return view('guests/login', $data);        // guests	yes
         }
