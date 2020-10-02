@@ -56,9 +56,9 @@
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <div class="navbar-nav">
-                <a class="nav-link btn px-2 active" role="button" href="/profile/index">Halo, <?= $nama; ?>! <span
+                <a class="nav-link px-2 active" role="button" href="/profile/index">Halo, <?= $nama; ?>! <span
                         class="sr-only">(current)</span></a>
-                <a class="nav-link btn px-2" role="button" href="/Config/logout">LOGOUT</a>
+                <a class="nav-link px-2" role="button" href="/Config/logout">LOGOUT</a>
             </div>
         </div>
     </nav>
