@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\OrdersModel;
 use App\Models\ProductsModel;
+use App\Models\TemplateGIFModel;
 use App\Models\PortofoliosModel;
 use App\Models\PromotionsModel;
 use App\Models\UsersModel;
@@ -13,6 +14,7 @@ class Admin extends BaseController
     protected $orderProgressModel;
     protected $ordersModel;
     protected $productsModel;
+    protected $templatesModel;
     protected $portofoliosModel;
     protected $promotionsModel;
     protected $usersModel;
@@ -21,6 +23,7 @@ class Admin extends BaseController
     {
         $this->ordersModel = new OrdersModel();
         $this->productsModel = new ProductsModel();
+        $this->templatesModel = new TemplateGIFModel();
         $this->portofoliosModel = new PortofoliosModel();
         $this->promotionsModel = new PromotionsModel();
         $this->usersModel = new UsersModel();
@@ -75,6 +78,13 @@ class Admin extends BaseController
         $data['curriculum_vitae'] = $this->productsModel->where('sub_category', 'curriculum_vitae')->findAll()[0];
 
         return view('admin/products', $data);
+    }
+
+    public function manage_template_gif()
+    {
+        $data = [];
+        $data['templates'] = $this->templatesModel->findAll();
+        return view('admin/template_gif', $data);
     }
 
     public function manage_portofolios()

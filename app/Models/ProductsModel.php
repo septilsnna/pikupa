@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class ProductsModel extends Model
 {
     protected $table = 'products';
-    protected $allowedFields = ['stock', 'sold', 'discount', 'price'];
+    protected $allowedFields = ['stock', 'sold', 'discount', 'price', 'estimated_price'];
     protected $useTimestamps = true;
 
     public function getProduct($category = null)

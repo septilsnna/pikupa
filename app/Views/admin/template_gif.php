@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Kelola Portofolio PIKUPA</title>
+    <title>Kelola Template GIF PIKUPA</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
@@ -41,10 +41,10 @@
                 <li>
                     <a href="/Admin/manage_product">Products</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="/Admin/manage_template_gif">Template GIF</a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="/Admin/manage_portfolios">Portofolios</a>
                 </li>
                 <li>
@@ -68,13 +68,13 @@
             <div class="container">
                 <div class="row my-3">
                     <div class="col-md-">
-                        <h2>Kelola Portofolio PIKUPA</h2>
+                        <h2>Kelola Template GIF PIKUPA</h2>
                     </div>
                     <div class="col-md">
                         <!-- Button trigger modal -->
                         <a href="" class="btn text-center" data-toggle="modal" data-target="#ModalCenter"
                             style="background-color: #B5F3AB;border-radius: 10px;">Tambahkan
-                            Portofolio</a>
+                            Template GIF</a>
 
                         <!-- Modal -->
                         <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog"
@@ -82,40 +82,28 @@
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="ModalLongTitle">Tambahkan Portofolio Baru</h5>
+                                        <h5 class="modal-title" id="ModalLongTitle">Tambahkan Template GIF Baru</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <form action="../ConfigAdmin/add_portofolios" method="post"
+                                    <form action="../ConfigAdmin/add_template_gif" method="post"
                                         enctype="multipart/form-data">
                                         <div class="modal-body">
                                             <div class="form-group row">
-                                                <label for="category"
-                                                    class="col-md-4 col-form-label text-right">Category</label>
+                                                <label for="title"
+                                                    class="col-md-4 col-form-label text-right">Judul</label>
                                                 <div class="col-md-6">
-                                                    <select id="category" class="form-control" name="category">
-                                                        <option selected>Pilih kategori</option>
-                                                        <option value="twitter_profile_needs">Twitter Profile Needs
-                                                        </option>
-                                                        <option value="instagram_feeds">Instagram Feeds</option>
-                                                        <option value="custom_design">Custom Design</option>
-                                                    </select>
+                                                    <input type="text" class="form-control" name="title" id="title"
+                                                        placeholder="ex: Odading Mang Oleh">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="note"
-                                                    class="col-md-4 col-form-label text-right">Detail</label>
+                                                <label for="price"
+                                                    class="col-md-4 col-form-label text-right">Harga</label>
                                                 <div class="col-md-6">
-                                                    <select id="note" class="form-control" name="note">
-                                                        <option selected>Pilih ukuran</option>
-                                                        <option value="11">1 : 1</option>
-                                                        <option value="21">2 : 1</option>
-                                                        <option value="31">3 : 1</option>
-                                                        <option value="banner_event">Banner Event</option>
-                                                        <option value="poster_event">Poster Event</option>
-                                                        <option value="curriculum_vitae">Curriculum Vitae</option>
-                                                    </select>
+                                                    <input type="number" class="form-control" name="price" id="price"
+                                                        id="price" placeholder="ex: 20000">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -143,37 +131,13 @@
                 </div>
                 <div class="row my-3">
                     <div class="col-md-9">
-                        <h5 style="color:gray">Portofolio Twitter Profile Needs</h5>
+                        <h5 style="color:gray">Twitter Profile Needs - Template GIF</h5>
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <?php foreach ($p_tpn as $d) : ?>
-                    <div class="col-md-6 py-4">
-                        <img src="/<?= $d['note'] ?>/<?= $d['file']; ?>" class="card-img-top">
-                    </div>
-                    <?php endforeach; ?>
-                </div>
-                <div class="row my-3">
-                    <div class="col-md-9">
-                        <h5 style="color:gray">Portofolio Instagram Feeds</h5>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <?php foreach ($p_if as $d) : ?>
-                    <div class="col-md-6 py-4">
-                        <img src="/<?= $d['note'] ?>/<?= $d['file']; ?>" class="card-img-top">
-                    </div>
-                    <?php endforeach; ?>
-                </div>
-                <div class="row my-3">
-                    <div class="col-md-9">
-                        <h5 style="color:gray">Portofolio Custom Design</h5>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <?php foreach ($p_cd as $d) : ?>
-                    <div class="col-md-6 py-4">
-                        <img src="/<?= $d['note'] ?>/<?= $d['file']; ?>" class="card-img-top">
+                    <?php foreach ($templates as $d) : ?>
+                    <div class="col-md-4 py-4">
+                        <img src="/temp/<?= $d['file']; ?>" class="card-img-top">
                     </div>
                     <?php endforeach; ?>
                 </div>

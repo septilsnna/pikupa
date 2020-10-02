@@ -42,6 +42,9 @@
                     <a href="/Admin/manage_product">Products</a>
                 </li>
                 <li>
+                    <a href="/Admin/manage_template_gif">Template GIF</a>
+                </li>
+                <li>
                     <a href="/Admin/manage_portofolios">Portofolios</a>
                 </li>
                 <li>

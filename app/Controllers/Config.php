@@ -226,12 +226,10 @@ class Config extends BaseController
 
         $total = $product[0]['price'] - ($product[0]['price'] * $product[0]['discount'] / 100);
 
-        $order = count($this->ordersModel->getOrder());
-
         $user = $this->usersModel->getUser($_SESSION['user_id']);
 
         $data = [
-            'id' => 'PKPA00' . $order,
+            'id' => 'PKPA00' . (count($this->ordersModel->getOrder()) + 1),
             'user_id' => $_SESSION['user_id'],
             'nama_user' => $user[0]['name'],
             'email_user' => $user[0]['email'],
