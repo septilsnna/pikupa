@@ -85,7 +85,7 @@ class order extends BaseController
         }
     }
 
-    public function order_sucess()
+    public function order_sucess($order_id)
     {
         $user = $this->usersModel->getUser($_SESSION['user_id']);
         $nama = explode(" ", $user[0]['name']);

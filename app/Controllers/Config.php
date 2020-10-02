@@ -147,7 +147,7 @@ class Config extends BaseController
                 } else {
                     if ($user[0]['verified'] == 1) {
                         $_SESSION['user_id'] = $user[0]['id'];
-                        return redirect()->to('/home');
+                        return redirect()->to('/home/index');
                     } else {
                         $_SESSION['verified'] = 'Email belum terverifikasi, silahkan verifikasi email kamu.';
                         $this->session->markAsTempdata('verified', 10);
@@ -173,7 +173,7 @@ class Config extends BaseController
     {
         session_unset();
         session_destroy();
-        return redirect()->to('/home');
+        return redirect()->to('/home/index');
     }
 
     public function ordering_cd($sub_category, $product_id)
@@ -310,7 +310,7 @@ class Config extends BaseController
 
         $this->ordersModel->insert($data);
 
-        return redirect()->to('/order/order_sucess');
+        return redirect()->to('/order/order_sucess/' . 'PKPA00' . $order);
     }
 
     public function order_custom_gif()
@@ -349,7 +349,7 @@ class Config extends BaseController
         // update password user
         $this->usersModel->where('id', $_SESSION['user_id'])->set(['password' => $password])->update();
 
-        return redirect()->to('/profile');
+        return redirect()->to('/profile/index');
     }
 
     public function email_update()
@@ -360,7 +360,7 @@ class Config extends BaseController
         // update email user
         $this->usersModel->where('id', $_SESSION['user_id'])->set(['email' => $email])->update();
 
-        return redirect()->to('/profile');
+        return redirect()->to('/profile/index');
     }
 
     //--------------------------------------------------------------------

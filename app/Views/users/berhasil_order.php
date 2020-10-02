@@ -6,16 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
-        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
-        crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
-        integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
-        crossorigin="anonymous" />
     <title>Barhasil Order - PIKUPA</title>
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" style="color:#424242;">
-        <a class="navbar-brand px-4 mx-5 justify-content-end" href="/home"><img src="/logo/logo.png" height="30"
+        <a class="navbar-brand px-4 mx-5 justify-content-end" href="/home/index"><img src="/logo/logo.png" height="30"
                 alt="Logo Pikupa"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,10 +17,10 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link px-4 mx-2" href="/home">HOME</a>
+                    <a class="nav-link px-4 mx-2" href="/home/index">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-4 mx-2" href="/about">ABOUT</a>
+                    <a class="nav-link px-4 mx-2" href="/about/index">ABOUT</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle px-4 mx-2" href="#" id="navbarDropdownMenuLink"
@@ -63,7 +56,7 @@
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <div class="navbar-nav">
-                <a class="nav-link btn px-2" role="button" href="/profile">Halo, <?= $nama; ?>!</a>
+                <a class="nav-link btn px-2" role="button" href="/profile/index">Halo, <?= $nama; ?>!</a>
                 <a class="nav-link btn px-2" role="button" href="/Config/logout">LOGOUT</a>
             </div>
         </div>
@@ -82,7 +75,8 @@
         </div>
         <div class="row my-5 justify-content-center text-center">
             <div class="col-md-10 align-self-center">
-                <a href="/profile" class="btn px-4" style="background-color: #FEB724; border-radius: 20px">CEK LIST
+                <a href="/profile/index" class="btn px-4" style="background-color: #FEB724; border-radius: 20px">CEK
+                    LIST
                     PESANAN</a>
             </div>
         </div>
@@ -108,10 +102,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
-    <script src="/path/to/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
-        integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
-        crossorigin="anonymous"></script>
 </body>
 
 <footer>

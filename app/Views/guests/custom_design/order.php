@@ -7,15 +7,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
-        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
-        crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
-        integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
-        crossorigin="anonymous" />
     <title>Order Custom Design - PIKUPA</title>
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" style="color:#424242;">
-        <a class="navbar-brand px-4 mx-5 justify-content-end" href="/Home"><img src="/logo/logo.png" height="30"
+        <a class="navbar-brand px-4 mx-5 justify-content-end" href="/home/index"><img src="/logo/logo.png" height="30"
                 alt="Logo Pikupa"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,10 +18,10 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link px-4 mx-2" href="/Home">HOME</a>
+                    <a class="nav-link px-4 mx-2" href="/home/index">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-4 mx-2" href="/About">ABOUT</a>
+                    <a class="nav-link px-4 mx-2" href="/about/index">ABOUT</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle px-4 mx-2" href="#" id="navbarDropdownMenuLink"
@@ -36,12 +30,12 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                         style="border: none; padding:15px">
-                        <a class="dropdown-item" href="/Portofolios/index/twitter_profile_needs/11"
+                        <a class="dropdown-item" href="/portofolios/index/twitter_profile_needs/11"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile
                             Needs</a>
-                        <a class="dropdown-item disabled" href="/Portofolios/index/instagram_feeds">Instagram
+                        <a class="dropdown-item disabled" href="/portofolios/index/instagram_feeds">Instagram
                             Feeds</a>
-                        <a class="dropdown-item disabled" href="/Portofolios/index/custom_design">Custom
+                        <a class="dropdown-item disabled" href="/portofolios/index/custom_design">Custom
                             Design</a>
                     </div>
                 </li>
@@ -52,10 +46,10 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                         style="border: none; padding:15px">
-                        <a class="dropdown-item" href="/Order/index/twitter_profile_needs"
+                        <a class="dropdown-item" href="/order/index/twitter_profile_needs"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile Needs</a>
-                        <a class="dropdown-item disabled" href="/Order/index/instagram_feeds">Instagram Feeds</a>
-                        <a class="dropdown-item" href="/Order/index/custom_design"
+                        <a class="dropdown-item disabled" href="/order/index/instagram_feeds">Instagram Feeds</a>
+                        <a class="dropdown-item" href="/order/index/custom_design"
                             style="background-color:#f7f7f7; color:#424242">Custom Design</a>
                     </div>
                 </li>
@@ -63,8 +57,8 @@
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <div class="navbar-nav">
-                <a class="nav-link btn px-2" role="button" href="/Login">Login</a>
-                <a class="nav-link btn px-2" role="button" href="/Register">Sign Up</a>
+                <a class="nav-link px-2" role="button" href="/login">Login</a>
+                <a class="nav-link px-2" role="button" href="/register">Sign Up</a>
             </div>
         </div>
     </nav>
@@ -104,7 +98,7 @@
                         <?php else : ?>
                         <p><?= $categories[$i]['stock']; ?> Slot Tersedia</p>
                         <p style="font-size: 12px;">Start from IDR <?= $categories[$i]['estimated_price']; ?></p>
-                        <a href="/Order/index/twitter_profile_needs/<?= $categories[$i]['sub_category'] ?>" class="btn"
+                        <a href="/order/index/twitter_profile_needs/<?= $categories[$i]['sub_category'] ?>" class="btn"
                             style="background-color: #DAA520; color:white; border-radius: 20px">ORDER HERE</a>
                         <?php endif; ?>
                     </div>
@@ -133,10 +127,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
-    <script src="/path/to/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
-        integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
-        crossorigin="anonymous"></script>
 </body>
 
 <footer>

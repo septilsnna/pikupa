@@ -15,7 +15,7 @@
         crossorigin="anonymous" />
     <title>PIKUPA - Jasa Desain Grafis Harga Kaki Lima</title>
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" style="color:#424242;">
-        <a class="navbar-brand px-4 mx-5 justify-content-end" href="/home"><img src="/logo/logo.png" height="30"
+        <a class="navbar-brand px-4 mx-5 justify-content-end" href="/home/index"><img src="/logo/logo.png" height="30"
                 alt="Logo Pikupa"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,10 +24,11 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active px-4 mx-2" href="/home">HOME <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active px-4 mx-2" href="/home/index">HOME <span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-4 mx-2" href="/about">ABOUT</a>
+                    <a class="nav-link px-4 mx-2" href="/about/index">ABOUT</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle px-4 mx-2" href="#" id="navbarDropdownMenuLink"
@@ -63,7 +64,7 @@
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <div class="navbar-nav">
-                <a class="nav-link btn px-2" role="button" href="/profile">Halo, <?= $nama; ?>!</a>
+                <a class="nav-link btn px-2" role="button" href="/profile/index">Halo, <?= $nama; ?>!</a>
                 <a class="nav-link btn px-2" role="button" href="/Config/logout">LOGOUT</a>
             </div>
         </div>
