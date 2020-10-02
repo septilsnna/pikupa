@@ -20,6 +20,11 @@ class profile extends BaseController
     {
         $order = $this->ordersModel->getOrder($_SESSION['user_id']);
 
+        $this->usersModel
+            ->where('id', $_SESSION['user_id'])
+            ->set(['order_freq' => count($order)])
+            ->update();
+
         $user = $this->usersModel->getUser($_SESSION['user_id']);
         $nama = explode(" ", $user[0]['name']);
 

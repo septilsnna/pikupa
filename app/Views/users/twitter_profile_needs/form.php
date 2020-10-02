@@ -76,8 +76,7 @@
         <p style="font-size: 16px; color: #424242;">Tolong lengkapi formulir di bawah ini ya kak~</p>
         <div class="row justify-content-center">
             <div class="col-md-7">
-                <form
-                    action="/Config/ordering/<?= $_SESSION['category']; ?>/<?= $_SESSION['sub_category'] ?>/<?= $_SESSION['product_id'] ?>"
+                <form action="/Config/ordering_tpn/<?= $_SESSION['sub_category'] ?>/<?= $_SESSION['product_id'] ?>"
                     method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
                     <div class="card text-center py-2 my-2 px-2 shadow p-3 bg-white">

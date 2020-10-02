@@ -149,9 +149,9 @@
                                                     </table>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <a href="/ConfigAdmin/reject/<?= $d['id'] ?>" class="btn"
+                                                    <a href="/ConfigAdmin/reject/<?= $d['id']; ?>" class="btn"
                                                         style="background-color: #FF6767; color: #f7f7f7;border-radius: 10px;">Reject</a>
-                                                    <a href="/ConfigAdmin/process/<?= $d['id'] ?>" class="btn"
+                                                    <a href="/ConfigAdmin/process/<?= $d['id']; ?>" class="btn"
                                                         style="background-color: #C4C4C4; border-radius: 10px;">Process</a>
                                                 </div>
                                             </div>
@@ -227,8 +227,7 @@
                                                     </table>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <a href="/ConfigAdmin/finish/<?= $d['id'] ?>/<?= $d['product_id'] ?>/<?= $d['user_id'] ?>"
-                                                        class="btn"
+                                                    <a href="/ConfigAdmin/finish/<?= $d['id']; ?>" class="btn"
                                                         style="background-color: #B5F3AB; border-radius: 10px;">Finish</a>
                                                 </div>
                                             </div>

@@ -71,10 +71,13 @@ class Config extends BaseController
         $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
         $token = substr(sha1(time()), 0, 100);
 
+        $nama = htmlspecialchars($this->request->getVar('name'));
+        $email = htmlspecialchars($this->request->getVar('email'));
+
         $newuser = [
             'id' => htmlspecialchars($this->request->getVar('id')),
-            'name' => htmlspecialchars($this->request->getVar('name')),
-            'email' => htmlspecialchars($this->request->getVar('email')),
+            'name' => $nama,
+            'email' => $email,
             'token' => $token,
             'password' => $password
         ];
@@ -82,8 +85,8 @@ class Config extends BaseController
         $this->usersModel->insert($newuser);
 
         $this->email->setFrom('pikuupa@gmail.com', 'Pikupa.id');
-        $this->email->setTo(htmlspecialchars($this->request->getVar('email')));
-        $this->email->setSubject('Verifikasi Email');
+        $this->email->setTo($email);
+        $this->email->setSubject('Verifikasi Alamat Email Kamu di Pikupa.id');
         $this->email->setMessage('<h3 class="my-3">Verifikasi Email Kamu Sekarang!</h3>
         <h4>
           Selamat ya! Data registrasi kamu telah berhasil kami simpan.
@@ -92,6 +95,34 @@ class Config extends BaseController
           agar akun kamu lebih aman.
         </h4>
         <h3>Piku tunggu pesanan kamu di Pikupa.id!</h3>');
+        $this->email->setMessage('<div style="font-family: Montserrat; text-align: center; padding-top: 50px; padding-bottom: 50px; font-size: 18px; color: #424242;">
+        <h3>Verifikasi Email Kamu Sekarang!</h3>
+        <p>Hai Kak ' . $nama . ',</p>
+        <p>
+          Kakak telah mendaftarkan email ' . $email . ' sebagai alamat email kakak
+          di Pikupa.id
+        </p>
+        <p>
+          Silahkan klik link berikut ini untuk melakukan verifikasi akun Kakak
+          agar bisa segera masuk ke website kami.
+        </p>
+          <a style="
+              background-color: #ffce67;
+              color: #424242;
+              border-radius: 15px;
+              border: none;
+              padding: 15px 32px;
+              text-decoration: none;
+              display: inline-block;
+              margin: 4px 2px;
+              cursor: pointer;
+            "
+            href="' . base_url() . '/verification/token/' . $token . '">
+            Aktivasi Akun Saya
+          </a>
+        </p>
+        <h4>Piku tunggu pesanan kakak di Pikupa.id!</h4>
+      </div>');
         $this->email->send();
 
         $_SESSION['message'] = 'Kami baru saja mengirimkan email untuk memverifikasikan akun sebelum mulai order.';
