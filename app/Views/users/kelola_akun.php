@@ -91,7 +91,7 @@
                     <tbody>
                         <tr>
                             <th class="px-5 py-3" scope="row">
-                                <form action="/Config/password_update" method="post">
+                                <form action="/profile/password_update" method="post">
                                     <?= csrf_field(); ?>
                                     <div class="form-group row">
                                         <div class="col-md-9 py-2">
@@ -137,7 +137,7 @@
                     <tbody>
                         <tr>
                             <th class="px-5 py-3" scope="row">
-                                <form action="/Config/email_update" method="post">
+                                <form action="/profile/email_update" method="post">
                                     <?= csrf_field(); ?>
                                     <?php if ($user[0]['email'] == null) : ?>
                                     <div class="form-group row">

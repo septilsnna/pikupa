@@ -45,7 +45,7 @@
                     <a href="/Admin/manage_template_gif">Template GIF</a>
                 </li>
                 <li>
-                    <a href="/Admin/manage_portfolios">Portofolios</a>
+                    <a href="/Admin/manage_portofolios">Portofolios</a>
                 </li>
                 <li>
                     <a href="/Admin/promotions">Promotions</a>

@@ -127,9 +127,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>Payment</td>
-                                                                <td>Rp <?= $d['total_payment']; ?>
-                                                                    (<?= $d['payment_method']; ?>)
-                                                                </td>
+                                                                <td>Rp <?= $d['total_payment']; ?></td>
                                                             </tr>
                                                             <?php $ab = str_split($d['product_id']);
                                                                 if ($ab[0] == 'C') : ?>

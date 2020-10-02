@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="col-md-7 my-2 px-5">
-                <form action="/Config/login" method="post">
+                <form action="/login/config" method="post">
                     <div class="card px-2 shadow p-3 mb-5 bg-white">
                         <div class="card-body">
                             <div class="form-group row px-3">

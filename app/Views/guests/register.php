@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="col-md-7 my-2 px-5">
-                <form action="/Config/register" method="post">
+                <form action="/register/config" method="post">
                     <?= csrf_field(); ?>
                     <div class="card px-2 shadow p-3 mb-5 bg-white">
                         <div class="card-body">

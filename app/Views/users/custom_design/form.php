@@ -68,7 +68,7 @@
         <p style="font-size: 16px; color: #424242;">Tolong lengkapi formulir di bawah ini ya kak~</p>
         <div class="row justify-content-center">
             <div class="col-md-7">
-                <form action="/Config/ordering_cd/<?= $_SESSION['sub_category'] ?>/<?= $_SESSION['product_id'] ?>"
+                <form action="/order/ordering_cd/<?= $_SESSION['sub_category'] ?>/<?= $_SESSION['product_id'] ?>"
                     method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
                     <div class="card text-center py-2 my-2">
@@ -117,7 +117,7 @@
                                             <div class="invalid-feedback">
                                                 <?= $validation->getError('invoice'); ?>
                                             </div>
-                                            <label class="custom-file-label" for="invoice"
+                                            <label class="custom-file-label label1" for="invoice"
                                                 aria-describedby="inputGroupFileAddon02">Choose file</label>
                                         </div>
                                     </div>

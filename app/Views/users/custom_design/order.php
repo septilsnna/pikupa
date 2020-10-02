@@ -79,7 +79,17 @@
                 </a>
             </div>
         </div> -->
-        <div class="row py-5 align-items-center">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <?php if (isset($_SESSION['failed'])) : ?>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Yahh, </strong><?= $_SESSION['failed']; ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <?php endif; ?>
+            </div>
             <?php for ($i = 0; $i <= count($categories) - 1; $i++) : ?>
             <div class="col-md-4 pt-4">
                 <div class="card text-center shadow p-3 bg-white">
