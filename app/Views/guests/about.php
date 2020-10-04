@@ -78,7 +78,7 @@
                     </h5>
                 </div>
                 <div class="col-md-5 mt-3">
-                    <img src="/logo/logos.png" style="max-width: 100%;" alt="">
+                    <img src="/logo/logos.png" style="max-width: 90%;" alt="">
                 </div>
             </div>
         </div>
@@ -158,9 +158,11 @@
         </div>
         <div class="row align-items-center">
             <div class="col-md pt-4">
-                <div class="card text-center">
-                    <div class="card-body py-3 px-3">
-                        <h5 class="card-title">Twitter Profile Needs</h5>
+                <div class="card text-center shadow bg-white">
+                    <div class="container" id="size" style="background-color: #424242; height: 250px;">
+                    </div>
+                    <div class="card-body py-2 px-3" style="height: 260px;">
+                        <h5 class="card-title pt-3" style="font-weight: bold">Twitter Profile Needs</h5>
                         <p class="card-text">Kami menyediakan jasa desain untuk membuat akun kamu makin terlihat cantik
                             dan menyegarkan.</p>
                         <?php if ($jtpn >= 0) : ?>
@@ -180,9 +182,11 @@
                 </div>
             </div>
             <div class="col-md pt-4">
-                <div class="card text-center">
-                    <div class="card-body py-3 px-3">
-                        <h5 class="card-title">Illustration</h5>
+                <div class="card text-center shadow bg-white">
+                    <div class="container" id="size" style="background-color: #424242; height: 250px;">
+                    </div>
+                    <div class="card-body py-3 px-3" style="height: 260px;">
+                        <h5 class="card-title pt-3" style="font-weight: bold">Illustration</h5>
                         <p class="card-text">Kami menyediakan jasa desain untuk membuat ilustrasi.</p>
                         <?php if ($jif >= 0) : ?>
                         <?php if ($jif > 0) : ?>
@@ -201,9 +205,11 @@
                 </div>
             </div>
             <div class="col-md pt-4">
-                <div class="card text-center">
-                    <div class="card-body py-3 px-3">
-                        <h5 class="card-title">Custom Design</h5>
+                <div class="card text-center shadow bg-white">
+                    <div class="container" id="size" style="background-color: #424242; height: 250px;">
+                    </div>
+                    <div class="card-body py-3 px-3" style="height: 260px;">
+                        <h5 class="card-title pt-3" style="font-weight: bold">Custom Design</h5>
                         <p class="card-text">Kami juga menyediakan jasa desain custom sesuai dengan kebutuhan.</p>
                         <?php if ($jcd >= 0) : ?>
                         <?php if ($jcd > 0) : ?>
