@@ -53,7 +53,7 @@ class home extends BaseController
 				'products' => $products,
 				'promotions' => $promotions,
 				'jtpn' => $jtpn,
-				'jif' => $ji,
+				'ji' => $ji,
 				'jcd' => $jcd,
 				'nama' => $nama[0]
 			];
@@ -64,7 +64,7 @@ class home extends BaseController
 				'products' => $products,
 				'promotions' => $promotions,
 				'jtpn' => $jtpn,
-				'jif' => $ji,
+				'ji' => $ji,
 				'jcd' => $jcd
 			];
 			return view('guests/home', $data);		// guests

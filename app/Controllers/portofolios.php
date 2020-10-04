@@ -18,9 +18,13 @@ class portofolios extends BaseController
 
     public function index($param, $id)
     {
-        $porto = $this->portofoliosModel->getPortofolio($param, $id);
+        if ($param != 'twitter_profile_needs') {
+            $porto = $this->portofoliosModel->where('category', $param)->findAll();
+        } else {
+            $porto = $this->portofoliosModel->getPortofolio($param, $id);
+        }
+
         $style = "background-color: #FEB724; border: 1px solid rgba(0, 0, 0, 0.2); box-sizing: border-box; color:#424242";
-        //var_dump($porto);
 
         if (isset($_SESSION['user_id'])) {
             $user = $this->usersModel->getUser($_SESSION['user_id']);

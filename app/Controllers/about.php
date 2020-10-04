@@ -48,7 +48,7 @@ class about extends BaseController
                 'title' => 'Halaman About',
                 'products' => $products,
                 'jtpn' => $jtpn,
-                'jif' => $ji,
+                'ji' => $ji,
                 'jcd' => $jcd,
                 'nama' => $nama[0]
             ];
@@ -58,7 +58,7 @@ class about extends BaseController
                 'title' => 'Halaman About',
                 'products' => $products,
                 'jtpn' => $jtpn,
-                'jif' => $ji,
+                'ji' => $ji,
                 'jcd' => $jcd,
             ];
             return view('guests/about', $data);        // guests

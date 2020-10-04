@@ -98,11 +98,11 @@
             </nav>
         </div>
         <div class="row justify-content-center">
-            <?php for ($i = 0; $i <= count($portofolios) - 1; $i++) : ?>
-            <div class="col-md-8 py-4">
-                <img src="/31/<?= $portofolios[$i]['file']; ?>" class="card-img-top">
+            <?php foreach ($portofolios as $d) : ?>
+            <div class="col-md-12 py-4">
+                <img src="/porto/31/<?= $d['file']; ?>" class="card-img-top">
             </div>
-            <?php endfor; ?>
+            <?php endforeach; ?>
         </div>
     </div>
     <div class="row mt-5 pt-5 pb-2 mx-0 justify-content-center text-center"

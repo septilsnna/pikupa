@@ -139,10 +139,15 @@ class ConfigAdmin extends BaseController
 
     public function add_portofolios()
     {
+        if ($this->request->getVar('category') != 'twitter_profile_needs') {
+            $note = $this->request->getVar('category');
+        } else {
+            $note = $this->request->getVar('note');
+        }
+
         $file = $this->request->getFile('file');            // ambil file bukti bayar
         $nama = $file->getRandomName();                     // generate nama random
-        $note = $this->request->getVar('note');
-        $file->move($note, $nama);                          // pindahkan ke folder note
+        $file->move('porto/' . $note, $nama);               // pindahkan ke folder porto
 
         $data = [
             'category' => $this->request->getVar('category'),

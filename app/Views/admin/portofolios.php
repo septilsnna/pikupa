@@ -151,7 +151,7 @@
                 <div class="row justify-content-center">
                     <?php foreach ($p_tpn as $d) : ?>
                     <div class="col-md-6 py-4">
-                        <img src="/<?= $d['note'] ?>/<?= $d['file']; ?>" class="card-img-top">
+                        <img src="/porto/<?= $d['note'] ?>/<?= $d['file']; ?>" class="card-img-top">
                     </div>
                     <?php endforeach; ?>
                 </div>
@@ -163,7 +163,7 @@
                 <div class="row justify-content-center">
                     <?php foreach ($p_il as $d) : ?>
                     <div class="col-md-6 py-4">
-                        <img src="/<?= $d['note'] ?>/<?= $d['file']; ?>" class="card-img-top">
+                        <img src="/porto/<?= $d['note'] ?>/<?= $d['file']; ?>" class="card-img-top">
                     </div>
                     <?php endforeach; ?>
                 </div>
@@ -175,7 +175,7 @@
                 <div class="row justify-content-center">
                     <?php foreach ($p_cd as $d) : ?>
                     <div class="col-md-6 py-4">
-                        <img src="/<?= $d['note'] ?>/<?= $d['file']; ?>" class="card-img-top">
+                        <img src="/porto/<?= $d['note'] ?>/<?= $d['file']; ?>" class="card-img-top">
                     </div>
                     <?php endforeach; ?>
                 </div>
