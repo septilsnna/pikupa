@@ -32,9 +32,10 @@
                         <a class="dropdown-item" href="/portofolios/index/twitter_profile_needs/11"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile
                             Needs</a>
-                        <a class="dropdown-item disabled" href="/portofolios/index/instagram_feeds">Instagram
-                            Feeds</a>
-                        <a class="dropdown-item disabled" href="/portofolios/index/custom_design">Custom
+                        <a class="dropdown-item disabled" href="/portofolios/index/illustration"
+                            style="background-color:#f7f7f7; color:#424242">Illustration</a>
+                        <a class="dropdown-item disabled" href="/portofolios/index/custom_design"
+                            style="background-color:#f7f7f7; color:#424242">Custom
                             Design</a>
                     </div>
                 </li>
@@ -47,7 +48,8 @@
                         style="border: none; padding:15px">
                         <a class="dropdown-item" href="/order/index/twitter_profile_needs"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile Needs</a>
-                        <a class="dropdown-item disabled" href="/order/index/instagram_feeds">Instagram Feeds</a>
+                        <a class="dropdown-item disabled" href="/order/index/illustration"
+                            style="background-color:#f7f7f7; color:#424242">Illustration</a>
                         <a class="dropdown-item" href="/order/index/custom_design"
                             style="background-color:#f7f7f7; color:#424242">Custom Design</a>
                     </div>
@@ -71,14 +73,14 @@
                     <?= $title; ?></h3>
             </div>
         </div>
-        <!-- <div class="row">
+        <div class="row">
             <div class="col pt-3 px-lg-5">
-                <a href="#"><small class="text-secondary disable"
+                <a href=""><small class="text-secondary disable"
                         style="font-weight: normal; font-size: 16px; line-height: 29px; color: #424242; text-decoration-line: underline;">Lihat
                         Portofolio Kami Disini</small>
                 </a>
             </div>
-        </div> -->
+        </div>
         <div class="row align-items-center">
             <div class="col-md-12">
                 <?php if (isset($_SESSION['failed'])) : ?>
@@ -90,32 +92,30 @@
                 </div>
                 <?php endif; ?>
             </div>
-            <?php for ($i = 0; $i <= count($categories) - 1; $i++) : ?>
+            <?php foreach ($categories as $d) : ?>
             <div class="col-md-4 pt-4">
-                <div class="card text-center shadow p-3 bg-white">
+                <div class="card text-center shadow bg-white">
                     <div class="container" id="size" style="background-color: #424242; height: 250px;">
                     </div>
-                    <div class="card-body py-3 px-3">
-                        <h5 class="card-title" style="font-weight: bold"><?= $categories[$i]['sub_category_name']; ?>*
+                    <div class="card-body py-3 px-3" style="height: 250px;">
+                        <h5 class="card-title pt-4" style="font-weight: bold"><?= $d['sub_category_name']; ?>
                         </h5>
-                        <p style="font-size: 10px; color: gray">*khusus tugas pelajar/mahasiswa</p>
-                        <p class="card-text"><?= $categories[$i]['description']; ?></p>
-                        <?php if ($categories[$i]['stock'] == 0) : ?>
-                        <p><?= $categories[$i]['stock']; ?> Slot Tersedia:</p>
+                        <p class="card-text"><?= $d['description']; ?></p>
+                        <?php if ($d['stock'] == 0) : ?>
+                        <p><?= $d['stock']; ?> Slot Tersedia:</p>
                         <button type="button" class="btn"
                             style="background-color: #DAA520; color:white; border-radius: 20px" disabled>OUT OF
                             STOCK</button>
                         <?php else : ?>
-                        <p><?= $categories[$i]['stock']; ?> Slot Tersedia</p>
-                        <p style="font-size: 12px;">Start from IDR <?= $categories[$i]['estimated_price']; ?></p>
-                        <a href="/order/index/custom_design/<?= $categories[$i]['sub_category'] ?>/<?= $categories[$i]['sub_category'] ?>"
-                            class="btn" style="background-color: #DAA520; color:white; border-radius: 20px">ORDER
-                            HERE</a>
+                        <p><?= $d['stock']; ?> Slot Tersedia</p>
+                        <p style="font-size: 12px;">Start from IDR <?= $d['estimated_price']; ?></p>
+                        <a href="/order/index/custom_design/<?= $d['sub_category'] ?>" class="btn"
+                            style="background-color: #DAA520; color:white; border-radius: 20px">ORDER HERE</a>
                         <?php endif; ?>
                     </div>
                 </div>
             </div>
-            <?php endfor; ?>
+            <?php endforeach; ?>
         </div>
     </div>
     <!-- Optional JavaScript -->
