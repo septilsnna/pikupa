@@ -76,7 +76,7 @@
         </div>
         <div class="row">
             <div class="col pt-3 px-lg-5">
-                <a href=""><small class="text-secondary disable"
+                <a href="/portofolios/index/custom_design"><small class="text-secondary disable"
                         style="font-weight: normal; font-size: 16px; line-height: 29px; color: #424242; text-decoration-line: underline;">Lihat
                         Portofolio Kami Disini</small>
                 </a>

@@ -32,9 +32,9 @@
                         <a class="dropdown-item" href="/portofolios/index/twitter_profile_needs/11"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile
                             Needs</a>
-                        <a class="dropdown-item disabled" href="/portofolios/index/illustration"
+                        <a class="dropdown-item" href="/portofolios/index/illustration"
                             style="background-color:#f7f7f7; color:#424242">Illustration</a>
-                        <a class="dropdown-item disabled" href="/portofolios/index/custom_design"
+                        <a class="dropdown-item" href="/portofolios/index/custom_design"
                             style="background-color:#f7f7f7; color:#424242">Custom
                             Design</a>
                     </div>
@@ -48,7 +48,7 @@
                         style="border: none; padding:15px">
                         <a class="dropdown-item" href="/order/index/twitter_profile_needs"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile Needs</a>
-                        <a class="dropdown-item disabled" href="/order/index/illustration"
+                        <a class="dropdown-item" href="/order/index/illustration"
                             style="background-color:#f7f7f7; color:#424242">Illustration</a>
                         <a class="dropdown-item" href="/order/index/custom_design"
                             style="background-color:#f7f7f7; color:#424242">Custom Design</a>
@@ -75,7 +75,7 @@
         </div>
         <div class="row">
             <div class="col pt-3 px-lg-5">
-                <a href=""><small class="text-secondary disable"
+                <a href="/portofolios/index/custom_design"><small class="text-secondary disable"
                         style="font-weight: normal; font-size: 16px; line-height: 29px; color: #424242; text-decoration-line: underline;">Lihat
                         Portofolio Kami Disini</small>
                 </a>
@@ -109,8 +109,9 @@
                         <?php else : ?>
                         <p><?= $d['stock']; ?> Slot Tersedia</p>
                         <p style="font-size: 12px;">Start from IDR <?= $d['estimated_price']; ?></p>
-                        <a href="/order/index/custom_design/<?= $d['sub_category'] ?>" class="btn"
-                            style="background-color: #DAA520; color:white; border-radius: 20px">ORDER HERE</a>
+                        <a href="/order/index/custom_design/<?= $d['sub_category'] ?>/<?= $d['sub_category'] ?>"
+                            class="btn" style="background-color: #DAA520; color:white; border-radius: 20px">ORDER
+                            HERE</a>
                         <?php endif; ?>
                     </div>
                 </div>

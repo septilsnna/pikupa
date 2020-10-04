@@ -32,9 +32,9 @@
                         <a class="dropdown-item" href="/portofolios/index/twitter_profile_needs/11"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile
                             Needs</a>
-                        <a class="dropdown-item disabled" href="/portofolios/index/illustration"
+                        <a class="dropdown-item" href="/portofolios/index/illustration"
                             style="background-color:#f7f7f7; color:#424242">Illustration</a>
-                        <a class="dropdown-item disabled" href="/portofolios/index/custom_design"
+                        <a class="dropdown-item" href="/portofolios/index/custom_design"
                             style="background-color:#f7f7f7; color:#424242">Custom
                             Design</a>
                     </div>
@@ -48,7 +48,7 @@
                         style="border: none; padding:15px">
                         <a class="dropdown-item" href="/order/index/twitter_profile_needs"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile Needs</a>
-                        <a class="dropdown-item disabled" href="/order/index/illustration"
+                        <a class="dropdown-item" href="/order/index/illustration"
                             style="background-color:#f7f7f7; color:#424242">Illustration</a>
                         <a class="dropdown-item" href="/order/index/custom_design"
                             style="background-color:#f7f7f7; color:#424242">Custom Design</a>

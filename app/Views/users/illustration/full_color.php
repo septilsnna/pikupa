@@ -1,4 +1,3 @@
-</html>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Order Twitter Profile Needs - PIKUPA</title>
+    <title>Full Color Illustration - PIKUPA</title>
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" style="color:#424242;">
         <a class="navbar-brand px-4 mx-5 justify-content-end" href="/home/index"><img src="/logo/logo.png" height="30"
                 alt="Logo Pikupa"></a>
@@ -71,53 +70,52 @@
         <div class="row">
             <div class="col pt-3 px-lg-5">
                 <h3 style="font-weight: bold; font-size: 28px; color: #FEB724;">
-                    <?= $title; ?></h3>
+                    Pilih Jenisnya Yuk!</h3>
             </div>
         </div>
-        <div class="row py-2">
+        <div class="row">
             <div class="col pt-3 px-lg-5">
-                <a href="/portofolios/index/twitter_profile_needs/11"><small class="text-secondary"
+                <a href="/portofolios/index/illustration"><small class="text-secondary"
                         style="font-weight: normal; font-size: 16px; line-height: 29px; color: #424242; text-decoration-line: underline;">Lihat
                         Portofolio Kami Disini</small>
                 </a>
             </div>
         </div>
-        <div class="row align-items-center">
-            <div class="col-md-12">
-                <?php if (isset($_SESSION['failed'])) : ?>
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Yahh, </strong><?= $_SESSION['failed']; ?>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <?php endif; ?>
+        <form action="/Config/order_full_color" method="post">
+            <div class="row justify-content-center pt-3 px-lg-5">
+                <nav aria-label="Size navigation">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <input type="hidden" name="fcHead" id="fcHead" value="head"></input>
+                            <label for="fcHead" type="button" class="btn" id="fcH" onclick="fcHead()"
+                                style="background-color: #FEB724; box-sizing: border-box; color:#424242">Head
+                            </label>
+                        </li>
+                        <li class="page-item">
+                            <input type="hidden" name="fcHalfBody" id="fcHalfBody"></input>
+                            <label for="fcHalfBody" type="button" class="btn" id="fcHB" onclick="fcHalfBody()"
+                                style="background-color: rgba(225, 225, 225, 0.5); box-sizing: border-box; color:#424242">Half
+                                Body
+                            </label>
+                        </li>
+                        <li class="page-item">
+                            <input type="hidden" name="fcFullBody" id="fcFullBody"></input>
+                            <label for="fcFullBody" type="button" class="btn" id="fcFB" onclick="fcFullBody()"
+                                style="background-color: rgba(225, 225, 225, 0.5); box-sizing: border-box; color:#424242">Full
+                                Body
+                            </label>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <?php foreach ($categories as $d) : ?>
-            <div class="col-md-4 pt-4">
-                <div class="card text-center shadow bg-white">
-                    <div class="container" id="size" style="background-color: #424242; height: 250px;">
-                    </div>
-                    <div class="card-body py-3 px-3" style="height: 300px;">
-                        <h5 class="card-title pt-4" style="font-weight: bold"><?= $d['sub_category_name']; ?>
-                        </h5>
-                        <p class="card-text"><?= $d['description']; ?></p>
-                        <?php if ($d['stock'] == 0) : ?>
-                        <p><?= $d['stock']; ?> Slot Tersedia:</p>
-                        <button type="button" class="btn"
-                            style="background-color: #DAA520; color:white; border-radius: 20px" disabled>OUT OF
-                            STOCK</button>
-                        <?php else : ?>
-                        <p><?= $d['stock']; ?> Slot Tersedia</p>
-                        <p style="font-size: 12px;">Start from IDR <?= $d['estimated_price']; ?></p>
-                        <a href="/order/index/twitter_profile_needs/<?= $d['sub_category'] ?>" class="btn"
-                            style="background-color: #DAA520; color:white; border-radius: 20px">ORDER HERE</a>
-                        <?php endif; ?>
-                    </div>
+            <div class="container my-5" id="size" style="background-color: #424242; height: 300px; width: 300px">
+                <div class="row-md">
+
                 </div>
             </div>
-            <?php endforeach; ?>
-        </div>
+            <button type="submit" class="btn"
+                style="background-color: #DAA520; color:white; border-radius: 20px">ORDER</button>
+        </form>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -139,10 +137,37 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
-    <script src="/path/to/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
-        integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
-        crossorigin="anonymous"></script>
+    <script>
+    function fcHead() {
+        document.getElementById("size").style.width = '300px';
+        document.getElementById('fcH').style.backgroundColor = '#FEB724';
+        document.getElementById('fcHB').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
+        document.getElementById('fcFB').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
+        document.getElementById('fcHead').value = 'head';
+        document.getElementById('fcHalfBody').value = '';
+        document.getElementById('fcFullBody').value = '';
+    }
+
+    function fcHalfBody() {
+        document.getElementById("size").style.width = '400px';
+        document.getElementById('fcH').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
+        document.getElementById('fcHB').style.backgroundColor = '#FEB724';
+        document.getElementById('fcFB').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
+        document.getElementById('fcHead').value = '';
+        document.getElementById('fcHalfBody').value = 'half_body';
+        document.getElementById('fcFullBody').value = '';
+    }
+
+    function fcFullBody() {
+        document.getElementById("size").style.width = '500px';
+        document.getElementById('fcH').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
+        document.getElementById('fcHB').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
+        document.getElementById('fcFB').style.backgroundColor = '#FEB724';
+        document.getElementById('fcHead').value = '';
+        document.getElementById('fcHalfBody').value = '';
+        document.getElementById('fcFullBody').value = 'full_body';
+    }
+    </script>
 </body>
 
 <footer>
