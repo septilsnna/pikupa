@@ -41,9 +41,10 @@
                         <a class="dropdown-item" href="/portofolios/index/twitter_profile_needs/11"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile
                             Needs</a>
-                        <a class="dropdown-item disabled" href="/portofolios/index/instagram_feeds">Instagram
-                            Feeds</a>
-                        <a class="dropdown-item disabled" href="/portofolios/index/custom_design">Custom
+                        <a class="dropdown-item" href="/portofolios/index/illustration"
+                            style="background-color:#f7f7f7; color:#424242">Illustration</a>
+                        <a class="dropdown-item" href="/portofolios/index/custom_design"
+                            style="background-color:#f7f7f7; color:#424242">Custom
                             Design</a>
                     </div>
                 </li>
@@ -56,7 +57,8 @@
                         style="border: none; padding:15px">
                         <a class="dropdown-item" href="/order/index/twitter_profile_needs"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile Needs</a>
-                        <a class="dropdown-item disabled" href="/order/index/instagram_feeds">Instagram Feeds</a>
+                        <a class="dropdown-item" href="/order/index/illustration"
+                            style="background-color:#f7f7f7; color:#424242">Illustration</a>
                         <a class="dropdown-item" href="/order/index/custom_design"
                             style="background-color:#f7f7f7; color:#424242">Custom Design</a>
                     </div>
@@ -183,7 +185,7 @@
                 <div class="card text-center">
                     <div class="card-body py-3 px-3">
                         <h5 class="card-title">Twitter Profile Needs</h5>
-                        <p class="card-text">Kami menyediakan jasa desain Untuk membuat akun kamu makin terlihat cantik
+                        <p class="card-text">Kami menyediakan jasa desain untuk membuat akun kamu makin terlihat cantik
                             dan menyegarkan.</p>
                         <?php if ($jtpn >= 0) : ?>
                         <?php if ($jtpn > 0) : ?>
@@ -197,10 +199,6 @@
                             OF
                             STOCK</button>
                         <?php endif; ?>
-                        <?php else : ?>
-                        <button type="button" class="btn"
-                            style="background-color: #DAA520; color:white; border-radius: 20px" disabled>COMING
-                            SOON</button>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -208,23 +206,19 @@
             <div class="col-md pt-4">
                 <div class="card text-center">
                     <div class="card-body py-3 px-3">
-                        <h5 class="card-title">Instagram Feeds</h5>
-                        <p class="card-text">Kami menyediakan jasa desain Untuk membuat feeds instagram.</p>
-                        <?php if ($jif == null) : ?>
-                        <button type="button" class="btn"
-                            style="background-color: #DAA520; color:white; border-radius: 20px" disabled>COMING
-                            SOON</button>
+                        <h5 class="card-title">Illustration</h5>
+                        <p class="card-text">Kami menyediakan jasa desain untuk membuat ilustrasi.</p>
+                        <?php if ($jif >= 0) : ?>
+                        <?php if ($jif > 0) : ?>
+                        <p>Slot tersedia: <?= $jif; ?></p>
+                        <a href="/order/index/twitter_profile_needs" class="btn"
+                            style="background-color: #DAA520; color:white; border-radius: 20px">ORDER HERE</a>
                         <?php else : ?>
-                        <?php if ($jif == 0) : ?>
                         <p>Slot tersedia: <?= $jif; ?></p>
                         <button type="button" class="btn"
                             style="background-color: #DAA520; color:white; border-radius: 20px" disabled>OUT
                             OF
                             STOCK</button>
-                        <?php else : ?>
-                        <p>Slot tersedia: <?= $jif; ?></p>
-                        <a href="/order/index/instagram_feeds" class="btn"
-                            style="background-color: #DAA520; color:white; border-radius: 20px">ORDER HERE</a>
                         <?php endif; ?>
                         <?php endif; ?>
                     </div>
@@ -235,21 +229,17 @@
                     <div class="card-body py-3 px-3">
                         <h5 class="card-title">Custom Design</h5>
                         <p class="card-text">Kami juga menyediakan jasa desain custom sesuai dengan kebutuhan.</p>
-                        <?php if ($jcd == null) : ?>
-                        <button type="button" class="btn"
-                            style="background-color: #DAA520; color:white; border-radius: 20px" disabled>COMING
-                            SOON</button>
+                        <?php if ($jcd >= 0) : ?>
+                        <?php if ($jcd > 0) : ?>
+                        <p>Slot tersedia: <?= $jcd; ?></p>
+                        <a href="/order/index/twitter_profile_needs" class="btn"
+                            style="background-color: #DAA520; color:white; border-radius: 20px">ORDER HERE</a>
                         <?php else : ?>
-                        <?php if ($jcd == 0) : ?>
                         <p>Slot tersedia: <?= $jcd; ?></p>
                         <button type="button" class="btn"
                             style="background-color: #DAA520; color:white; border-radius: 20px" disabled>OUT
                             OF
                             STOCK</button>
-                        <?php else : ?>
-                        <p>Slot tersedia: <?= $jcd; ?></p>
-                        <a href="/order/index/custom_design" class="btn"
-                            style="background-color: #DAA520; color:white; border-radius: 20px">ORDER HERE</a>
                         <?php endif; ?>
                         <?php endif; ?>
                     </div>
