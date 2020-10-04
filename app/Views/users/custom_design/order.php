@@ -32,9 +32,9 @@
                         <a class="dropdown-item" href="/portofolios/index/twitter_profile_needs/11"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile
                             Needs</a>
-                        <a class="dropdown-item" href="/portofolios/index/illustration"
+                        <a class="dropdown-item" href="/portofolios/index/illustration/0"
                             style="background-color:#f7f7f7; color:#424242">Illustration</a>
-                        <a class="dropdown-item" href="/portofolios/index/custom_design"
+                        <a class="dropdown-item" href="/portofolios/index/custom_design/0"
                             style="background-color:#f7f7f7; color:#424242">Custom
                             Design</a>
                     </div>
@@ -75,7 +75,7 @@
         </div>
         <div class="row">
             <div class="col pt-3 px-lg-5">
-                <a href="/portofolios/index/custom_design"><small class="text-secondary disable"
+                <a href="/portofolios/index/custom_design/0"><small class="text-secondary disable"
                         style="font-weight: normal; font-size: 16px; line-height: 29px; color: #424242; text-decoration-line: underline;">Lihat
                         Portofolio Kami Disini</small>
                 </a>
