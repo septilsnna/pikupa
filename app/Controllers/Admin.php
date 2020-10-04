@@ -73,6 +73,8 @@ class Admin extends BaseController
         $data = [];
         $data['custom_gif'] = $this->productsModel->where('sub_category', 'custom_gif')->findAll()[0];
         $data['template_gif'] = $this->productsModel->where('sub_category', 'template_gif')->findAll()[0];
+        $data['outline'] = $this->productsModel->where('sub_category', 'outline')->findAll()[0];
+        $data['full_color'] = $this->productsModel->where('sub_category', 'full_color')->findAll()[0];
         $data['banner_event'] = $this->productsModel->where('sub_category', 'banner_event')->findAll()[0];
         $data['poster_event'] = $this->productsModel->where('sub_category', 'poster_event')->findAll()[0];
         $data['curriculum_vitae'] = $this->productsModel->where('sub_category', 'curriculum_vitae')->findAll()[0];
@@ -91,7 +93,7 @@ class Admin extends BaseController
     {
         $data = [];
         $data['p_tpn'] = $this->portofoliosModel->where('category', 'twitter_profile_needs')->findAll();
-        $data['p_if'] = $this->portofoliosModel->where('category', 'instagram_feeds')->findAll();
+        $data['p_il'] = $this->portofoliosModel->where('category', 'illustration')->findAll();
         $data['p_cd'] = $this->portofoliosModel->where('category', 'custom_design')->findAll();
         return view('admin/portofolios', $data);
     }

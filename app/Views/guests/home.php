@@ -212,13 +212,13 @@
                     <div class="card-body py-3 px-3" style="height: 260px;">
                         <h5 class="card-title pt-3" style="font-weight: bold">Illustration</h5>
                         <p class="card-text">Kami menyediakan jasa desain untuk membuat ilustrasi.</p>
-                        <?php if ($jif >= 0) : ?>
-                        <?php if ($jif > 0) : ?>
-                        <p>Slot tersedia: <?= $jif; ?></p>
+                        <?php if ($ji >= 0) : ?>
+                        <?php if ($ji > 0) : ?>
+                        <p>Slot tersedia: <?= $ji; ?></p>
                         <a href="/order/index/twitter_profile_needs" class="btn"
                             style="background-color: #DAA520; color:white; border-radius: 20px">ORDER HERE</a>
                         <?php else : ?>
-                        <p>Slot tersedia: <?= $jif; ?></p>
+                        <p>Slot tersedia: <?= $ji; ?></p>
                         <button type="button" class="btn"
                             style="background-color: #DAA520; color:white; border-radius: 20px" disabled>OUT
                             OF

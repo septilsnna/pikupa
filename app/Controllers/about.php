@@ -27,11 +27,11 @@ class about extends BaseController
             $jtpn += $v['stock'];
         }
 
-        // jumlah slot instagram_feeds
-        $if = $this->productsModel->where('category', 'instagram_feeds')->findAll();
-        $jif = 0;
-        foreach ($if as $v) {
-            $jif += $v['stock'];
+        // jumlah slot illustration
+        $i = $this->productsModel->where('category', 'illustration')->findAll();
+        $ji = 0;
+        foreach ($i as $v) {
+            $ji += $v['stock'];
         }
 
         // jumlah slot custom_design
@@ -48,7 +48,7 @@ class about extends BaseController
                 'title' => 'Halaman About',
                 'products' => $products,
                 'jtpn' => $jtpn,
-                'jif' => $jif,
+                'jif' => $ji,
                 'jcd' => $jcd,
                 'nama' => $nama[0]
             ];
@@ -58,7 +58,7 @@ class about extends BaseController
                 'title' => 'Halaman About',
                 'products' => $products,
                 'jtpn' => $jtpn,
-                'jif' => $jif,
+                'jif' => $ji,
                 'jcd' => $jcd,
             ];
             return view('guests/about', $data);        // guests

@@ -98,7 +98,7 @@
                                                         <option selected>Pilih kategori</option>
                                                         <option value="twitter_profile_needs">Twitter Profile Needs
                                                         </option>
-                                                        <option value="instagram_feeds">Instagram Feeds</option>
+                                                        <option value="illustration">Illustration</option>
                                                         <option value="custom_design">Custom Design</option>
                                                     </select>
                                                 </div>
@@ -108,10 +108,12 @@
                                                     class="col-md-4 col-form-label text-right">Detail</label>
                                                 <div class="col-md-6">
                                                     <select id="note" class="form-control" name="note">
-                                                        <option selected>Pilih ukuran</option>
+                                                        <option selected>Pilih sub kategori</option>
                                                         <option value="11">1 : 1</option>
                                                         <option value="21">2 : 1</option>
                                                         <option value="31">3 : 1</option>
+                                                        <option value="full_color">Full Color</option>
+                                                        <option value="outline">Outline</option>
                                                         <option value="banner_event">Banner Event</option>
                                                         <option value="poster_event">Poster Event</option>
                                                         <option value="curriculum_vitae">Curriculum Vitae</option>
@@ -155,11 +157,11 @@
                 </div>
                 <div class="row my-3">
                     <div class="col-md-9">
-                        <h5 style="color:gray">Portofolio Instagram Feeds</h5>
+                        <h5 style="color:gray">Portofolio Illustration</h5>
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <?php foreach ($p_if as $d) : ?>
+                    <?php foreach ($p_il as $d) : ?>
                     <div class="col-md-6 py-4">
                         <img src="/<?= $d['note'] ?>/<?= $d['file']; ?>" class="card-img-top">
                     </div>

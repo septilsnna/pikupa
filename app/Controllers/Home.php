@@ -31,11 +31,11 @@ class home extends BaseController
 			$jtpn += $v['stock'];
 		}
 
-		// jumlah slot instagram_feeds
-		$if = $this->productsModel->getProduct('instagram_feeds');
-		$jif = 0;
-		foreach ($if as $v) {
-			$jif += $v['stock'];
+		// jumlah slot illustration
+		$i = $this->productsModel->getProduct('illustration');
+		$ji = 0;
+		foreach ($i as $v) {
+			$ji += $v['stock'];
 		}
 
 		// jumlah slot custom_design
@@ -53,7 +53,7 @@ class home extends BaseController
 				'products' => $products,
 				'promotions' => $promotions,
 				'jtpn' => $jtpn,
-				'jif' => $jif,
+				'jif' => $ji,
 				'jcd' => $jcd,
 				'nama' => $nama[0]
 			];
@@ -64,7 +64,7 @@ class home extends BaseController
 				'products' => $products,
 				'promotions' => $promotions,
 				'jtpn' => $jtpn,
-				'jif' => $jif,
+				'jif' => $ji,
 				'jcd' => $jcd
 			];
 			return view('guests/home', $data);		// guests

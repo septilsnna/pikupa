@@ -231,6 +231,164 @@
                     </div>
                 </div>
                 <div class="row my-3">
+                    <h5 style="color:gray">Illustration</h5>
+                </div>
+                <div class="row mb-5">
+                    <!--Full Color Illustration-->
+                    <div class="col-md-4">
+                        <div class="card align-item-center shadow p-3 mb-5 bg-white" style="border-radius: 20px">
+                            <div class="card-body py-3 px-3">
+                                <h5 class="card-title text-center" style="font-weight: bold">
+                                    <?= $full_color['sub_category_name']; ?>
+                                </h5>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Terjual <?= $full_color['sold'] ?> produk</li>
+                                <li class="list-group-item">Tersisa <?= $full_color['stock'] ?> produk</li>
+                                <li class="list-group-item">Harga produk : Rp <?= $full_color['price'] ?></li>
+                                <li class="list-group-item">Diskon produk : <?= $full_color['discount'] ?>%</li>
+                                <li class="list-group-item">Terakhir update pada <?= $full_color['updated_at'] ?></li>
+                            </ul>
+                            <!-- Button trigger modal -->
+                            <a href="" class="btn text-center py-3" data-toggle="modal"
+                                data-target="#Modal<?= $full_color['id'] ?>Center"
+                                style="background-color: #fed98b; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">Kelola
+                                Produk</a>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="Modal<?= $full_color['id'] ?>Center" tabindex="-1" role="dialog"
+                                aria-labelledby="Modal<?= $full_color['id'] ?>CenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="Modal<?= $full_color['id'] ?>LongTitle">Kelola
+                                                Produk
+                                                <?= $full_color['sub_category_name']; ?></h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form action="/ConfigAdmin/edit_product/<?= $full_color['id'] ?>" method="post">
+                                            <div class="modal-body">
+                                                <div class="form-group row">
+                                                    <label for="stock"
+                                                        class="col-md-4 col-form-label text-right">Stok</label>
+                                                    <div class="col-md-6">
+                                                        <input type="number" class="form-control" name="stock"
+                                                            id="stock" placeholder="<?= $full_color['stock'] ?>"
+                                                            min="<?= $full_color['stock'] ?>"
+                                                            value="<?= $full_color['stock'] ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="price"
+                                                        class="col-md-4 col-form-label text-right">Harga</label>
+                                                    <div class="col-md-6">
+                                                        <input type="number" class="form-control" name="price"
+                                                            id="price" id="price"
+                                                            placeholder="<?= $full_color['price'] ?>"
+                                                            value="<?= $full_color['price'] ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="discount"
+                                                        class="col-md-4 col-form-label text-right">Diskon</label>
+                                                    <div class="col-md-6">
+                                                        <input type="number" class="form-control" name="discount"
+                                                            id="discount" id="discount"
+                                                            placeholder="<?= $full_color['discount'] ?>"
+                                                            value="<?= $full_color['discount'] ?>">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn"
+                                                    style="background-color: #fed98b; border-radius: 10px;">Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Outline Illustration-->
+                    <div class="col-md-4">
+                        <div class="card align-item-center shadow p-3 mb-5 bg-white" style="border-radius: 20px">
+                            <div class="card-body py-3 px-3">
+                                <h5 class="card-title text-center" style="font-weight: bold">
+                                    <?= $outline['sub_category_name']; ?>
+                                </h5>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Terjual <?= $outline['sold'] ?> produk</li>
+                                <li class="list-group-item">Tersisa <?= $outline['stock'] ?> produk</li>
+                                <li class="list-group-item">Harga produk : Rp <?= $outline['price'] ?></li>
+                                <li class="list-group-item">Diskon produk : <?= $outline['discount'] ?>%</li>
+                                <li class="list-group-item">Terakhir update pada <?= $outline['updated_at'] ?></li>
+                            </ul>
+                            <!-- Button trigger modal -->
+                            <a href="" class="btn text-center py-3" data-toggle="modal"
+                                data-target="#Modal<?= $outline['id'] ?>Center"
+                                style="background-color: #fed98b; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">Kelola
+                                Produk</a>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="Modal<?= $outline['id'] ?>Center" tabindex="-1" role="dialog"
+                                aria-labelledby="Modal<?= $outline['id'] ?>CenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="Modal<?= $outline['id'] ?>LongTitle">Kelola
+                                                Produk
+                                                <?= $outline['sub_category_name']; ?></h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form action="/ConfigAdmin/edit_product/<?= $outline['id'] ?>" method="post">
+                                            <div class="modal-body">
+                                                <div class="form-group row">
+                                                    <label for="stock"
+                                                        class="col-md-4 col-form-label text-right">Stok</label>
+                                                    <div class="col-md-6">
+                                                        <input type="number" class="form-control" name="stock"
+                                                            id="stock" placeholder="<?= $outline['stock'] ?>"
+                                                            min="<?= $outline['stock'] ?>"
+                                                            value="<?= $outline['stock'] ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="price"
+                                                        class="col-md-4 col-form-label text-right">Harga</label>
+                                                    <div class="col-md-6">
+                                                        <input type="number" class="form-control" name="price"
+                                                            id="price" id="price" placeholder="<?= $outline['price'] ?>"
+                                                            value="<?= $outline['price'] ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="discount"
+                                                        class="col-md-4 col-form-label text-right">Diskon</label>
+                                                    <div class="col-md-6">
+                                                        <input type="number" class="form-control" name="discount"
+                                                            id="discount" id="discount"
+                                                            placeholder="<?= $outline['discount'] ?>"
+                                                            value="<?= $outline['discount'] ?>">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn"
+                                                    style="background-color: #fed98b; border-radius: 10px;">Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-3">
                     <h5 style="color:gray">Custom Design</h5>
                 </div>
                 <div class="row mb-5">
