@@ -82,19 +82,19 @@
             </div>
         </div>
         <div class="row align-items-center">
-            <?php for ($i = 0; $i <= count($template) - 1; $i++) : ?>
+            <?php foreach ($template as $d) : ?>
             <div class="col-md-4 pt-4">
                 <div class="card text-center">
-                    <img src="/temp/<?= $template[$i]['file']; ?>" class="card-img-top">
-                    <div class="card-body py-3 px-3">
-                        <h5 class="card-title"><?= $template[$i]['title']; ?></h5>
-                        <p class="card-text">IDR <?= $template[$i]['estimated_price']; ?></p>
-                        <a href="/order/index/twitter_profile_needs/template_gif/<?= $template[$i]['id'] ?>" class="btn"
+                    <img src="/temp/<?= $d['file']; ?>" class="card-img-top">
+                    <div class="card-body py-3 px-3" style="height: 160px">
+                        <h5 class="card-title"><?= $d['title']; ?></h5>
+                        <p class="card-text">IDR <?= $d['estimated_price']; ?></p>
+                        <a href="/order/index/twitter_profile_needs/template_gif/<?= $d['id'] ?>" class="btn"
                             style="background-color: #DAA520; color:white; border-radius: 20px">ORDER</a>
                     </div>
                 </div>
             </div>
-            <?php endfor; ?>
+            <?php endforeach; ?>
         </div>
     </div>
     <!-- Optional JavaScript -->

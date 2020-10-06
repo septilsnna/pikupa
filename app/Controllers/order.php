@@ -22,6 +22,7 @@ class order extends BaseController
         $this->usersModel = new UsersModel();
         $this->templateModel = new TemplateGIFModel();
         $this->ordersModel = new OrdersModel();
+        $this->email = \Config\Services::email();
         $this->session = \Config\Services::session();
     }
 
@@ -58,27 +59,40 @@ class order extends BaseController
             ];
             if ($sub_category != null) {                                        // user udah pilih kategori -> pilih produk
                 if ($product_id != null) {                                    // user udah pilih kategori dan produk -> form
-                    $prods = null;
                     if ($sub_category == 'template_gif') {
                         $prods = $this->templateModel->getTemplate($product_id);
+                        $price = $prods[0]['price'];
+                        $detail = $prods[0]['title'];
                     } else {
                         $prods = $this->productsModel->getSubProduct($category, $sub_category);
+
+                        $price = $prods[0]['price'];
+                        // Harga Ilustrasi beda dari start-from
+                        if ($category == 'illustration') {
+                            if ($product_id == 'half_body') {
+                                $price += 25000;
+                                $detail = "Half Body";
+                            } else if ($product_id == 'full_body') {
+                                $price += 50000;
+                                $detail = "Full Body";
+                            } else {
+                                $detail = "Head Only";
+                            }
+                        } else {
+                            $detail = '-';
+                        }
                     }
 
-                    $price = $prods[0]['price'];
-                    // Harga Ilustrasi beda dari start-from
-                    if ($category == 'illustration') {
-                        if ($product_id == 'half_body') {
-                            $price += 25000;
-                        } else if ($product_id == 'full_body') {
-                            $price += 50000;
-                        }
-                    } // Harga Ilustrasi beda dari start-from
-
-                    $total = $price - ($price * $products[0]['discount'] / 100);
+                    // admin 2%
+                    $admin = 0.02 * $price;
+                    $diskon = ($price * $products[0]['discount']) / 100;
+                    $total = ($price + $admin) - $diskon;
                     //var_dump($total);
                     $data['id'] = $prods;
+                    $data['detail'] = $detail;
                     $data['price'] = $price;
+                    $data['admin'] = $admin;
+                    $data['diskon'] = $diskon;
                     $data['total'] = $total;
                     $data['validation'] = \Config\Services::validation();
                     $_SESSION['product_id'] = $product_id;
@@ -158,7 +172,7 @@ class order extends BaseController
             ->set(['stock' => $product[0]['stock'] - 1])
             ->update();
 
-        $total = $product[0]['price'] - ($product[0]['price'] * $product[0]['discount'] / 100);
+        $total = ((0.02 * $product[0]['price']) + $product[0]['price']) - ($product[0]['price'] * $product[0]['discount'] / 100);
 
         $order = count($this->ordersModel->getOrder()) + 1;
 
@@ -183,6 +197,20 @@ class order extends BaseController
         ];
 
         $this->ordersModel->insert($data);
+
+        // Notifikasi email ke user
+        $this->email->setFrom('pikuupa@gmail.com', 'Pikupa.id');
+        $this->email->setTo($user[0]['email']);
+        $this->email->setSubject('Pemesanan Diterima!');
+        $this->email->setMessage('<div style="font-family: Montserrat; text-align: center; padding-top: 50px; padding-bottom: 50px; font-size: 18px; color: #424242;">
+        <h3>Pesanan Kamu Telah Kami Terima!</h3>
+        <p>Hai Kak ' . $user[0]['name'] . ',</p>
+            <p>
+              Pesanan kakak berupa ' . $product[0]['sub_category_name'] . ' dengan kode pemesanan PKPA00' . $order . ' sedang kami review. Dalam beberapa waktu kedepan pantau terus email kakak ya, kami akan mengabarkan perkembangan status pemesanan kakak melalui email ini.
+              </p>
+              <h5>Terimakasih telah mempercayai Pikupa.id, Piku tunggu pesanan kakak selanjutnya!</h5>
+            </div>');
+        $this->email->send();
 
         return redirect()->to('/order/order_sucess/' . 'PKPA00' . $order);
     }
@@ -229,7 +257,7 @@ class order extends BaseController
             $price += 50000;
         }
 
-        $total = $price - ($price * $product[0]['discount'] / 100);
+        $total = ((0.02 * $product[0]['price']) + $product[0]['price']) - ($product[0]['price'] * $product[0]['discount'] / 100);
 
         $order = count($this->ordersModel->getOrder()) + 1;
 
@@ -252,6 +280,20 @@ class order extends BaseController
         ];
 
         $this->ordersModel->insert($data);
+
+        // Notifikasi email ke user
+        $this->email->setFrom('pikuupa@gmail.com', 'Pikupa.id');
+        $this->email->setTo($user[0]['email']);
+        $this->email->setSubject('Pemesanan Diterima!');
+        $this->email->setMessage('<div style="font-family: Montserrat; text-align: center; padding-top: 50px; padding-bottom: 50px; font-size: 18px; color: #424242;">
+        <h3>Pesanan Kamu Telah Kami Terima!</h3>
+        <p>Hai Kak ' . $user[0]['name'] . ',</p>
+            <p>
+              Pesanan kakak berupa ' . $product[0]['sub_category_name'] . ' dengan kode pemesanan PKPA00' . $order . ' sedang kami review. Dalam beberapa waktu kedepan pantau terus email kakak ya, kami akan mengabarkan perkembangan status pemesanan kakak melalui email ini.
+              </p>
+              <h5>Terimakasih telah mempercayai Pikupa.id, Piku tunggu pesanan kakak selanjutnya!</h5>
+            </div>');
+        $this->email->send();
 
         return redirect()->to('/order/order_sucess/' . 'PKPA00' . $order);
     }
@@ -291,7 +333,7 @@ class order extends BaseController
             ->set(['stock' => $product[0]['stock'] - 1])
             ->update();
 
-        $total = $product[0]['price'] - ($product[0]['price'] * $product[0]['discount'] / 100);
+        $total = ((0.02 * $product[0]['price']) + $product[0]['price']) - ($product[0]['price'] * $product[0]['discount'] / 100);
 
         $order = count($this->ordersModel->getOrder()) + 1;
 
@@ -314,6 +356,20 @@ class order extends BaseController
         ];
 
         $this->ordersModel->insert($data);
+
+        // Notifikasi email ke user
+        $this->email->setFrom('pikuupa@gmail.com', 'Pikupa.id');
+        $this->email->setTo($user[0]['email']);
+        $this->email->setSubject('Pemesanan Diterima!');
+        $this->email->setMessage('<div style="font-family: Montserrat; text-align: center; padding-top: 50px; padding-bottom: 50px; font-size: 18px; color: #424242;">
+        <h3>Pesanan Kamu Telah Kami Terima!</h3>
+        <p>Hai Kak ' . $user[0]['name'] . ',</p>
+            <p>
+              Pesanan kakak berupa ' . $product[0]['sub_category_name'] . ' dengan kode pemesanan PKPA00' . $order . ' sedang kami review. Dalam beberapa waktu kedepan pantau terus email kakak ya, kami akan mengabarkan perkembangan status pemesanan kakak melalui email ini.
+              </p>
+              <h5>Terimakasih telah mempercayai Pikupa.id, Piku tunggu pesanan kakak selanjutnya!</h5>
+            </div>');
+        $this->email->send();
 
         return redirect()->to('/order/order_sucess/' . 'PKPA00' . $order);
     }

@@ -97,7 +97,7 @@
     </div>
     <div class="row pt-3 pb-5 mx-0 justify-content-center text-center"
         style="background-color: rgba(254, 183, 36, 0.53);">
-        <div class="col align-self-center pb-5"><a href="/order/index/custom_design" class="btn"
+        <div class="col align-self-center pb-5"><a href="/order/index/illustration" class="btn"
                 style="background-color: #ffffff; color: #424242; border-radius: 20px">ORDER
                 HERE</a></div>
     </div>

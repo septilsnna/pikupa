@@ -34,10 +34,17 @@ class ConfigAdmin extends BaseController
     public function reject($id)
     {
         $param = $this->ordersModel->where('id', $id)->findAll();
+        $product = $this->productsModel->where('id', $param[0]['product_id'])->findAll();
 
         $this->ordersModel
             ->where('id', $id)
             ->set(['status' => 'Rejected'])
+            ->update();
+
+        // update stok yang tersedia
+        $this->productsModel
+            ->where('id', $param[0]['product_id'])
+            ->set(['stock' => $product[0]['stock'] + 1])
             ->update();
 
         $this->email->setFrom('pikuupa@gmail.com', 'Pikupa.id');

@@ -70,52 +70,72 @@
         <div class="row">
             <div class="col pt-3 px-lg-5">
                 <h3 style="font-weight: bold; font-size: 28px; color: #FEB724;">
-                    Pilih Jenisnya Yuk!</h3>
+                    Kamu Mau yang Mana?</h3>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col pt-3 px-lg-5">
                 <a href="/portofolios/index/illustration/0"><small class="text-secondary"
                         style="font-weight: normal; font-size: 16px; line-height: 29px; color: #424242; text-decoration-line: underline;">Lihat
                         Portofolio Kami Disini</small>
                 </a>
             </div>
-        </div>
-        <form action="/Config/order_outline" method="post">
-            <div class="row justify-content-center pt-3 px-lg-5">
-                <nav aria-label="Size navigation">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <input type="hidden" name="oHead" id="oHead" value="head"></input>
-                            <label for="oHead" type="button" class="btn" id="oH" onclick="oHead()"
-                                style="background-color: #FEB724; box-sizing: border-box; color:#424242">Head
-                            </label>
-                        </li>
-                        <li class="page-item">
-                            <input type="hidden" name="oHalfBody" id="oHalfBody"></input>
-                            <label for="oHalfBody" type="button" class="btn" id="oHB" onclick="oHalfBody()"
-                                style="background-color: rgba(225, 225, 225, 0.5); box-sizing: border-box; color:#424242">Half
-                                Body
-                            </label>
-                        </li>
-                        <li class="page-item">
-                            <input type="hidden" name="oFullBody" id="oFullBody"></input>
-                            <label for="oFullBody" type="button" class="btn" id="oFB" onclick="oFullBody()"
-                                style="background-color: rgba(225, 225, 225, 0.5); box-sizing: border-box; color:#424242">Full
-                                Body
-                            </label>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="container my-5" id="size" style="background-color: #424242; height: 300px; width: 300px">
-                <div class="row-md">
-
+        </div> -->
+        <div class="row my-4">
+            <div class="col-md-4 pt-4">
+                <div class="card shadow bg-white">
+                    <div class="container px-0" style="background-color: #424242; height: 250px;">
+                        <!-- <img src="/img/twittercard.png" style="width: 100%;"> -->
+                    </div>
+                    <div class="card-body text-center py-3 px-3" style="height: 200px">
+                        <h5 class="card-title pt-4" style="font-size: 24px; font-weight: bold">
+                            HEAD
+                        </h5>
+                        <p style="font-size: 18px;">IDR 25K<strong style="color: red;">*</strong></p>
+                        <a href="/order/index/illustration/outline/head" class="btn"
+                            style="background-color: #DAA520; color:white; border-radius: 20px">ORDER</a>
+                    </div>
                 </div>
             </div>
-            <button type="submit" class="btn"
-                style="background-color: #DAA520; color:white; border-radius: 20px">ORDER</button>
-        </form>
+            <div class="col-md-4 pt-4">
+                <div class="card shadow bg-white">
+                    <div class="container px-0" style="background-color: #424242; height: 250px;">
+                        <!-- <img src="/img/twittercard.png" style="width: 100%;"> -->
+                    </div>
+                    <div class="card-body text-center py-3 px-3" style="height: 200px">
+                        <h5 class="card-title pt-4" style="font-size: 24px; font-weight: bold">
+                            HALF BODY
+                        </h5>
+                        <p style="font-size: 18px;">IDR 50K<strong style="color: red;">*</strong></p>
+                        <a href="/order/index/illustration/outline/half_body" class="btn"
+                            style="background-color: #DAA520; color:white; border-radius: 20px">ORDER</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 pt-4">
+                <div class="card shadow bg-white">
+                    <div class="container px-0" style="background-color: #424242; height: 250px;">
+                        <!-- <img src="/img/twittercard.png" style="width: 100%;"> -->
+                    </div>
+                    <div class="card-body text-center py-3 px-3" style="height: 200px">
+                        <h5 class="card-title pt-4" style="font-size: 24px; font-weight: bold">
+                            FULL BODY
+                        </h5>
+                        <p style="font-size: 18px;">IDR 75K<strong style="color: red;">*</strong></p>
+                        <a href="/order/index/illustration/outline/full_body" class="btn"
+                            style="background-color: #DAA520; color:white; border-radius: 20px">ORDER</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row px-3 my-4 text-left">
+            <p><small><strong style="color: red;">*</strong>harga perhead & free background warna plain (bisa request
+                    warna)<br>- karakter tambahan dikenakan
+                    biaya IDR 9K/karakter<br>- tambahan ilustrasi background dikenakan biaya IDR 10K<br>untuk
+                    penambahan karakter maupun
+                    tambahan ilustrasi background dapat dilakukan pada saat berdiskusi dengan editor
+                    setelah pengisian form</small></p>
+        </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -136,37 +156,6 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-    </script>
-    <script>
-    function oHead() {
-        document.getElementById("size").style.width = '300px';
-        document.getElementById('oH').style.backgroundColor = '#FEB724';
-        document.getElementById('oHB').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
-        document.getElementById('oFB').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
-        document.getElementById('oHead').value = 'head';
-        document.getElementById('oHalfBody').value = '';
-        document.getElementById('oFullBody').value = '';
-    }
-
-    function oHalfBody() {
-        document.getElementById("size").style.width = '400px';
-        document.getElementById('oH').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
-        document.getElementById('oHB').style.backgroundColor = '#FEB724';
-        document.getElementById('oFB').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
-        document.getElementById('oHead').value = '';
-        document.getElementById('oHalfBody').value = 'half_body';
-        document.getElementById('oFullBody').value = '';
-    }
-
-    function oFullBody() {
-        document.getElementById("size").style.width = '500px';
-        document.getElementById('oH').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
-        document.getElementById('oHB').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
-        document.getElementById('oFB').style.backgroundColor = '#FEB724';
-        document.getElementById('oHead').value = '';
-        document.getElementById('oHalfBody').value = '';
-        document.getElementById('oFullBody').value = 'full_body';
-    }
     </script>
 </body>
 

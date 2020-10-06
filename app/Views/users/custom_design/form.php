@@ -86,17 +86,26 @@
                                         <?= $product[0]['sub_category_name']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td scope="col" style="text-align: left">Harga (DP)</td>
-                                    <td style="text-align: right; font-weight: bold">Rp <?= $id[0]['price']; ?></td>
+                                    <td scope="col" style="text-align: left">Detail</td>
+                                    <td style="text-align: right; font-weight: bold">
+                                        <?= $detail; ?></td>
+                                </tr>
+                                <tr>
+                                    <td scope="col" style="text-align: left">Harga</td>
+                                    <td style="text-align: right; font-weight: bold">Rp<?= $price; ?></td>
+                                </tr>
+                                <tr>
+                                    <td scope="col" style="text-align: left">Biaya Admin</td>
+                                    <td style="text-align: right; font-weight: bold">Rp<?= $admin; ?></td>
                                 </tr>
                                 <tr style="border-bottom-style: solid;">
                                     <td scope="col" style="text-align: left">Diskon</td>
-                                    <td style="text-align: right; font-weight: bold"><?= $product[0]['discount']; ?>%
+                                    <td style="text-align: right; font-weight: bold">Rp<?= $product[0]['discount']; ?>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td scope="col" style="text-align: left">Total Pembayaran Awal</td>
-                                    <td style="text-align: right; font-weight: bold">Rp <?= $total; ?></td>
+                                    <td style="text-align: right; font-weight: bold">Rp<?= $total; ?></td>
                                 </tr>
                             </table>
                             <div class="form-group row text-justify my-5 mx-2">

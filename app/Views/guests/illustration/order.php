@@ -33,9 +33,9 @@
                         <a class="dropdown-item" href="/portofolios/index/twitter_profile_needs/11"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile
                             Needs</a>
-                        <a class="dropdown-item disabled" href="/portofolios/index/illustration/0"
+                        <a class="dropdown-item" href="/portofolios/index/illustration/0"
                             style="background-color:#f7f7f7; color:#424242">Illustration</a>
-                        <a class="dropdown-item disabled" href="/portofolios/index/custom_design/0"
+                        <a class="dropdown-item" href="/portofolios/index/custom_design/0"
                             style="background-color:#f7f7f7; color:#424242">Custom
                             Design</a>
                     </div>
@@ -49,7 +49,7 @@
                         style="border: none; padding:15px">
                         <a class="dropdown-item" href="/order/index/twitter_profile_needs"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile Needs</a>
-                        <a class="dropdown-item disabled" href="/order/index/illustration"
+                        <a class="dropdown-item" href="/order/index/illustration"
                             style="background-color:#f7f7f7; color:#424242">Illustration</a>
                         <a class="dropdown-item" href="/order/index/custom_design"
                             style="background-color:#f7f7f7; color:#424242">Custom Design</a>
@@ -85,21 +85,33 @@
         <div class="row pb-5 align-items-center">
             <?php foreach ($categories as $d) : ?>
             <div class="col-md-4 pt-4">
-                <div class="card text-center shadow bg-white">
-                    <div class="container" id="size" style="background-color: #424242; height: 250px;">
+                <div class="card shadow bg-white">
+                    <div class="container px-0" style="background-color: #424242; height: 250px;">
+                        <div class="row justify-content-end">
+                            <div class="col-md-7">
+                                <div class="container"
+                                    style="font-size: 16px; background-color: #feb724; padding-top: 5px; padding-bottom:5px">
+                                    <?php if ($d['stock'] == 0) : ?>
+                                    Slot Habis
+                                    <?php else : ?>
+                                    <?= $d['stock']; ?> Slot Tersedia
+                                    <?php endif ?>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <img src="/img/twittercard.png" style="width: 100%;"> -->
                     </div>
-                    <div class="card-body py-3 px-3" style="height: 250px;">
-                        <h5 class="card-title pt-4" style="font-weight: bold"><?= $d['sub_category_name']; ?>
+                    <div class="card-body text-center py-3 px-3" style="height: 400px;">
+                        <h5 class="card-title pt-4" style="font-size: 24px; font-weight: bold">
+                            <?= $d['sub_category_name']; ?>
                         </h5>
                         <p class="card-text"><?= $d['description']; ?></p>
+                        <p style="font-size: 18px;">Start from: IDR <?= $d['estimated_price']; ?></p>
                         <?php if ($d['stock'] == 0) : ?>
-                        <p><?= $d['stock']; ?> Slot Tersedia:</p>
                         <button type="button" class="btn"
                             style="background-color: #DAA520; color:white; border-radius: 20px" disabled>OUT OF
                             STOCK</button>
                         <?php else : ?>
-                        <p><?= $d['stock']; ?> Slot Tersedia</p>
-                        <p style="font-size: 12px;">Start from IDR <?= $d['estimated_price']; ?></p>
                         <a href="/order/index/illustration/<?= $d['sub_category'] ?>" class="btn"
                             style="background-color: #DAA520; color:white; border-radius: 20px">ORDER HERE</a>
                         <?php endif; ?>
