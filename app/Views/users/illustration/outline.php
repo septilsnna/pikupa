@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="<?= base_url() ?>/pikupa_favicon.png" type="image/gif">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Outline Illustration - PIKUPA</title>
@@ -129,12 +130,13 @@
             </div>
         </div>
         <div class="row px-3 my-4 text-left">
-            <p><small><strong style="color: red;">*</strong>harga perhead & free background warna plain (bisa request
-                    warna)<br>- karakter tambahan dikenakan
-                    biaya IDR 9K/karakter<br>- tambahan ilustrasi background dikenakan biaya IDR 10K<br>untuk
-                    penambahan karakter maupun
-                    tambahan ilustrasi background dapat dilakukan pada saat berdiskusi dengan editor
-                    setelah pengisian form</small></p>
+            <p class="font-italic"><strong style="color: red;">*</strong>harga perhead & free background warna plain
+                (bisa request
+                warna)<br>- karakter tambahan dikenakan
+                biaya IDR 9K/karakter<br>- tambahan ilustrasi background dikenakan biaya IDR 10K<br>untuk
+                penambahan karakter maupun
+                tambahan ilustrasi background dapat dilakukan pada saat berdiskusi dengan editor
+                setelah pengisian form</p>
         </div>
     </div>
     <!-- Optional JavaScript -->

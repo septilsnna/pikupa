@@ -125,6 +125,11 @@ class register extends BaseController
         return redirect()->to('/register');
     }
 
+    public function SignUpWithTwitter($callbackURL)
+    {
+        echo "CallbackURL";
+    }
+
     //--------------------------------------------------------------------
 
 }

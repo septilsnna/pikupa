@@ -1,5 +1,13 @@
 {
     "name": "google/login",
-    "description": "google login",
-    "require": {}
+    "description": "google login pikupa",
+    "authors": [
+        {
+            "name": "septilsnna",
+            "email": "43660194+septilsnna@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "google/apiclient": "2.0"
+    }
 }

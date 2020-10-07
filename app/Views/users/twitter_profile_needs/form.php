@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="<?= base_url() ?>/pikupa_favicon.png" type="image/gif">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Form Order Twitter Profile Needs - PIKUPA</title>
@@ -100,8 +101,9 @@
                                     <td style="text-align: right; font-weight: bold">Rp<?= $admin; ?></td>
                                 </tr>
                                 <tr style="border-bottom-style: solid;">
-                                    <td scope="col" style="text-align: left">Diskon</td>
-                                    <td style="text-align: right; font-weight: bold">Rp<?= $product[0]['discount']; ?>
+                                    <td scope="col" style="text-align: left">Diskon <?= $product[0]['discount']; ?>%
+                                    </td>
+                                    <td style="text-align: right; font-weight: bold">Rp<?= $diskon; ?>
                                     </td>
                                 </tr>
                                 <tr>

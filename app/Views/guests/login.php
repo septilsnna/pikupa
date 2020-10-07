@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="<?= base_url() ?>/pikupa_favicon.png" type="image/gif">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Login - PIKUPA</title>
@@ -21,8 +22,8 @@
                 </div>
             </div>
             <div class="col-md-7 my-2 px-5">
-                <form action="/login/config" method="post">
-                    <div class="card px-2 shadow p-3 mb-5 bg-white">
+                <div class="card px-2 shadow p-3 mb-5 bg-white">
+                    <form action="/login/config" method="post">
                         <div class="card-body">
                             <div class="form-group row px-3">
                                 <h3>Welcome back!</h3>
@@ -88,12 +89,28 @@
                             <div class="form-group row px-3 pt-4 justify-content-center">
                                 <div class="col-md-5">
                                     <button type="submit" class="btn btn-block"
-                                        style="font-weight: bold; background-color: #FEB724; border-radius: 20px">Login</button>
+                                        style="font-weight: bold; background-color: #FEB724; border-radius: 20px">Login
+                                        Me
+                                        Up</button>
                                 </div>
                             </div>
+                            <?php if (isset($googleLogin)) : ?>
+                            <div class="row justify-content-center">
+                                <a href="<?= $googleLogin ?>" class="btn mx-2 mb-3" role="button"
+                                    style="font-weight: bold; width: 250px; background-color: #fafafa; border-radius: 20px; border-color:gray"><img
+                                        class="mx-2" src="/logo/google_login.png" style="width:10%">Login With
+                                    Google</a>
+                            </div>
+                            <?php endif ?>
+                            <div class="row justify-content-center">
+                                <a href="/login/LoginWithTwitter" class="btn mx-2 mb-3" role="button"
+                                    style="font-weight: bold; width: 250px; background-color: #fafafa; border-radius: 20px; border-color:gray"><img
+                                        class="mx-2" src="/logo/twitter_login.png" style="width:10%">Login With
+                                    Twitter</a>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
                 <!-- Modal -->
                 <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle"
                     aria-hidden="true">
@@ -130,18 +147,6 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="col-md-6 px-5 mb-5 mt-3">
-                <div class="row justify-content-center">
-                    <a href="" class="btn mx-2 mb-3"
-                        style="background-color: #5AAAF4; color: #ffffff; border-radius: 10px"><img class="mx-2"
-                            src="/img/twitter.png" style="width:5%">Sign
-                        In With Twitter</a>
-                    <a href="" class="btn mx-2 mb-3"
-                        style="background-color: #fafafa; color: #424242; border-radius: 10px; border-color:#424242"><img
-                            class="mx-2" src="/img/google.png" style="width:3%">Sign
-                        In With Google</a>
-                </div>
-            </div>-->
         </div>
     </div>
 

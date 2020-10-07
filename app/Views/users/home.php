@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="<?= base_url() ?>/pikupa_favicon.png" type="image/gif">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -83,18 +84,18 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="/promotions/<?= $promotions[1]['file'] ?>"
-                    alt="<?= $promotions[1]['title'] ?>">
+                <img class="d-block w-100" src="/promotions/<?= $promotions[3]['file'] ?>"
+                    alt="<?= $promotions[3]['title'] ?>">
             </div>
 
             <div class="carousel-item">
-                <img class="d-block w-100" src="/promotions/<?= $promotions[0]['file'] ?>"
-                    alt="<?= $promotions[1]['title'] ?>">
+                <img class="d-block w-100" src="/promotions/<?= $promotions[2]['file'] ?>"
+                    alt="<?= $promotions[2]['title'] ?>">
             </div>
 
             <div class="carousel-item">
-                <img class="d-block w-100" src="/promotions/<?= $promotions[1]['file'] ?>"
-                    alt="<?= $promotions[1]['title'] ?>">
+                <img class="d-block w-100" src="/promotions/<?= $promotions[3]['file'] ?>"
+                    alt="<?= $promotions[3]['title'] ?>">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
