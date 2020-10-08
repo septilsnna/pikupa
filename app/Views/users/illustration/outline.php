@@ -85,9 +85,7 @@
         <div class="row my-4">
             <div class="col-md-4 pt-4">
                 <div class="card shadow bg-white">
-                    <div class="container px-0" style="background-color: #424242; height: 250px;">
-                        <!-- <img src="/img/twittercard.png" style="width: 100%;"> -->
-                    </div>
+                    <img src="/catalog/head_only_outline.jpg" class="card-img-top">
                     <div class="card-body text-center py-3 px-3" style="height: 200px">
                         <h5 class="card-title pt-4" style="font-size: 24px; font-weight: bold">
                             HEAD
@@ -100,9 +98,7 @@
             </div>
             <div class="col-md-4 pt-4">
                 <div class="card shadow bg-white">
-                    <div class="container px-0" style="background-color: #424242; height: 250px;">
-                        <!-- <img src="/img/twittercard.png" style="width: 100%;"> -->
-                    </div>
+                    <img src="/catalog/waist_up_outline.jpg" class="card-img-top">
                     <div class="card-body text-center py-3 px-3" style="height: 200px">
                         <h5 class="card-title pt-4" style="font-size: 24px; font-weight: bold">
                             HALF BODY
@@ -115,9 +111,7 @@
             </div>
             <div class="col-md-4 pt-4">
                 <div class="card shadow bg-white">
-                    <div class="container px-0" style="background-color: #424242; height: 250px;">
-                        <!-- <img src="/img/twittercard.png" style="width: 100%;"> -->
-                    </div>
+                    <img src="/catalog/full-body-outline.jpg" class="card-img-top">
                     <div class="card-body text-center py-3 px-3" style="height: 200px">
                         <h5 class="card-title pt-4" style="font-size: 24px; font-weight: bold">
                             FULL BODY

@@ -1,4 +1,3 @@
-</html>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +7,7 @@
     <link rel="icon" href="<?= base_url() ?>/pikupa_favicon.png" type="image/gif">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
     <title>Order Twitter Profile Needs - PIKUPA</title>
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" style="color:#424242;">
         <a class="navbar-brand px-4 mx-5 justify-content-end" href="/home/index"><img src="/logo/logo.png" height="30"
@@ -97,21 +97,20 @@
             <?php foreach ($categories as $d) : ?>
             <div class="col-md-4 pt-4">
                 <div class="card shadow bg-white">
-                    <div class="container px-0" style="background-color: #424242; height: 250px;">
-                        <div class="row justify-content-end">
-                            <div class="col-md-7">
-                                <div class="container"
-                                    style="font-size: 16px; background-color: #feb724; padding-top: 5px; padding-bottom:5px">
-                                    <?php if ($d['stock'] == 0) : ?>
-                                    Slot Habis
-                                    <?php else : ?>
-                                    <?= $d['stock']; ?> Slot Tersedia
-                                    <?php endif ?>
-                                </div>
+                    <div class="row" style="position: absolute; z-index: 2; right:0px;">
+                        <div class="col-md">
+                            <div class="container"
+                                style="font-size: 16px; background-color: #feb724; padding-top: 5px; padding-bottom:5px">
+                                <?php if ($d['stock'] == 0) : ?>
+                                Slot Habis
+                                <?php else : ?>
+                                <?= $d['stock']; ?> Slot Tersedia
+                                <?php endif ?>
                             </div>
                         </div>
-                        <!-- <img src="/img/twittercard.png" style="width: 100%;"> -->
                     </div>
+                    <img src="/porto/21/1601631278_6d7729fc43718b981c2f.gif" style="position: relative; z-index: 1"
+                        class="card-img-top">
                     <div class="card-body text-center py-3 px-3" style="height: 300px;">
                         <h5 class="card-title pt-4" style="font-size: 24px; font-weight: bold">
                             <?= $d['sub_category_name']; ?>

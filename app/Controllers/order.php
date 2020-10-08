@@ -242,11 +242,11 @@ class order extends BaseController
         $judul = $file->getRandomName();                // generate nama random
         $file->move('invoices', $judul);                 // pindahkan ke folder invoice
 
-        $product = $this->productsModel->getSubProduct('illustration', $sub_category);
+        $product = $this->productsModel->getProduct('illustration');
 
         // update stok yang tersedia
         $this->productsModel
-            ->where('sub_category', $sub_category)
+            ->where('category', 'illustration')
             ->set(['stock' => $product[0]['stock'] - 1])
             ->update();
 

@@ -28,11 +28,8 @@ class about extends BaseController
         }
 
         // jumlah slot illustration
-        $i = $this->productsModel->where('category', 'illustration')->findAll();
-        $ji = 0;
-        foreach ($i as $v) {
-            $ji += $v['stock'];
-        }
+        $i = $this->productsModel->getProduct('illustration');
+        $ji = $i[0]['stock'];
 
         // jumlah slot custom_design
         $cd = $this->productsModel->where('category', 'custom_design')->findAll();

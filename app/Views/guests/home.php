@@ -184,8 +184,7 @@
         <div class="row align-items-center">
             <div class="col-md pt-4">
                 <div class="card text-center shadow bg-white">
-                    <div class="container" id="size" style="background-color: #424242; height: 250px;">
-                    </div>
+                    <img src="/catalog/twitter-versi-diskon.jpg" class="card-img-top">
                     <div class="card-body py-2 px-3" style="height: 260px;">
                         <h5 class="card-title pt-3" style="font-weight: bold">Twitter Profile Needs</h5>
                         <p class="card-text">Kami menyediakan jasa desain untuk membuat akun kamu makin terlihat cantik
@@ -208,15 +207,14 @@
             </div>
             <div class="col-md pt-4">
                 <div class="card text-center shadow bg-white">
-                    <div class="container" id="size" style="background-color: #424242; height: 250px;">
-                    </div>
+                    <img src="/catalog/illustration.jpg" class="card-img-top">
                     <div class="card-body py-3 px-3" style="height: 260px;">
                         <h5 class="card-title pt-3" style="font-weight: bold">Illustration</h5>
                         <p class="card-text">Kami menyediakan jasa desain untuk membuat ilustrasi.</p>
                         <?php if ($ji >= 0) : ?>
                         <?php if ($ji > 0) : ?>
                         <p>Slot tersedia: <?= $ji; ?></p>
-                        <a href="/order/index/twitter_profile_needs" class="btn"
+                        <a href="/order/index/illustration" class="btn"
                             style="background-color: #DAA520; color:white; border-radius: 20px">ORDER HERE</a>
                         <?php else : ?>
                         <p>Slot tersedia: <?= $ji; ?></p>
@@ -231,15 +229,14 @@
             </div>
             <div class="col-md pt-4">
                 <div class="card text-center shadow bg-white">
-                    <div class="container" id="size" style="background-color: #424242; height: 250px;">
-                    </div>
+                    <img src="/catalog/custom.jpg" class="card-img-top">
                     <div class="card-body py-3 px-3" style="height: 260px;">
                         <h5 class="card-title pt-3" style="font-weight: bold">Custom Design</h5>
                         <p class="card-text">Kami juga menyediakan jasa desain custom sesuai dengan kebutuhan.</p>
                         <?php if ($jcd >= 0) : ?>
                         <?php if ($jcd > 0) : ?>
                         <p>Slot tersedia: <?= $jcd; ?></p>
-                        <a href="/order/index/twitter_profile_needs" class="btn"
+                        <a href="/order/index/custom_design" class="btn"
                             style="background-color: #DAA520; color:white; border-radius: 20px">ORDER HERE</a>
                         <?php else : ?>
                         <p>Slot tersedia: <?= $jcd; ?></p>

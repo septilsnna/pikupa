@@ -33,10 +33,7 @@ class home extends BaseController
 
 		// jumlah slot illustration
 		$i = $this->productsModel->getProduct('illustration');
-		$ji = 0;
-		foreach ($i as $v) {
-			$ji += $v['stock'];
-		}
+		$ji = $i[0]['stock'];
 
 		// jumlah slot custom_design
 		$cd = $this->productsModel->getProduct('custom_design');
