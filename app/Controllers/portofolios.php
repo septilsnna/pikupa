@@ -18,7 +18,7 @@ class portofolios extends BaseController
 
     public function index($param, $id)
     {
-        if ($param != 'twitter_profile_needs') {
+        if ($param == 'custom_design') {
             $porto = $this->portofoliosModel->where('category', $param)->findAll();
         } else {
             $porto = $this->portofoliosModel->getPortofolio($param, $id);

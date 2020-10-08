@@ -59,8 +59,8 @@
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <div class="navbar-nav">
-                <a class="nav-link px-2" role="button" href="/login">Login</a>
-                <a class="nav-link px-2" role="button" href="/register">Sign Up</a>
+                <a class="nav-link px-2" role="button" href="/profile/index">Halo, <?= $nama; ?>!</a>
+                <a class="nav-link px-2" role="button" href="/Config/logout">LOGOUT</a>
             </div>
         </div>
     </nav>
@@ -78,40 +78,40 @@
         <div class="row">
             <div class="col pt-3 px-lg-5">
                 <h5><small class="text-secondary"
-                        style="font-weight: normal; font-size: 16px; line-height: 29px; color: #424242;">Custom
-                        Design</small>
+                        style="font-weight: normal; font-size: 16px; line-height: 29px; color: #424242;">Illustration</small>
                 </h5>
             </div>
         </div>
-        <!-- <div class="row justify-content-center">
+        <div class="row justify-content-center pt-3 px-lg-5">
+            <nav aria-label="Size navigation">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link px-4" href="/portofolios/index/illustration/full_color"
+                            style="font-weight: bold; background-color: rgba(225, 225, 225, 0.5); border: 1px solid rgba(0, 0, 0, 0.05); color:#424242">FULL
+                            COLOR</a></li>
+                    <li class="page-item active"><a class="page-link px-4"
+                            href="/portofolios/index/illustration/outline"
+                            style="font-weight: bold; background-color: #FEB724; border: 1px solid rgba(0, 0, 0, 0.05); color:#424242">OUTLINE
+                            ONLY<span class="sr-only">(current)</span></a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="row justify-content-center">
             <?php foreach ($portofolios as $d) : ?>
             <div class="col-md-4 py-4">
                 <img src="/porto/<?= $d['note'] ?>/<?= $d['file']; ?>" class="card-img-top">
             </div>
             <?php endforeach; ?>
-        </div> -->
-        <div class="pt-3 " style="columns: 3; column-gap: 16px;">
-            <?php for ($i = 1; $i < 24; $i++) : ?>
-            <div style="display: inline-block; position: relative; margin-bottom: 16px;">
-                <img style="width: 100%; border-radius: 5px;" src="https://source.unsplash.com/random/<?= $i ?>">
-                <div
-                    style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; padding: 30px 30px; color: #fff; flex-direction: column;">
-                    <h1 style="font-size: 28px; font-weight: bold; margin: 0px 0px 10px 0px; text-align:start">Poster
-                    </h1>
-                </div>
-            </div>
-            <?php endfor; ?>
         </div>
     </div>
     <div class="row mt-5 pt-5 pb-2 mx-0 justify-content-center text-center"
         style="background-color: rgba(254, 183, 36, 0.53);">
         <div class="col align-self-center pt-5 px-5">
-            <h2 style="color: #424242;">Mau punya produk desain kayak di atas?<br>Pesan sekarang juga!</h2>
+            <h2 style="color: #424242;">Mau punya ilustrasi desain kayak di atas?<br>Pesan sekarang juga!</h2>
         </div>
     </div>
     <div class="row pt-3 pb-5 mx-0 justify-content-center text-center"
         style="background-color: rgba(254, 183, 36, 0.53);">
-        <div class="col align-self-center pb-5"><a href="/order/index/custom_design" class="btn"
+        <div class="col align-self-center pb-5"><a href="/order/index/illustration" class="btn"
                 style="background-color: #ffffff; color: #424242; border-radius: 20px">ORDER
                 HERE</a></div>
     </div>

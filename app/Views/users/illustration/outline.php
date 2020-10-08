@@ -76,7 +76,7 @@
         </div>
         <div class="row">
             <div class="col pt-3 px-lg-5">
-                <a href="/portofolios/index/illustration/full_color"><small class="text-secondary"
+                <a href="/portofolios/index/illustration/outline"><small class="text-secondary"
                         style="font-weight: normal; font-size: 16px; line-height: 29px; color: #424242; text-decoration-line: underline;">Lihat
                         Portofolio Kami Disini</small>
                 </a>

@@ -82,6 +82,19 @@
                 </h5>
             </div>
         </div>
+        <div class="row justify-content-center pt-3 px-lg-5">
+            <nav aria-label="Size navigation">
+                <ul class="pagination">
+                    <li class="page-item active"><a class="page-link px-4"
+                            href="/portofolios/index/illustration/full_color"
+                            style="font-weight: bold; background-color: #FEB724; border: 1px solid rgba(0, 0, 0, 0.05); color:#424242">FULL
+                            COLOR<span class="sr-only">(current)</span></a></li>
+                    <li class="page-item"><a class="page-link px-4" href="/portofolios/index/illustration/outline"
+                            style="font-weight: bold; background-color: rgba(225, 225, 225, 0.5); border: 1px solid rgba(0, 0, 0, 0.05); color:#424242">OUTLINE
+                            ONLY</a></li>
+                </ul>
+            </nav>
+        </div>
         <div class="row justify-content-center">
             <?php foreach ($portofolios as $d) : ?>
             <div class="col-md-4 py-4">
