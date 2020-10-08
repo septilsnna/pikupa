@@ -146,7 +146,7 @@ class ConfigAdmin extends BaseController
 
     public function add_portofolios()
     {
-        if ($this->request->getVar('category') != 'twitter_profile_needs') {
+        if ($this->request->getVar('category') == 'custom_design') {
             $note = $this->request->getVar('category');
         } else {
             $note = $this->request->getVar('note');

@@ -42,7 +42,7 @@
                         <a class="dropdown-item" href="/portofolios/index/twitter_profile_needs/11"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile
                             Needs</a>
-                        <a class="dropdown-item" href="/portofolios/index/illustration/0"
+                        <a class="dropdown-item" href="/portofolios/index/illustration/full_color"
                             style="background-color:#f7f7f7; color:#424242">Illustration</a>
                         <a class="dropdown-item" href="/portofolios/index/custom_design/0"
                             style="background-color:#f7f7f7; color:#424242">Custom

@@ -59,8 +59,8 @@
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <div class="navbar-nav">
-                <a class="nav-link px-2" role="button" href="/profile/index">Halo, <?= $nama; ?>!</a>
-                <a class="nav-link px-2" role="button" href="/Config/logout">LOGOUT</a>
+                <a class="nav-link px-2" role="button" href="/login">Login</a>
+                <a class="nav-link px-2" role="button" href="/register">Sign Up</a>
             </div>
         </div>
     </nav>
@@ -81,6 +81,19 @@
                         style="font-weight: normal; font-size: 16px; line-height: 29px; color: #424242;">Illustration</small>
                 </h5>
             </div>
+        </div>
+        <div class="row justify-content-center pt-3 px-lg-5">
+            <nav aria-label="Size navigation">
+                <ul class="pagination">
+                    <li class="page-item active"><a class="page-link px-4"
+                            href="/portofolios/index/illustration/full_color"
+                            style="font-weight: bold; background-color: #FEB724; border: 1px solid rgba(0, 0, 0, 0.05); color:#424242">FULL
+                            COLOR<span class="sr-only">(current)</span></a></li>
+                    <li class="page-item"><a class="page-link px-4" href="/portofolios/index/illustration/1"
+                            style="font-weight: bold; background-color: rgba(225, 225, 225, 0.5); border: 1px solid rgba(0, 0, 0, 0.05); color:#424242">OUTLINE
+                            ONLY</a></li>
+                </ul>
+            </nav>
         </div>
         <div class="row justify-content-center">
             <?php foreach ($portofolios as $d) : ?>

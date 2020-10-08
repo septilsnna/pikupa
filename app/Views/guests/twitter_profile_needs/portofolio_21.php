@@ -33,7 +33,7 @@
                         <a class="dropdown-item" href="/portofolios/index/twitter_profile_needs/11"
                             style="background-color:#f7f7f7; color:#424242">Twitter Profile
                             Needs</a>
-                        <a class="dropdown-item" href="/portofolios/index/illustration/0"
+                        <a class="dropdown-item" href="/portofolios/index/illustration/full_color"
                             style="background-color:#f7f7f7; color:#424242">Illustration</a>
                         <a class="dropdown-item" href="/portofolios/index/custom_design/0"
                             style="background-color:#f7f7f7; color:#424242">Custom
@@ -86,14 +86,15 @@
         <div class="row justify-content-center pt-3 px-lg-5">
             <nav aria-label="Size navigation">
                 <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="/portofolios/index/twitter_profile_needs/11"
-                            style="background-color: rgba(225, 225, 225, 0.5); border: 1px solid rgba(0, 0, 0, 0.2); box-sizing: border-box; color:#424242">1
+                    <li class="page-item"><a class="page-link px-4" href="/portofolios/index/twitter_profile_needs/11"
+                            style="font-weight: bold; background-color: rgba(225, 225, 225, 0.5); border: 1px solid rgba(0, 0, 0, 0.05); color:#424242">1
                             : 1</a></li>
-                    <li class="page-item active"><a class="page-link" href="/portofolios/index/twitter_profile_needs/21"
-                            style="background-color: #FEB724; border: 1px solid rgba(0, 0, 0, 0.2); box-sizing: border-box; color:#424242">2
+                    <li class="page-item active"><a class="page-link px-4"
+                            href="/portofolios/index/twitter_profile_needs/21"
+                            style="font-weight: bold; background-color: #FEB724; border: 1px solid rgba(0, 0, 0, 0.05); color:#424242">2
                             : 1 <span class="sr-only">(current)</span></a></li>
-                    <li class="page-item"><a class="page-link" href="/portofolios/index/twitter_profile_needs/31"
-                            style="background-color: rgba(225, 225, 225, 0.5); border: 1px solid rgba(0, 0, 0, 0.2); box-sizing: border-box; color:#424242">3
+                    <li class="page-item"><a class="page-link px-4" href="/portofolios/index/twitter_profile_needs/31"
+                            style="font-weight: bold; background-color: rgba(225, 225, 225, 0.5); border: 1px solid rgba(0, 0, 0, 0.05); color:#424242">3
                             : 1</a></li>
                 </ul>
             </nav>
