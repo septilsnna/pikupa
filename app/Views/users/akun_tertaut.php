@@ -78,10 +78,10 @@
         <div class="row px-3">
             <div class="col-md-4 my-4">
                 <a href="/profile/edit_profile" class="btn btn-block py-4 my-0"
-                    style="border-radius: 0px; font-weight: bold; border-color: #424242;">KELOLA
+                    style="background-color: rgba(225, 225, 225, 0.1); font-weight: bold; border: 1px solid rgba(0, 0, 0, 0.1); border-radius:0px">KELOLA
                     AKUN</a>
                 <a href="/profile/connection" class="btn btn-block py-4 my-0"
-                    style="background-color: #FEB724; border-radius: 0px; font-weight: bold; border-color: #424242; border-top-color: transparent;">AKUN
+                    style="background-color: #FEB724; font-weight: bold; border: 1px solid rgba(0, 0, 0, 0.1); border-radius:0px">AKUN
                     TERTAUT</a>
             </div>
             <div class="col-md-8 my-4">

@@ -78,13 +78,47 @@
         <div class="row px-3">
             <div class="col-md-4 my-4">
                 <a href="/profile/edit_profile" class="btn btn-block py-4 my-0"
-                    style="background-color: #FEB724; border-radius: 0px; font-weight: bold; border-color: #424242; border-bottom-color: transparent;">KELOLA
+                    style="background-color: #FEB724; font-weight: bold; border: 1px solid rgba(0, 0, 0, 0.1); border-radius:0px">KELOLA
                     AKUN</a>
-                <a href="/profile/connection" class="btn btn-block py-4 my-0"
-                    style="border-radius: 0px; font-weight: bold; border-color: #424242">AKUN
+                <a href="/profile/connection" class="btn btn-block py-4 my-0 disabled"
+                    style="background-color: rgba(225, 225, 225, 0.1); font-weight: bold; border: 1px solid rgba(0, 0, 0, 0.1); border-radius:0px">AKUN
                     TERTAUT</a>
             </div>
             <div class="col-md-8 my-4">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr style="background-color: #DFDFDF">
+                            <th class="px-5 py-3" scope="col">Ubah Nama</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th class="px-5 py-3" scope="row">
+                                <form action="/profile/name_update" method="post">
+                                    <?= csrf_field(); ?>
+                                    <div class="form-group row">
+                                        <div class="col-md-9 py-2">
+                                            <label style="font-weight: normal;" for="name">Masukkan Nama
+                                                Kamu</label>
+                                            <input type="text"
+                                                class="form-control  <?= ($validation->hasError('name')) ? 'is-invalid' : ''; ?>"
+                                                style="border-radius: 10px; background-color: rgba(196, 196, 196, 0.3)"
+                                                id="name" name="name" placeholder="nama kamu disini">
+                                            <div class="invalid-feedback">
+                                                <?= $validation->getError('name'); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5 py-2">
+                                            <button type="submit" class="btn btn-block"
+                                                style="font-weight: bold; background-color: #FEB724; border-radius: 20px">Ubah
+                                                Nama</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
                 <table class="table table-bordered">
                     <thead>
                         <tr style="background-color: #DFDFDF">
@@ -143,7 +177,7 @@
                             <th class="px-5 py-3" scope="row">
                                 <form action="/profile/email_update" method="post">
                                     <?= csrf_field(); ?>
-                                    <?php if ($user[0]['email'] == null) : ?>
+                                    <?php if ($user['email'] == null) : ?>
                                     <div class="form-group row">
                                         <div class="col-md-9 py-2">
                                             <label style="font-weight: normal;" for="email">Ups! kamu belum mendaftarkan

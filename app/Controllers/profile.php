@@ -51,7 +51,7 @@ class profile extends BaseController
         $nama = explode(" ", $user[0]['name']);
 
         $data = [
-            'user' => $user,
+            'user' => $user[0],
             'nama' => $nama[0],
         ];
 
@@ -72,6 +72,32 @@ class profile extends BaseController
         return view('users/akun_tertaut', $data);
     }
 
+    public function name_update()
+    {
+        // validasi input
+        if (!$this->validate([
+            'name' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama harus diisi',
+                ]
+            ],
+        ])) {
+
+            return redirect()->to('/profile/edit_profile')->withInput();
+        }
+
+        // dapatkan input user
+        $name = $this->request->getVar('name');
+
+        // update nama user
+        $this->usersModel->where('id', $_SESSION['user_id'])->set(['name' => $name])->update();
+
+        $_SESSION['update'] = 'Nama berhasil diperbarui!';
+        $this->session->markAsTempdata('update', 10);
+
+        return redirect()->to('/profile/index');
+    }
     public function password_update()
     {
         // validasi input
