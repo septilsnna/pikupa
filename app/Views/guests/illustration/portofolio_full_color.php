@@ -95,12 +95,19 @@
                 </ul>
             </nav>
         </div>
-        <div class="row justify-content-center">
+        <!-- <div class="row justify-content-center">
             <?php foreach ($portofolios as $d) : ?>
             <div class="col-md-4 py-4">
                 <img src="/porto/<?= $d['note'] ?>/<?= $d['file']; ?>" class="card-img-top">
             </div>
             <?php endforeach; ?>
+        </div> -->
+        <div class="pt-3 " style="columns: 3; column-gap: 16px;">
+            <?php for ($i = 1; $i < 24; $i++) : ?>
+            <div style="display: inline-block; position: relative; margin-bottom: 16px;">
+                <img style="width: 100%; border-radius: 5px;" src="https://source.unsplash.com/random/<?= $i ?>">
+            </div>
+            <?php endfor; ?>
         </div>
     </div>
     <div class="row mt-5 pt-5 pb-2 mx-0 justify-content-center text-center"
