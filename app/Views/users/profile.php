@@ -99,10 +99,10 @@
                 <h5 style="color: grey; font-size: 16px">Email</h5>
                 <h6><?= $user[0]['email']; ?></h6>
             </div>
-            <div class="col-md-3 py-2">
+            <!-- <div class="col-md-3 py-2">
                 <h5 style="color: grey; font-size: 16px">Twitter</h5>
                 <h6>-</h6>
-            </div>
+            </div> -->
         </div>
         <div class="row">
             <div class="col-md-12">

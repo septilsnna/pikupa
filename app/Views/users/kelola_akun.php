@@ -85,6 +85,7 @@
                     TERTAUT</a>
             </div>
             <div class="col-md-8 my-4">
+                <?php if ($user['id'] == $user['name']) : ?>
                 <table class="table table-bordered">
                     <thead>
                         <tr style="background-color: #DFDFDF">
@@ -119,6 +120,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <?php endif ?>
                 <table class="table table-bordered">
                     <thead>
                         <tr style="background-color: #DFDFDF">

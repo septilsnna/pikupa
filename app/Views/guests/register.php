@@ -106,8 +106,7 @@
                                     Google</a>
                             </div>
                             <div class="row justify-content-center">
-                                <a href="/register/SignUpWithTwitter" target="_blank" class="btn mx-2 mb-3"
-                                    role="button"
+                                <a href="/register/SignUpWithTwitter" class="btn mx-2 mb-3" role="button"
                                     style="font-weight: bold; width: 250px; background-color: #fafafa; border-radius: 20px; border-color:gray"><img
                                         class="mx-2" src="/logo/twitter_login.png" style="width:10%">Sign Up With
                                     Twitter</a>

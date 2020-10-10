@@ -19,6 +19,36 @@ class login extends BaseController
         if (isset($_SESSION['user_id'])) {
             return redirect()->to('../home/index');           // users	no
         } else {
+            // twitter login
+            if ($this->request->getVar('oauth_token')) {
+                $curl = curl_init();
+
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => "https://api.twitter.com/oauth/access_token?oauth_token=" . $_GET['oauth_token'] . "&oauth_verifier=" . $_GET['oauth_verifier'],
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => "",
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => "POST",
+                    CURLOPT_HTTPHEADER => array(
+                        "Authorization: Basic eXNFWDFObTEwVHhCQ25qMDNiMm11UVhtMDpFdk94Ykt0bHVQcTg3RWZvRXVWZ0FKVUlMb0NsbW50UXZNSkV1YWhITENGWnd1Z0FCMw==",
+                        "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104"
+                    ),
+                ));
+
+                $response = curl_exec($curl);
+                $satu = explode('screen_name=', $response);
+                //var_dump($satu[1]);
+
+                $user_lama = $this->usersModel->where('id', $satu[1])->findAll();
+
+                $_SESSION['user_id'] = $user_lama[0]['id'];
+                return redirect()->to(base_url() . '/home/index');
+            }
+
+            // google login
             require_once APPPATH . 'Libraries/vendor/autoload.php';
             $google_client = new \Google_Client();
             $google_client->setClientId('444339106683-9n10h1ec88b2hmq5s1mqqct0n7uuvc05.apps.googleusercontent.com');
@@ -105,7 +135,7 @@ class login extends BaseController
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_HTTPHEADER => array(
-                "Authorization: OAuth oauth_consumer_key=\"ysEX1Nm10TxBCnj03b2muQXm0\",oauth_token=\"4658987426-Xdg2VCyZ4DH7e649oyhm0nlfjDbsbQOmNg7qcOA\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"1602260270\",oauth_nonce=\"VQy6Uuh7zCT\",oauth_version=\"1.0\",oauth_signature=\"Vr3FvUNfIKLlpbcRj1TyuAASb5Y%3D\"",
+                "Authorization: OAuth oauth_consumer_key=\"ysEX1Nm10TxBCnj03b2muQXm0\",oauth_token=\"4658987426-Xdg2VCyZ4DH7e649oyhm0nlfjDbsbQOmNg7qcOA\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"1602363905\",oauth_nonce=\"T5h4UShmA3f\",oauth_version=\"1.0\",oauth_callback=\"http%3A%2F%2Flocalhost%3A8080%2Flogin%2Findex\",oauth_signature=\"7M%2BLydC0vFjYtmx7xcZepg0rQ6s%3D\"",
                 "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104; lang=en"
             ),
         ));
