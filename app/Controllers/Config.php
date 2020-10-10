@@ -25,6 +25,10 @@ class Config extends BaseController
 
     public function logout()
     {
+        // require_once APPPATH . 'Libraries/vendor/autoload.php';
+        // $google_client = new \Google_Client();
+        // $google_client->revokeToken();
+
         session_unset();
         session_destroy();
         return redirect()->to('/home/index');
@@ -33,24 +37,18 @@ class Config extends BaseController
     public function order_custom_gif()
     {
         $ud  = $_POST['size11'] . $_POST['size21'] . $_POST['size31'];
-        //var_dump($_SESSION['category']);
-        //var_dump($ud);        // ukuran custom gif
         return redirect()->to('/order/index/twitter_profile_needs/custom_gif/' . $ud);
     }
 
     public function order_full_color()
     {
         $ud  = $_POST['fcHead'] . $_POST['fcHalfBody'] . $_POST['fcFullBody'];
-        //var_dump($_SESSION['category']);
-        //var_dump($ud);        // ukuran custom gif
         return redirect()->to('/order/index/illustration/full_color/' . $ud);
     }
 
     public function order_outline()
     {
         $ud  = $_POST['oHead'] . $_POST['oHalfBody'] . $_POST['oFullBody'];
-        //var_dump($_SESSION['category']);
-        //var_dump($ud);        // ukuran custom gif
         return redirect()->to('/order/index/illustration/outline/' . $ud);
     }
 
@@ -100,8 +98,8 @@ class Config extends BaseController
       </div>');
         $this->email->send();
 
-        $_SESSION['forget'] = 'Link verifikasi update password berhasil dikirimkan ke ' .
-            $email . ', segera lakukan verifikasi ya Kak :)';
+        $this->session->set('forget', 'Link verifikasi update password berhasil dikirimkan ke ' .
+            $email . ', segera lakukan verifikasi ya Kak :)');
         $this->session->markAsTempdata('forget', 20);
 
         return redirect()->to('/login');
@@ -139,10 +137,92 @@ class Config extends BaseController
         // update password user
         $this->usersModel->where('token', $token)->set(['password' => $password, 'verified' => 1])->update();
 
-        $_SESSION['update'] = 'Password berhasil diperbarui!';
+        $this->session->set('update', 'Password berhasil diperbarui!');
         $this->session->markAsTempdata('update', 10);
 
         return redirect()->to('/login');
+    }
+
+    public function twitter()
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.twitter.com/oauth/access_token?oauth_token=" . $_GET['oauth_token'] . "&oauth_verifier=" . $_GET['oauth_verifier'],
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_HTTPHEADER => array(
+                "Authorization: Basic eXNFWDFObTEwVHhCQ25qMDNiMm11UVhtMDpFdk94Ykt0bHVQcTg3RWZvRXVWZ0FKVUlMb0NsbW50UXZNSkV1YWhITENGWnd1Z0FCMw==",
+                "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104; lang=en"
+            ),
+        ));
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true&include_entities=false&skip_status=true",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "Authorization: OAuth oauth_consumer_key=\"ysEX1Nm10TxBCnj03b2muQXm0\",oauth_token=\"1143064513974951937-BPcII3CrSkzSB3kfCsTDw2cKqx7pkT\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"1602261505\",oauth_nonce=\"rQk7d3T00TJ\",oauth_version=\"1.0\",oauth_signature=\"%2FJnF%2FDwOVmHBrtD1Taw7V7MscBo%3D\"",
+                "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104; lang=id"
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        $res = json_decode($response, true);
+
+        $user = $this->usersModel->where('id', $res['screen_name'])->findAll();
+
+        if ($user == null) {
+            if ($res['email'] == null) {
+                $email = '';
+            } else {
+                $email = $res['email'];
+            }
+
+            $newuser = [
+                'id' => $res['screen_name'],
+                'name' => $res['screen_name'],
+                'email' => $email,
+                'token' => '',
+                'verified' => 1
+            ];
+
+            $this->usersModel->insert($newuser);
+        }
+
+        $_SESSION['user_id'] = $res['screen_name'];
+
+        return redirect()->to('/home/index');
+    }
+
+    public function google()
+    {
+        //echo "Callback";
+        require_once APPPATH . 'Libraries/vendor/autoload.php';
+
+        // Get $id_token via HTTPS POST.
+
+        $client = new \Google_Client(['client_id' => '444339106683-9n10h1ec88b2hmq5s1mqqct0n7uuvc05.apps.googleusercontent.com']);  // Specify the CLIENT_ID of the app that accesses the backend
+        $payload = $client->verifyIdToken($id_token);
+        if ($payload) {
+            $userid = $payload['sub'];
+            // If request specified a G Suite domain:
+            //$domain = $payload['hd'];
+        } else {
+            // Invalid ID token
+        }
     }
 
     //--------------------------------------------------------------------

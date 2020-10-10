@@ -94,14 +94,12 @@
                                         Up</button>
                                 </div>
                             </div>
-                            <?php if (isset($googleLogin)) : ?>
                             <div class="row justify-content-center">
                                 <a href="<?= $googleLogin ?>" class="btn mx-2 mb-3" role="button"
                                     style="font-weight: bold; width: 250px; background-color: #fafafa; border-radius: 20px; border-color:gray"><img
                                         class="mx-2" src="/logo/google_login.png" style="width:10%">Login With
                                     Google</a>
                             </div>
-                            <?php endif ?>
                             <div class="row justify-content-center">
                                 <a href="/login/LoginWithTwitter" class="btn mx-2 mb-3" role="button"
                                     style="font-weight: bold; width: 250px; background-color: #fafafa; border-radius: 20px; border-color:gray"><img

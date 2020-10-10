@@ -17,6 +17,7 @@ class home extends BaseController
 		$this->productsModel = new ProductsModel();
 		$this->promotionsModel = new PromotionsModel();
 		$this->usersModel = new UsersModel();
+		$this->session = \Config\Services::session();
 	}
 
 	public function index()

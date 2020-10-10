@@ -100,13 +100,14 @@
                                 </div>
                             </div>
                             <div class="row justify-content-center">
-                                <a href="" class="btn mx-2 mb-3" role="button"
+                                <a href="<?= $googleRegist ?>" class="btn mx-2 mb-3" role="button"
                                     style="font-weight: bold; width: 250px; background-color: #fafafa; border-radius: 20px; border-color:gray"><img
                                         class="mx-2" src="/logo/google_login.png" style="width:10%">Sign Up With
                                     Google</a>
                             </div>
                             <div class="row justify-content-center">
-                                <a href="" class="btn mx-2 mb-3" role="button"
+                                <a href="/register/SignUpWithTwitter" target="_blank" class="btn mx-2 mb-3"
+                                    role="button"
                                     style="font-weight: bold; width: 250px; background-color: #fafafa; border-radius: 20px; border-color:gray"><img
                                         class="mx-2" src="/logo/twitter_login.png" style="width:10%">Sign Up With
                                     Twitter</a>
@@ -117,7 +118,6 @@
             </div>
         </div>
     </div>
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

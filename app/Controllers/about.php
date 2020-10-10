@@ -39,7 +39,7 @@ class about extends BaseController
         }
 
         if (isset($_SESSION['user_id'])) {
-            $user = $this->usersModel->where('id', $_SESSION['user_id'])->findAll();
+            $user = $this->usersModel->getUser($_SESSION['user_id']);
             $nama = explode(" ", $user[0]['name']);
             $data = [
                 'title' => 'Halaman About',
