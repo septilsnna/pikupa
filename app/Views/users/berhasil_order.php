@@ -67,7 +67,7 @@
 </head>
 
 <body style="background-color:#f7f7f7; font-family: Montserrat; font-style: normal; color: #424242;">
-    <div class="container mt-5 py-2">
+    <div class="container my-5 py-2">
         <div class="row-md-10  my-3 pt-5 text-center">
             <p style="font-weight: bold; font-size: 42px">Selamat kak <?= $nama; ?>!<br>Data Pesanan Kakak
                 Sudah<br>Masuk

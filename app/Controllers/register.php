@@ -34,8 +34,8 @@ class register extends BaseController
                     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                     CURLOPT_CUSTOMREQUEST => "POST",
                     CURLOPT_HTTPHEADER => array(
-                        "Authorization: Basic eXNFWDFObTEwVHhCQ25qMDNiMm11UVhtMDpFdk94Ykt0bHVQcTg3RWZvRXVWZ0FKVUlMb0NsbW50UXZNSkV1YWhITENGWnd1Z0FCMw==",
-                        "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104"
+                        "Authorization: Basic aTlhSFpHTWpsNkU2enBwcXRxUkZ4TTB2bzpIbTFEOWpQTE5ldURCdWw0MlkxSnE3RTNIemxKUkxtUHluU1dOZDFISklDM0h5SXNjUQ==",
+                        "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104; lang=en"
                     ),
                 ));
 
@@ -43,8 +43,6 @@ class register extends BaseController
                 $satu = explode('&', $response);
                 $oat = explode('=', $satu[0]);
                 // var_dump($satu);
-
-                // $curl = curl_init();
 
                 curl_setopt_array($curl, array(
                     CURLOPT_URL => "https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true&include_entities=false&skip_status=true",
@@ -56,8 +54,8 @@ class register extends BaseController
                     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                     CURLOPT_CUSTOMREQUEST => "GET",
                     CURLOPT_HTTPHEADER => array(
-                        "Authorization: OAuth oauth_consumer_key=\"ysEX1Nm10TxBCnj03b2muQXm0\",oauth_token=\"" . $oat[1] . "\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"1602362537\",oauth_nonce=\"i8F0Vpc0aSO\",oauth_version=\"1.0\",oauth_callback=\"http%3A%2F%2F127.0.0.1%3A8080%2Fregister%2Findex\",oauth_signature=\"rlyOci%2Fd2q9FPaitVeyrNQ9Z1G0%3D\"",
-                        "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104; lang=id"
+                        "Authorization: OAuth oauth_consumer_key=\"i9aHZGMjl6E6zppqtqRFxM0vo\",oauth_token=\"" . $oat[1] . "\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"1602494434\",oauth_nonce=\"KidyiSpXQh2\",oauth_version=\"1.0\",oauth_callback=\"http%3A%2F%2F127.0.0.1%3A8080%2Fregister%2Findex\",oauth_signature=\"zBfx6Rxz%2FmnrBdzNPoze5X0iep8%3D\"",
+                        "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104; lang=en"
                     ),
                 ));
 
@@ -65,8 +63,8 @@ class register extends BaseController
 
                 curl_close($curl);
                 $dua = json_decode($response2, true);
-                // var_dump($dua['screen_name']);
-                // var_dump($dua['email']);
+                var_dump($dua['screen_name']);
+                var_dump($dua['email']);
 
                 $user_lama = $this->usersModel->where('id', $dua['screen_name'])->findAll();
 
@@ -82,7 +80,8 @@ class register extends BaseController
                         'id' => $dua['screen_name'],
                         'name' => $dua['screen_name'],
                         'email' => $email,
-                        'verified' => $verified
+                        'verified' => $verified,
+                        'regist_via' => 'twitter'
                     ];
 
                     $this->usersModel->insert($new_user);
@@ -124,6 +123,7 @@ class register extends BaseController
                             'email' => $data_user['email'],
                             'token' => $data_user['email'],
                             'verified' => $data_user['verifiedEmail'],
+                            'regist_via' => 'google'
                         ];
                         $this->usersModel->insert($newuser);
                         $_SESSION['user_id'] = $uid[0];
@@ -194,7 +194,8 @@ class register extends BaseController
             'name' => $nama,
             'email' => $email,
             'token' => $token,
-            'password' => $password
+            'password' => $password,
+            'regist_via' => 'email'
         ];
 
         $this->usersModel->insert($newuser);
@@ -252,7 +253,7 @@ class register extends BaseController
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_HTTPHEADER => array(
-                "Authorization: OAuth oauth_consumer_key=\"ysEX1Nm10TxBCnj03b2muQXm0\",oauth_token=\"4658987426-Xdg2VCyZ4DH7e649oyhm0nlfjDbsbQOmNg7qcOA\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"1602362396\",oauth_nonce=\"zfBoFL9Rgt3\",oauth_version=\"1.0\",oauth_callback=\"http%3A%2F%2Flocalhost%3A8080%2Fregister%2Findex\",oauth_signature=\"kyqTva0Cfu1LjeUFCw9Fo%2FseH94%3D\"",
+                "Authorization: OAuth oauth_consumer_key=\"i9aHZGMjl6E6zppqtqRFxM0vo\",oauth_token=\"4658987426-l8WRmko5lntBr2juTYvybVCxZeGwJ71kkbDqMej\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"1602493735\",oauth_nonce=\"ZL7eSzpZ1RC\",oauth_version=\"1.0\",oauth_callback=\"http%3A%2F%2Flocalhost%3A8080%2Fregister%2Findex\",oauth_signature=\"%2FrlGFIGvc%2FauntC5RWaQ%2F18a4z8%3D\"",
                 "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104; lang=en"
             ),
         ));

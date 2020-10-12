@@ -80,9 +80,9 @@
                 <a href="/profile/edit_profile" class="btn btn-block py-4 my-0"
                     style="background-color: #FEB724; font-weight: bold; border: 1px solid rgba(0, 0, 0, 0.1); border-radius:0px">KELOLA
                     AKUN</a>
-                <a href="/profile/connection" class="btn btn-block py-4 my-0 disabled"
+                <!-- <a href="/profile/connection" class="btn btn-block py-4 my-0 disabled"
                     style="background-color: rgba(225, 225, 225, 0.1); font-weight: bold; border: 1px solid rgba(0, 0, 0, 0.1); border-radius:0px">AKUN
-                    TERTAUT</a>
+                    TERTAUT</a> -->
             </div>
             <div class="col-md-8 my-4">
                 <table class="table table-bordered">
@@ -119,6 +119,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <?php if ($user['regist_via'] == 'email') : ?>
                 <table class="table table-bordered">
                     <thead>
                         <tr style="background-color: #DFDFDF">
@@ -166,6 +167,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <?php endif; ?>
                 <table class="table table-bordered mt-4">
                     <thead>
                         <tr style="background-color: #DFDFDF">

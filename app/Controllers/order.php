@@ -97,13 +97,13 @@ class order extends BaseController
                     $data['validation'] = \Config\Services::validation();
                     $_SESSION['product_id'] = $product_id;
 
-                    if ($user[0]['verified'] == 0) {                             // user ganti email belom verif
-                        $_SESSION['failed'] = 'Email baru kamu belum terverifikasi, silahkan verifikasi email kamu terlebih dahulu untuk melakukan pemesanan.';
-                        $this->session->markAsTempdata('failed', 10);
-                        return view('users/' . $category . '/order', $data);
-                    } else {
-                        return view('users/' . $category . '/form', $data);
-                    }
+                    // if ($user[0]['verified'] == 0) {                             // user ganti email belom verif
+                    //     $_SESSION['failed'] = 'Email baru kamu belum terverifikasi, silahkan verifikasi email kamu terlebih dahulu untuk melakukan pemesanan.';
+                    //     $this->session->markAsTempdata('failed', 10);
+                    //     return view('users/' . $category . '/order', $data);
+                    // } else {
+                    return view('users/' . $category . '/form', $data);
+                    // }
                 } else {                                            // user udah pilih kategori dan belum milih produk -> pilih produk
                     return view('users/' . $category . '/' . $sub_category, $data);
                 }
@@ -257,7 +257,7 @@ class order extends BaseController
             $price += 50000;
         }
 
-        $total = ((0.02 * $product[0]['price']) + $product[0]['price']) - ($product[0]['price'] * $product[0]['discount'] / 100);
+        $total = ((0.02 * $price) + $price) - ($price * $product[0]['discount'] / 100);
 
         $order = count($this->ordersModel->getOrder()) + 1;
 

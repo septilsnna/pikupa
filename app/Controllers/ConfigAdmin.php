@@ -136,10 +136,30 @@ class ConfigAdmin extends BaseController
             'discount' => $this->request->getVar('discount')
         ];
 
-        $this->productsModel
-            ->where('id', $param)
-            ->set($data)
-            ->update();
+        if ($param == 'IL001OL') {
+            $this->productsModel
+                ->where('id', $param)
+                ->set($data)
+                ->update();
+            $this->productsModel
+                ->where('id', 'IL002FL')
+                ->set('stock', $this->request->getVar('stock'))
+                ->update();
+        } else if ($param == 'IL002FL') {
+            $this->productsModel
+                ->where('id', $param)
+                ->set($data)
+                ->update();
+            $this->productsModel
+                ->where('id', 'IL001OL')
+                ->set('stock', $this->request->getVar('stock'))
+                ->update();
+        } else {
+            $this->productsModel
+                ->where('id', $param)
+                ->set($data)
+                ->update();
+        }
 
         return redirect()->to('../admin/manage_product');
     }

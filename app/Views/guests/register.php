@@ -37,6 +37,14 @@
                                 </button>
                             </div>
                             <?php endif; ?>
+                            <?php if (isset($_SESSION['not_found'])) : ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong><?= $_SESSION['not_found']; ?></strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <?php endif; ?>
                             <div class="form-group row px-3">
                                 <div class="col-md-12 py-2">
                                     <label style="font-weight: normal;" for="name">Nama</label>

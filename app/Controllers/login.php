@@ -33,8 +33,8 @@ class login extends BaseController
                     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                     CURLOPT_CUSTOMREQUEST => "POST",
                     CURLOPT_HTTPHEADER => array(
-                        "Authorization: Basic eXNFWDFObTEwVHhCQ25qMDNiMm11UVhtMDpFdk94Ykt0bHVQcTg3RWZvRXVWZ0FKVUlMb0NsbW50UXZNSkV1YWhITENGWnd1Z0FCMw==",
-                        "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104"
+                        "Authorization: Basic aTlhSFpHTWpsNkU2enBwcXRxUkZ4TTB2bzpIbTFEOWpQTE5ldURCdWw0MlkxSnE3RTNIemxKUkxtUHluU1dOZDFISklDM0h5SXNjUQ==",
+                        "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104; lang=en"
                     ),
                 ));
 
@@ -44,8 +44,14 @@ class login extends BaseController
 
                 $user_lama = $this->usersModel->where('id', $satu[1])->findAll();
 
-                $_SESSION['user_id'] = $user_lama[0]['id'];
-                return redirect()->to(base_url() . '/home/index');
+                if ($user_lama) {
+                    $_SESSION['user_id'] = $user_lama[0]['id'];
+                    return redirect()->to(base_url() . '/home/index');
+                } else {
+                    $_SESSION['not_found'] = 'Akun belum terdaftar, silahkan lakukan registrasi';
+                    $this->session->markAsTempdata('not_found', 10);
+                    return redirect()->to('/register');
+                }
             }
 
             // google login
@@ -73,6 +79,10 @@ class login extends BaseController
                     if ($users) {
                         $_SESSION['user_id'] = $users[0]['id'];
                         return redirect()->to(base_url() . '/home/index');
+                    } else {
+                        $_SESSION['not_found'] = 'Akun belum terdaftar, silahkan lakukan registrasi';
+                        $this->session->markAsTempdata('not_found', 10);
+                        return redirect()->to('/register');
                     }
                 }
             }
@@ -135,7 +145,7 @@ class login extends BaseController
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_HTTPHEADER => array(
-                "Authorization: OAuth oauth_consumer_key=\"ysEX1Nm10TxBCnj03b2muQXm0\",oauth_token=\"4658987426-Xdg2VCyZ4DH7e649oyhm0nlfjDbsbQOmNg7qcOA\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"1602363905\",oauth_nonce=\"T5h4UShmA3f\",oauth_version=\"1.0\",oauth_callback=\"http%3A%2F%2Flocalhost%3A8080%2Flogin%2Findex\",oauth_signature=\"7M%2BLydC0vFjYtmx7xcZepg0rQ6s%3D\"",
+                "Authorization: OAuth oauth_consumer_key=\"i9aHZGMjl6E6zppqtqRFxM0vo\",oauth_token=\"4658987426-l8WRmko5lntBr2juTYvybVCxZeGwJ71kkbDqMej\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"1602493688\",oauth_nonce=\"5THE1rnITsy\",oauth_version=\"1.0\",oauth_callback=\"http%3A%2F%2Flocalhost%3A8080%2Flogin%2Findex\",oauth_signature=\"e9tG7j9y9lsgGRlMabk03RdSpx8%3D\"",
                 "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104; lang=en"
             ),
         ));

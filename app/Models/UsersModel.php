@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class UsersModel extends Model
 {
     protected $table = 'users';
-    protected $allowedFields = ['id', 'name', 'email', 'token', 'verified', 'password', 'order_freq'];
+    protected $allowedFields = ['id', 'name', 'email', 'token', 'verified', 'password', 'regist_via', 'order_freq'];
     //protected $useTimestamps = true;
 
     public function getUser($id = null)
