@@ -128,22 +128,24 @@
     <div class="static-bottom"
         style="font-family: Montserrat; font-style: normal; color: #ffffff; background-color: rgba(254, 183, 36, 0.94);">
         <div class="container">
-            <div class="row py-5 align-items-center">
+            <div class="row py-4 align-items-center">
                 <div class="col-md-9 px-5">
                     <div class="row" style="font-weight: bold; font-size: 18px">
-                        <h4>Mau Konsultasi Dulu?<br>Boleh Banget~</h4>
+                        <h2>Mau Konsultasi Dulu?<br>Boleh Banget~</h2>
                     </div>
                 </div>
                 <div class="col-sm-3 px-5">
                     <div class="row">
-                        <a class="btn btn-sm text-left" href="http://twitter.com/pikuupa" role="button">
-                            <img src="/img/twitter-black-shape.png" class="img" style="width:20px;" alt="testi-1">
+                        <a class="btn btn-sm text-left" href="http://twitter.com/pikuupa" role="button"
+                            style="font-size: 16px; font-weight: bold; color: #f7f7f7">
+                            <!-- <img src="/img/twitter-black-shape.png" class="img" style="width:20px;" alt="testi-1"> -->
                             @pikuupa
                         </a>
                     </div>
                     <div class="row">
-                        <a class="btn btn-sm text-left" href="mailto:pikuupa@gmail.com" role="button">
-                            <img src="/img/email.png" class="img" style="width:20px;" alt="testi-1">
+                        <a class="btn btn-sm text-left" href="mailto:pikuupa@gmail.com" role="button"
+                            style="font-size: 16px; font-weight: bold; color: #f7f7f7">
+                            <!-- <img src="/img/email.png" class="img" style="width:20px;" alt="testi-1"> -->
                             pikuupa@gmail.com
                         </a>
                     </div>

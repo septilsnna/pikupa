@@ -3,8 +3,3 @@ Access Token = 4658987426-Xdg2VCyZ4DH7e649oyhm0nlfjDbsbQOmNg7qcOA
 Access Token Secret = 2vRZlnd6eSM9BRyBD4RJMQXDbGlJpTyaAb7LYfTws0PhK
 API Key = ysEX1Nm10TxBCnj03b2muQXm0
 API Key Secret = EvOxbKtluPq87EfoEuVgAJUILoClmntQvMJEuahHLCFZwugAB3
-
-oauth_token=5gKhrgAAAAABIYDdAAABdP-GvnQ&oauth_verifier=8usTVvGvNrkI5Kt9jxqbZxvGMKx81IPu
-
-https://api.twitter.com/oauth/authorize?oauth_token=JEURDQAAAAABIYDdAAABdP894-U
-2995352
