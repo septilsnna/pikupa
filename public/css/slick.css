@@ -100,3 +100,12 @@
 .slick-arrow.slick-hidden {
   display: none;
 }
+
+.slick-prev:before {
+  color: red !important;
+  background-color: #eee;
+}
+.slick-next:before {
+  color: red !important;
+  background-color: #eee;
+}

@@ -124,7 +124,8 @@
     <div class="container my-5 py-2 text-center">
         <div class="row">
             <div class="col pt-3 px-lg-5">
-                <h3 style="font-weight: bold; font-size: 28px; color: #FEB724;">
+                <h3 style="font-weight: bold; @media screen and (min-width: 601px){font-size:28px}; @media screen and (max-width: 600px) {
+                    font-size: 12px}; color: #FEB724;">
                     Cara Pesan</h3>
             </div>
         </div>
@@ -137,48 +138,51 @@
                 </h5>
             </div>
         </div>
-        <div class="row align-items-center">
-            <div class="col-sm pt-4">
-                <img src="/img/create.png" class="card-img-top"
-                    style="margin-left: auto; margin-right: auto; width:50%; ">
-                <h5 class="card-title pt-3">CREATE ACCOUNT</h5>
-                <p class="card-text">Tenang aja, data kamu tidak akan disalahgunakan kok</p>
-            </div>
-            <div class="col-sm-1 pt-4">
-                <img src="/img/next.png" class="img-fluid" style="width:20px;">
-            </div>
-            <div class="col-sm pt-4">
-                <img src="/img/fill.png" class="card-img-top" style="margin-left: auto; margin-right: auto; width:50%;">
+
+        <div class="divider" style="width:auto;
+    height:20px;
+    display:inline-block;"></div>
+
+        <div class="row mx-0 mb-5 align-items-end">
+            <div class="col">
+                <div class="responsive-1">
+                    <div class="item" style="width:50%">
+                    <img src="/img/create.png" class="card-img-top"
+                    style="margin-left: auto; margin-right: auto; width:50% ">
+                    <h5 class="card-title pt-3">CREATE ACCOUNT</h5>
+                    <p class="card-text">Tenang aja, data kamu tidak akan disalahgunakan kok</p>
+                    </div>
+
+                    <div class="item" style="width:50%">
+                       <img src="/img/fill.png" class="card-img-top" style="margin-left: auto; margin-right: auto; width:50%;">
                 <h5 class="card-title pt-3">FILL THE FORM</h5>
                 <p class="card-text">Jangan lupa bayar DP juga ya, jika ada tambahan biaya akan
                     diinformasikan di akhir</p>
-            </div>
-            <div class="col-sm-1 pt-4">
-                <img src="/img/next.png" class="img-fluid" style="width:20px;">
-            </div>
-            <div class="col-sm pt-4">
-                <img src="/img/consult.png" class="card-img-top"
+                    </div>
+                    <div class="item" style="width:50%">
+                    <img src="/img/consult.png" class="card-img-top"
                     style="margin-left: auto; margin-right: auto; width:50%;">
                 <h5 class="card-title pt-3">CONSULTATION & REVISION</h5>
                 <p class="card-text">Selama proses pembuatan, kamu diperbolehkan untuk meminta revisi</p>
-            </div>
-            <div class="col-sm-1 pt-4">
-                <img src="/img/next.png" class="img-fluid" style="width:20px;">
-            </div>
-            <div class="col-sm pt-4">
-                <img src="/img/finishing.png" class="card-img-top"
+                    </div>
+                    <div class="item" style="width:50%">
+                    <img src="/img/finishing.png" class="card-img-top"
                     style="margin-left: auto; margin-right: auto; width:50%;">
                 <h5 class="card-title pt-3">FINISHING</h5>
                 <p class="card-text">Jika sudah selesai, file akan dikirimkan melalui gdrive maupun DM
                     twitter</p>
+                    </div>           
+                </div>
             </div>
         </div>
+
+        
     </div>
 
     <!--Produk Jasa Desain-->
-    <div class="container my-5 py-5 text-center">
+    <div class="container my-5 py-2 text-center">
         <div class="row">
-            <div class="col pt-3 px-lg-5">
+            <div class="col pt-3 px-lg-3">
                 <h3 style="font-weight: bold; font-size: 28px; color: #FEB724;">
                     Produk Jasa Desain</h3>
             </div>
@@ -266,13 +270,13 @@
     <!--Clients-->
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md text-center my-3">
+            <div class="col text-center my-3">
                 <p style="font-weight: bold; font-size: 70px;">30+</p>
-                <p style="font-size: 18px;">Happy Clients</p>
+                <p style="font-size: 16px;">Happy Clients</p>
             </div>
-            <div class="col-md text-center my-3">
+            <div class="col text-center my-3">
                 <p style="font-weight: bold; font-size: 70px;">50+</p>
-                <p style="font-size: 18px;">Twitter Pinned Gif</p>
+                <p style="font-size: 16px;">Twitter Pinned Gif</p>
             </div>
         </div>
     </div>
@@ -357,6 +361,40 @@
                     slidesToScroll: 3,
                     infinite: true,
                     dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+    </script>
+
+
+<script type="text/javascript">
+    $(".responsive-1").slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 0,
+                    infinite: true,
                 }
             },
             {

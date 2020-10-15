@@ -1,10 +1,10 @@
 {
     "name": "google/login",
-    "description": "google login pikupa",
+    "description": "google login with ci4",
     "authors": [
         {
-            "name": "septilsnna",
-            "email": "43660194+septilsnna@users.noreply.github.com"
+            "name": "Ervan Foster",
+            "email": "ervanfoster@gmail.com"
         }
     ],
     "require": {

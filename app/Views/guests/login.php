@@ -16,7 +16,7 @@
             <div class="col-md-7 px-5">
                 <div class="row mt-4 mb-3">
                     <p>Belum punya akun?</p>
-                    <a href="/register" class="mx-2" style="color: #feb724;">Sign Up
+                    <a href="/register" class="mx-2" style="color: #feb724; @media screen and (max-width: 300px){ font-size:10px} ">Register
                         Disini</a>
                     </p>
                 </div>

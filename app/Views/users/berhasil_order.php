@@ -18,49 +18,50 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link px-4 mx-2" href="/home/index">HOME</a>
+                <a class="nav-link active px-4 mx-2" style="text-align: center;" href="/home/index">HOME <span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-4 mx-2" href="/about/index">ABOUT</a>
+                    <a class="nav-link px-4 mx-2" style="text-align: center;" href="/about/index">ABOUT</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle px-4 mx-2" href="#" id="navbarDropdownMenuLink"
+                    <a class="nav-link dropdown-toggle px-4 mx-2" style="text-align: center;" href="#" id="navbarDropdownMenuLink"
                         data-toggle="dropdown">
                         PORTOFOLIOS
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                         style="border: none; padding:15px">
                         <a class="dropdown-item" href="/portofolios/index/twitter_profile_needs/11"
-                            style="background-color:#f7f7f7; color:#424242">Twitter Profile
+                            style="background-color:#f7f7f7; text-align: center; color:#424242">Twitter Profile
                             Needs</a>
                         <a class="dropdown-item" href="/portofolios/index/illustration/full_color"
-                            style="background-color:#f7f7f7; color:#424242">Illustration</a>
+                            style="background-color:#f7f7f7;text-align: center; color:#424242">Illustration</a>
                         <a class="dropdown-item" href="/portofolios/index/custom_design/0"
-                            style="background-color:#f7f7f7; color:#424242">Custom
+                            style="background-color:#f7f7f7; text-align: center; color:#424242">Custom
                             Design</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle px-4 mx-2 active" href="#" id="navbarDropdownMenuLink"
+                    <a class="nav-link dropdown-toggle px-4 mx-2" style="text-align: center;" href="#" id="navbarDropdownMenuLink"
                         data-toggle="dropdown">
-                        ORDER <span class="sr-only">(current)</span>
+                        ORDER
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
-                        style="border: none; padding:15px">
+                        style="border: none; padding:15px;text-align: center;">
                         <a class="dropdown-item" href="/order/index/twitter_profile_needs"
-                            style="background-color:#f7f7f7; color:#424242">Twitter Profile Needs</a>
+                            style="background-color:#f7f7f7; color:#424242;text-align: center;">Twitter Profile Needs</a>
                         <a class="dropdown-item" href="/order/index/illustration"
-                            style="background-color:#f7f7f7; color:#424242">Illustration</a>
+                            style="background-color:#f7f7f7; color:#424242;text-align: center;">Illustration</a>
                         <a class="dropdown-item" href="/order/index/custom_design"
-                            style="background-color:#f7f7f7; color:#424242">Custom Design</a>
+                            style="background-color:#f7f7f7; color:#424242; text-align: center;">Custom Design</a>
                     </div>
                 </li>
             </ul>
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <div class="navbar-nav">
-                <a class="nav-link px-2" role="button" href="/profile/index">Halo, <?= $nama; ?>!</a>
-                <a class="nav-link px-2" role="button" href="/Config/logout">LOGOUT</a>
+                <a class="nav-link px-2" role="button" href="/profile/index" style="text-align: center ; font-weight: 700">Halo, <?= $nama; ?>!</a>
+                <a class="nav-link px-2" role="button" href="/Config/logout" style="text-align: center; ">LOGOUT</a>
             </div>
         </div>
     </nav>

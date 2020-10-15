@@ -25,50 +25,50 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active px-4 mx-2" href="/home/index">HOME <span
+                <a class="nav-link active px-4 mx-2" style="text-align: center;" href="/home/index">HOME <span
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-4 mx-2" href="/about/index">ABOUT</a>
+                    <a class="nav-link px-4 mx-2" style="text-align: center;" href="/about/index">ABOUT</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle px-4 mx-2" href="#" id="navbarDropdownMenuLink"
+                    <a class="nav-link dropdown-toggle px-4 mx-2" style="text-align: center;" href="#" id="navbarDropdownMenuLink"
                         data-toggle="dropdown">
                         PORTOFOLIOS
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                         style="border: none; padding:15px">
                         <a class="dropdown-item" href="/portofolios/index/twitter_profile_needs/11"
-                            style="background-color:#f7f7f7; color:#424242">Twitter Profile
+                            style="background-color:#f7f7f7; text-align: center; color:#424242">Twitter Profile
                             Needs</a>
                         <a class="dropdown-item" href="/portofolios/index/illustration/full_color"
-                            style="background-color:#f7f7f7; color:#424242">Illustration</a>
+                            style="background-color:#f7f7f7;text-align: center; color:#424242">Illustration</a>
                         <a class="dropdown-item" href="/portofolios/index/custom_design/0"
-                            style="background-color:#f7f7f7; color:#424242">Custom
+                            style="background-color:#f7f7f7; text-align: center; color:#424242">Custom
                             Design</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle px-4 mx-2" href="#" id="navbarDropdownMenuLink"
+                    <a class="nav-link dropdown-toggle px-4 mx-2" style="text-align: center;" href="#" id="navbarDropdownMenuLink"
                         data-toggle="dropdown">
                         ORDER
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
-                        style="border: none; padding:15px">
+                        style="border: none; padding:15px;text-align: center;">
                         <a class="dropdown-item" href="/order/index/twitter_profile_needs"
-                            style="background-color:#f7f7f7; color:#424242">Twitter Profile Needs</a>
+                            style="background-color:#f7f7f7; color:#424242;text-align: center;">Twitter Profile Needs</a>
                         <a class="dropdown-item" href="/order/index/illustration"
-                            style="background-color:#f7f7f7; color:#424242">Illustration</a>
+                            style="background-color:#f7f7f7; color:#424242;text-align: center;">Illustration</a>
                         <a class="dropdown-item" href="/order/index/custom_design"
-                            style="background-color:#f7f7f7; color:#424242">Custom Design</a>
+                            style="background-color:#f7f7f7; color:#424242; text-align: center;">Custom Design</a>
                     </div>
                 </li>
             </ul>
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <div class="navbar-nav">
-                <a class="nav-link px-2" role="button" href="/profile/index">Halo, <?= $nama; ?>!</a>
-                <a class="nav-link px-2" role="button" href="/Config/logout">LOGOUT</a>
+                <a class="nav-link px-2" role="button" href="/profile/index" style="text-align: center ; font-weight: 700">Halo, <?= $nama; ?>!</a>
+                <a class="nav-link px-2" role="button" href="/Config/logout" style="text-align: center; ">LOGOUT</a>
             </div>
         </div>
     </nav>
@@ -112,7 +112,8 @@
     <div class="container my-5 py-2 text-center">
         <div class="row">
             <div class="col pt-3 px-lg-5">
-                <h3 style="font-weight: bold; font-size: 28px; color: #FEB724;">
+                <h3 style="font-weight: bold; @media screen and (min-width: 601px){font-size:28px}; @media screen and (max-width: 600px) {
+                    font-size: 12px}; color: #FEB724;">
                     Cara Pesan</h3>
             </div>
         </div>
@@ -125,42 +126,43 @@
                 </h5>
             </div>
         </div>
-        <div class="row align-items-center">
-            <div class="col-sm pt-4">
-                <img src="/img/create.png" class="card-img-top"
-                    style="margin-left: auto; margin-right: auto; width:50%;">
-                <h5 class="card-title pt-3">CREATE ACCOUNT</h5>
-                <p class="card-text">Tenang aja, data kamu tidak akan disalahgunakan kok</p>
-            </div>
-            <div class="col-sm-1 pt-4">
-                <img src="/img/next.png" class="img-fluid" style="width:20px;">
-            </div>
-            <div class="col-sm pt-4">
-                <img src="/img/fill.png" class="card-img-top" style="margin-left: auto; margin-right: auto; width:50%;">
+
+        <div class="divider" style="width:auto;
+    height:20px;
+    display:inline-block;"></div>
+
+        <div class="row mx-0 mb-5 align-items-end">
+            <div class="col">
+                <div class="responsive-1">
+                    <div class="item" style="width:50%">
+                    <img src="/img/create.png" class="card-img-top"
+                    style="margin-left: auto; margin-right: auto; width:50% ">
+                    <h5 class="card-title pt-3">CREATE ACCOUNT</h5>
+                    <p class="card-text">Tenang aja, data kamu tidak akan disalahgunakan kok</p>
+                    </div>
+
+                    <div class="item" style="width:50%">
+                       <img src="/img/fill.png" class="card-img-top" style="margin-left: auto; margin-right: auto; width:50%;">
                 <h5 class="card-title pt-3">FILL THE FORM</h5>
                 <p class="card-text">Jangan lupa bayar DP juga ya, jika ada tambahan biaya akan
                     diinformasikan di akhir</p>
-            </div>
-            <div class="col-sm-1 pt-4">
-                <img src="/img/next.png" class="img-fluid" style="width:20px;">
-            </div>
-            <div class="col-sm pt-4">
-                <img src="/img/consult.png" class="card-img-top"
+                    </div>
+                    <div class="item" style="width:50%">
+                    <img src="/img/consult.png" class="card-img-top"
                     style="margin-left: auto; margin-right: auto; width:50%;">
                 <h5 class="card-title pt-3">CONSULTATION & REVISION</h5>
                 <p class="card-text">Selama proses pembuatan, kamu diperbolehkan untuk meminta revisi</p>
-            </div>
-            <div class="col-sm-1 pt-4">
-                <img src="/img/next.png" class="img-fluid" style="width:20px;">
-            </div>
-            <div class="col-sm pt-4">
-                <img src="/img/finishing.png" class="card-img-top"
+                    </div>
+                    <div class="item" style="width:50%">
+                    <img src="/img/finishing.png" class="card-img-top"
                     style="margin-left: auto; margin-right: auto; width:50%;">
                 <h5 class="card-title pt-3">FINISHING</h5>
                 <p class="card-text">Jika sudah selesai, file akan dikirimkan melalui gdrive maupun DM
                     twitter</p>
+                    </div>           
+                </div>
             </div>
-        </div>
+        </div>        
     </div>
 
     <!--Produk Jasa Desain-->
@@ -254,13 +256,13 @@
     <!--Clients-->
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md text-center my-3">
+            <div class="col text-center my-3">
                 <p style="font-weight: bold; font-size: 70px;">30+</p>
-                <p style="font-size: 18px;">Happy Clients</p>
+                <p style="font-size: 16px;">Happy Clients</p>
             </div>
-            <div class="col-md text-center my-3">
+            <div class="col text-center my-3">
                 <p style="font-weight: bold; font-size: 70px;">50+</p>
-                <p style="font-size: 18px;">Twitter Pinned Gif</p>
+                <p style="font-size: 16px;">Twitter Pinned Gif</p>
             </div>
         </div>
     </div>
@@ -345,6 +347,40 @@
                     slidesToScroll: 3,
                     infinite: true,
                     dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+    </script>
+
+
+<script type="text/javascript">
+    $(".responsive-1").slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 0,
+                    infinite: true,
                 }
             },
             {
