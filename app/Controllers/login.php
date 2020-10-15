@@ -77,8 +77,12 @@ class login extends BaseController
 
                     $users = $this->usersModel->where('email', $data_user['email'])->findAll();
                     if ($users) {
-                        $_SESSION['user_id'] = $users[0]['id'];
-                        return redirect()->to(base_url() . '/home/index');
+                        if ($data_user['email'] == 'pikuupa@gmail.com') {
+                            return redirect()->to('/Admin/dashboard');
+                        } else {
+                            $_SESSION['user_id'] = $users[0]['id'];
+                            return redirect()->to(base_url() . '/home/index');
+                        }
                     } else {
                         $_SESSION['not_found'] = 'Akun belum terdaftar, silahkan lakukan registrasi';
                         $this->session->markAsTempdata('not_found', 10);
@@ -104,19 +108,19 @@ class login extends BaseController
         if ($user != null) {
             $password_hash = $user[0]['password'];
             if (password_verify($password, $password_hash)) {
-                if ($email == 'akuadmin@iya.com') {
-                    return redirect()->to('/Admin/dashboard');
+                // if ($email == 'akuadmin@iya.com') {
+                //     return redirect()->to('/Admin/dashboard');
+                // } else {
+                if ($user[0]['verified'] == 1) {
+                    $_SESSION['user_id'] = $user[0]['id'];
+                    return redirect()->to('/home/index');
                 } else {
-                    if ($user[0]['verified'] == 1) {
-                        $_SESSION['user_id'] = $user[0]['id'];
-                        return redirect()->to('/home/index');
-                    } else {
-                        $_SESSION['verified'] = 'Email belum terverifikasi, silahkan verifikasi email kamu.';
-                        $this->session->markAsTempdata('verified', 10);
+                    $_SESSION['verified'] = 'Email belum terverifikasi, silahkan verifikasi email kamu.';
+                    $this->session->markAsTempdata('verified', 10);
 
-                        return redirect()->to('/login')->withInput();
-                    }
+                    return redirect()->to('/login')->withInput();
                 }
+                // }
             } else {
                 $_SESSION['wrong_password'] = 'Password tidak sesuai, cek kembali password kamu.';
                 $this->session->markAsTempdata('wrong_password', 10);

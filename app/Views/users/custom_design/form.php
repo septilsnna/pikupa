@@ -9,7 +9,8 @@
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Form Order Custom Design - PIKUPA</title>
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" style="color:#424242;">
-        <a class="navbar-brand px-4 mx-5 justify-content-end" href="/home/index">PIKUPA</a>
+        <a class="navbar-brand px-4 mx-5 justify-content-end" href="/home/index"><img src="/logo/logo.png" height="30"
+                alt="Logo Pikupa"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
