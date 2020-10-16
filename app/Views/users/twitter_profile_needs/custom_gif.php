@@ -110,11 +110,12 @@
                     </ul>
                 </nav>
             </div>
-            <div class="container my-5" id="size" style="background-color: #424242; height: 300px; width: 300px">
+            <img class="container my-5" id="size" src="/img/Untitled-1_1.gif" style=" max-width: 100%;
+  height: auto;">
                 <div class="row-md">
 
                 </div>
-            </div>
+            </img>
             <button type="submit" class="btn"
                 style="background-color: #DAA520; color:white; border-radius: 20px">ORDER</button>
         </form>
@@ -141,7 +142,7 @@
     </script>
     <script>
     function size11() {
-        document.getElementById("size").style.width = '300px';
+        document.getElementById("size").src = '/img/Untitled-1_1.gif';
         document.getElementById('zise1').style.backgroundColor = '#FEB724';
         document.getElementById('zise2').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
         document.getElementById('zise3').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
@@ -151,7 +152,7 @@
     }
 
     function size21() {
-        document.getElementById("size").style.width = '600px';
+        document.getElementById("size").src = '/img/Untitled-1_2.gif';
         document.getElementById('zise1').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
         document.getElementById('zise2').style.backgroundColor = '#FEB724';
         document.getElementById('zise3').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
@@ -161,7 +162,7 @@
     }
 
     function size31() {
-        document.getElementById("size").style.width = '900px';
+        document.getElementById("size").src = '/img/Untitled-1_3.gif';
         document.getElementById('zise1').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
         document.getElementById('zise2').style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
         document.getElementById('zise3').style.backgroundColor = '#FEB724';

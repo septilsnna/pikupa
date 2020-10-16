@@ -118,13 +118,13 @@
         </div>
         <div class="row">
             <div class="col mt-3">
-                <h3 style="font-weight: bold; font-size: 28px; color: #FEB724;">Order List</h3>
+                <h3 style="font-weight: bold; font-size: 28px; color: #FEB724; width: 100%; height: auto">Order List</h3>
             </div>
         </div>
-        <div class="row py-3 pb-5">
-            <table class="table table-borderless  table-hover ">
+        <div class="row py-3 pb-5" style="overflow-x:auto;">
+            <table class="table table-borderless  table-hover">
                 <thead>
-                    <tr style="font-size: 16px; color:gray">
+                    <tr style="font-size: 14px; color:gray" >
                         <th class="text-center" scope="col">ID Pemesanan</th>
                         <th class="text-center" scope="col">Waktu Pemesanan</th>
                         <th class="text-center" scope="col">Kategori Produk</th>
@@ -153,7 +153,7 @@
                         <?php endif; ?>
                         <?php if ($order[$i]['status'] == "Accepted" | $order[$i]['status'] == "Process" | $order[$i]['status'] == "Finish") : ?>
                         <td class="text-center" scope="row">
-                            <p class="d-inline-flex py-1 px-4" style="background-color: #B5F3AB; border-radius: 10px;">
+                            <p class="d-inline-flex py-1 px-4" style="background-color: #B5F3AB; border-radius: 10px">
                                 <?= $order[$i]['status']; ?>
                             </p>
                         </td>

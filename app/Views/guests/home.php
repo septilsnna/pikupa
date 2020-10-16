@@ -87,8 +87,8 @@
 </head>
 
 <body style="background-color:#f7f7f7; font-family: Montserrat; font-style: normal; color: #424242;">
-    <!--Carousel Promotions-->
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+       <!--Carousel Promotions-->
+       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -96,18 +96,18 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="/promotions/<?= $promotions[3]['file'] ?>"
-                    alt="<?= $promotions[3]['title'] ?>">
+                <img class="d-block w-100" src="/promotions/<?= $promotions[0]['file'] ?>"
+                    alt="<?= $promotions[0]['title'] ?>">
+            </div>
+
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/promotions/<?= $promotions[1]['file'] ?>"
+                    alt="<?= $promotions[1]['title'] ?>">
             </div>
 
             <div class="carousel-item">
                 <img class="d-block w-100" src="/promotions/<?= $promotions[2]['file'] ?>"
                     alt="<?= $promotions[2]['title'] ?>">
-            </div>
-
-            <div class="carousel-item">
-                <img class="d-block w-100" src="/promotions/<?= $promotions[3]['file'] ?>"
-                    alt="<?= $promotions[3]['title'] ?>">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -119,6 +119,7 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
 
     <!--Cara Pesan-->
     <div class="container my-5 py-2 text-center">

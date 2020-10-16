@@ -121,27 +121,28 @@
                                 <div class="row text-center">
                                 <div class="col" href="#" id="pop">
                                     
-                                    <img id="imageresource" src="/img/qris.jpeg" style="width: 60%">
+                                            <img id="imageresource" src="/img/qris.jpeg" style="width: 60%">
 
 
 <!-- Creates the bootstrap modal where the image will appear -->
-    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="text-align: center;">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-<h4 class="modal-title" id="myModalLabel" style="text-align: center;">Scan Me</h4>
-</div>
-<div class="modal-body">
-<img src="" id="imagepreview" style="width: 100%; height: 100%" >
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-default" data-dismiss="modal" style="text-align: center;">Close</button>
-</div>
-</div>
-</div>
+            <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="text-align: center;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Scan Me</h4>
+      </div>
+      <div class="modal-body">
+        <img src="" id="imagepreview" style="width: 100%; height: 100%" >
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="text-align: center;">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
                                     </div>
+                                    
                                     <div class="col-md-12 mt-3">
                                         <label for="invoice">Upload bukti pembayaran kamu disini</label>
                                         <div class="custom-file">
@@ -273,6 +274,12 @@
         id_cardLabel.textContent = id_card.files[0].name;
     }
     </script>
+
+<script>
+    $("#pop").on("click", function() {
+   $('#imagepreview').attr('src', $('#imageresource').attr('src')); // here asign the image to the modal when the user click the enlarge link
+   $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+});</script>
 </body>
 
 <footer>
