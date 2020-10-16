@@ -41,63 +41,25 @@ class register extends BaseController
 
                 $response = curl_exec($curl);
                 $satu = explode('&', $response);
-                $oat = explode('=', $satu[0]);
-                $oat1 = explode('=', $satu[1]);
-                var_dump($satu);
-                var_dump($oat[1]);
-                var_dump($oat1[1]);
+                $sn = explode('=', $satu[3]);
+                // var_dump($sn);
 
-                curl_setopt_array($curl, array(
-                    CURLOPT_URL => "https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true",
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_ENCODING => "",
-                    CURLOPT_MAXREDIRS => 10,
-                    CURLOPT_TIMEOUT => 0,
-                    CURLOPT_FOLLOWLOCATION => true,
-                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                    CURLOPT_CUSTOMREQUEST => "GET",
-                    CURLOPT_HTTPHEADER => array(
-                        "Authorization: OAuth oauth_consumer_key=\"vgXW19sESmBypTyFtaib0ADM3\",
-                        oauth_token=\"" . $oat[1] . "\",
-                        oauth_signature_method=\"HMAC-SHA1\",
-                        oauth_timestamp=\"1602775307\",
-                        oauth_nonce=\"LKgKk7V98XW\",
-                        oauth_version=\"1.0\",
-                        oauth_callback=\"http%3A%2F%2Flocalhost%3A8080%2Fregister%2Findex\",
-                        oauth_signature=\"JNqXzCkzpvyv9SclpdFqKy4mGW8%3D\"",
-                        "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104; _twitter_sess=BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoPY3JlYXRlZF9hdGwrCPE8oSx1AToMY3NyZl9p%250AZCIlYmI3NDUxYzY4NzEyN2JhYjNmYmVmZjBiNmFkYmJmOWY6B2lkIiViMzBj%250ANzU1NDEyNjdkYmE2NTk0MzJlZWVjMzUzYTU0ZQ%253D%253D--573ea6c54bde3a8136040bfe009b4e9891109e3c; lang=id"
-                    ),
-                ));
+                $user_lama = $this->usersModel->where('id', $sn[1])->findAll();
+                //var_dump($user_lama);
 
-                $response2 = curl_exec($curl);
+                if ($user_lama == null) {
+                    $new_user = [
+                        'id' => $sn[1],
+                        'name' => $sn[1],
+                        'email' => null,
+                        'verified' => false,
+                        'regist_via' => 'twitter'
+                    ];
 
-                curl_close($curl);
-                $dua = json_decode($response2, true);
-                var_dump($dua);
-                // var_dump($dua['email']);
-
-                // $user_lama = $this->usersModel->where('id', $dua['screen_name'])->findAll();
-
-                // if ($user_lama == null) {
-                //     if ($dua['email'] == null) {
-                //         $email = '';
-                //         $verified = false;
-                //     } else {
-                //         $email = $dua['email'];
-                //         $verified = true;
-                //     }
-                //     $new_user = [
-                //         'id' => $dua['screen_name'],
-                //         'name' => $dua['screen_name'],
-                //         'email' => $email,
-                //         'verified' => $verified,
-                //         'regist_via' => 'twitter'
-                //     ];
-
-                //     $this->usersModel->insert($new_user);
-                // }
-                // $_SESSION['user_id'] = $dua['screen_name'];
-                // return redirect()->to(base_url() . '/home/index');
+                    $this->usersModel->insert($new_user);
+                }
+                $_SESSION['user_id'] = $sn[1];
+                return redirect()->to(base_url() . '/home/index');
             }
 
             // google regist

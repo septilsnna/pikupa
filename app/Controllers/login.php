@@ -39,10 +39,12 @@ class login extends BaseController
                 ));
 
                 $response = curl_exec($curl);
-                $satu = explode('screen_name=', $response);
-                //var_dump($satu[1]);
+                $satu = explode('&', $response);
+                $sn = explode('=', $satu[3]);
+                // var_dump($sn);
 
-                $user_lama = $this->usersModel->where('id', $satu[1])->findAll();
+                $user_lama = $this->usersModel->where('id', $sn[1])->findAll();
+                //var_dump($user_lama);
 
                 if ($user_lama) {
                     $_SESSION['user_id'] = $user_lama[0]['id'];
