@@ -149,7 +149,7 @@ class login extends BaseController
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_HTTPHEADER => array(
-                "Authorization: OAuth oauth_consumer_key=\"i9aHZGMjl6E6zppqtqRFxM0vo\",oauth_token=\"4658987426-l8WRmko5lntBr2juTYvybVCxZeGwJ71kkbDqMej\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"1602493688\",oauth_nonce=\"5THE1rnITsy\",oauth_version=\"1.0\",oauth_callback=\"http%3A%2F%2Flocalhost%3A8080%2Flogin%2Findex\",oauth_signature=\"e9tG7j9y9lsgGRlMabk03RdSpx8%3D\"",
+                "Authorization: OAuth oauth_consumer_key=\"vgXW19sESmBypTyFtaib0ADM3\",oauth_token=\"4658987426-yxwA0tmO7LuiQPUvfrS3nTuBj6sP6dwfnJrJD0v\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"1602817582\",oauth_nonce=\"Rqnt2RTTa9S\",oauth_version=\"1.0\",oauth_callback=\"http%3A%2F%2Flocalhost%3A8080%2Flogin%2Findex\",oauth_signature=\"3V9%2BJleyqZsJOwVq5Tj7Rc4szC8%3D\"",
                 "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104; lang=en"
             ),
         ));

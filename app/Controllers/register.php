@@ -42,10 +42,13 @@ class register extends BaseController
                 $response = curl_exec($curl);
                 $satu = explode('&', $response);
                 $oat = explode('=', $satu[0]);
-                // var_dump($satu);
+                $oat1 = explode('=', $satu[1]);
+                var_dump($satu);
+                var_dump($oat[1]);
+                var_dump($oat1[1]);
 
                 curl_setopt_array($curl, array(
-                    CURLOPT_URL => "https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true&include_entities=false&skip_status=true",
+                    CURLOPT_URL => "https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true",
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_ENCODING => "",
                     CURLOPT_MAXREDIRS => 10,
@@ -54,8 +57,15 @@ class register extends BaseController
                     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                     CURLOPT_CUSTOMREQUEST => "GET",
                     CURLOPT_HTTPHEADER => array(
-                        "Authorization: OAuth oauth_consumer_key=\"i9aHZGMjl6E6zppqtqRFxM0vo\",oauth_token=\"" . $oat[1] . "\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"1602494434\",oauth_nonce=\"KidyiSpXQh2\",oauth_version=\"1.0\",oauth_callback=\"http%3A%2F%2F127.0.0.1%3A8080%2Fregister%2Findex\",oauth_signature=\"zBfx6Rxz%2FmnrBdzNPoze5X0iep8%3D\"",
-                        "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104; lang=en"
+                        "Authorization: OAuth oauth_consumer_key=\"vgXW19sESmBypTyFtaib0ADM3\",
+                        oauth_token=\"" . $oat[1] . "\",
+                        oauth_signature_method=\"HMAC-SHA1\",
+                        oauth_timestamp=\"1602775307\",
+                        oauth_nonce=\"LKgKk7V98XW\",
+                        oauth_version=\"1.0\",
+                        oauth_callback=\"http%3A%2F%2Flocalhost%3A8080%2Fregister%2Findex\",
+                        oauth_signature=\"JNqXzCkzpvyv9SclpdFqKy4mGW8%3D\"",
+                        "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104; _twitter_sess=BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoPY3JlYXRlZF9hdGwrCPE8oSx1AToMY3NyZl9p%250AZCIlYmI3NDUxYzY4NzEyN2JhYjNmYmVmZjBiNmFkYmJmOWY6B2lkIiViMzBj%250ANzU1NDEyNjdkYmE2NTk0MzJlZWVjMzUzYTU0ZQ%253D%253D--573ea6c54bde3a8136040bfe009b4e9891109e3c; lang=id"
                     ),
                 ));
 
@@ -63,31 +73,31 @@ class register extends BaseController
 
                 curl_close($curl);
                 $dua = json_decode($response2, true);
-                var_dump($dua['screen_name']);
-                var_dump($dua['email']);
+                var_dump($dua);
+                // var_dump($dua['email']);
 
-                $user_lama = $this->usersModel->where('id', $dua['screen_name'])->findAll();
+                // $user_lama = $this->usersModel->where('id', $dua['screen_name'])->findAll();
 
-                if ($user_lama == null) {
-                    if ($dua['email'] == null) {
-                        $email = '';
-                        $verified = false;
-                    } else {
-                        $email = $dua['email'];
-                        $verified = true;
-                    }
-                    $new_user = [
-                        'id' => $dua['screen_name'],
-                        'name' => $dua['screen_name'],
-                        'email' => $email,
-                        'verified' => $verified,
-                        'regist_via' => 'twitter'
-                    ];
+                // if ($user_lama == null) {
+                //     if ($dua['email'] == null) {
+                //         $email = '';
+                //         $verified = false;
+                //     } else {
+                //         $email = $dua['email'];
+                //         $verified = true;
+                //     }
+                //     $new_user = [
+                //         'id' => $dua['screen_name'],
+                //         'name' => $dua['screen_name'],
+                //         'email' => $email,
+                //         'verified' => $verified,
+                //         'regist_via' => 'twitter'
+                //     ];
 
-                    $this->usersModel->insert($new_user);
-                }
-                $_SESSION['user_id'] = $dua['screen_name'];
-                return redirect()->to(base_url() . '/home/index');
+                //     $this->usersModel->insert($new_user);
+                // }
+                // $_SESSION['user_id'] = $dua['screen_name'];
+                // return redirect()->to(base_url() . '/home/index');
             }
 
             // google regist
@@ -253,7 +263,14 @@ class register extends BaseController
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_HTTPHEADER => array(
-                "Authorization: OAuth oauth_consumer_key=\"i9aHZGMjl6E6zppqtqRFxM0vo\",oauth_token=\"4658987426-l8WRmko5lntBr2juTYvybVCxZeGwJ71kkbDqMej\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"1602493735\",oauth_nonce=\"ZL7eSzpZ1RC\",oauth_version=\"1.0\",oauth_callback=\"http%3A%2F%2Flocalhost%3A8080%2Fregister%2Findex\",oauth_signature=\"%2FrlGFIGvc%2FauntC5RWaQ%2F18a4z8%3D\"",
+                "Authorization: OAuth oauth_consumer_key=\"vgXW19sESmBypTyFtaib0ADM3\",
+                oauth_token=\"4658987426-yxwA0tmO7LuiQPUvfrS3nTuBj6sP6dwfnJrJD0v\",
+                oauth_signature_method=\"HMAC-SHA1\",
+                oauth_timestamp=\"1602771299\",
+                oauth_nonce=\"9WaGIlotEgP\",
+                oauth_version=\"1.0\",
+                oauth_callback=\"http%3A%2F%2Flocalhost%3A8080%2Fregister%2Findex\",
+                oauth_signature=\"Y2yJtXnVMMtQcopfVPhK%2B6m7zXo%3D\"",
                 "Cookie: personalization_id=\"v1_9nBKuf8pExBpNAYb7r2big==\"; guest_id=v1%3A160200759231788104; lang=en"
             ),
         ));
