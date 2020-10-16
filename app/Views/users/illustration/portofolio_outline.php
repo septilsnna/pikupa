@@ -18,15 +18,15 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                <a class="nav-link active px-4 mx-2" style="text-align: center;" href="/home/index">HOME <span
+                    <a class="nav-link active px-4 mx-2" style="text-align: center;" href="/home/index">HOME <span
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link px-4 mx-2" style="text-align: center;" href="/about/index">ABOUT</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle px-4 mx-2" style="text-align: center;" href="#" id="navbarDropdownMenuLink"
-                        data-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle px-4 mx-2" style="text-align: center;" href="#"
+                        id="navbarDropdownMenuLink" data-toggle="dropdown">
                         PORTOFOLIOS
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
@@ -42,14 +42,15 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle px-4 mx-2" style="text-align: center;" href="#" id="navbarDropdownMenuLink"
-                        data-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle px-4 mx-2" style="text-align: center;" href="#"
+                        id="navbarDropdownMenuLink" data-toggle="dropdown">
                         ORDER
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                         style="border: none; padding:15px;text-align: center;">
                         <a class="dropdown-item" href="/order/index/twitter_profile_needs"
-                            style="background-color:#f7f7f7; color:#424242;text-align: center;">Twitter Profile Needs</a>
+                            style="background-color:#f7f7f7; color:#424242;text-align: center;">Twitter Profile
+                            Needs</a>
                         <a class="dropdown-item" href="/order/index/illustration"
                             style="background-color:#f7f7f7; color:#424242;text-align: center;">Illustration</a>
                         <a class="dropdown-item" href="/order/index/custom_design"
@@ -60,7 +61,8 @@
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <div class="navbar-nav">
-                <a class="nav-link px-2" role="button" href="/profile/index" style="text-align: center ; font-weight: 700">Halo, <?= $nama; ?>!</a>
+                <a class="nav-link px-2" role="button" href="/profile/index"
+                    style="text-align: center ; font-weight: 700">Halo, <?= $nama; ?>!</a>
                 <a class="nav-link px-2" role="button" href="/Config/logout" style="text-align: center; ">LOGOUT</a>
             </div>
         </div>
@@ -96,19 +98,12 @@
                 </ul>
             </nav>
         </div>
-        <!-- <div class="row justify-content-center">
+        <div class="pt-3" style="columns: 2; column-gap: 16px;">
             <?php foreach ($portofolios as $d) : ?>
-            <div class="col-md-4 py-4">
-                <img src="/porto/<?= $d['note'] ?>/<?= $d['file']; ?>" class="card-img-top">
+            <div style="display: inline-block; position: relative; margin-bottom: 16px;">
+                <img style="width: 100%; border-radius: 5px;" src="/porto/outline/<?= $d['file'] ?>">
             </div>
             <?php endforeach; ?>
-        </div> -->
-        <div class="pt-3 " style="columns: 3; column-gap: 16px;">
-            <?php for ($i = 1; $i < 24; $i++) : ?>
-            <div style="display: inline-block; position: relative; margin-bottom: 16px;">
-                <img style="width: 100%; border-radius: 5px;" src="https://source.unsplash.com/random/<?= $i ?>">
-            </div>
-            <?php endfor; ?>
         </div>
     </div>
     <div class="row mt-5 pt-5 pb-2 mx-0 justify-content-center text-center"

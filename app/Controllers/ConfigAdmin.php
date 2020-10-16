@@ -167,19 +167,19 @@ class ConfigAdmin extends BaseController
     public function add_portofolios()
     {
         if ($this->request->getVar('category') == 'custom_design') {
-            $note = $this->request->getVar('category');
+            $path = $this->request->getVar('category');
         } else {
-            $note = $this->request->getVar('note');
+            $path = $this->request->getVar('note');
         }
 
         $file = $this->request->getFile('file');            // ambil file bukti bayar
         $nama = $file->getRandomName();                     // generate nama random
-        $file->move('porto/' . $note, $nama);               // pindahkan ke folder porto
+        $file->move('porto/' . $path, $nama);               // pindahkan ke folder porto
 
         $data = [
             'category' => $this->request->getVar('category'),
             'file' => $nama,
-            'note' => $note
+            'note' => $this->request->getVar('note')
         ];
 
         $this->portofoliosModel->insert($data);
