@@ -51,7 +51,7 @@ class register extends BaseController
                     $new_user = [
                         'id' => $sn[1],
                         'name' => $sn[1],
-                        'email' => null,
+                        'email' => '',
                         'verified' => false,
                         'regist_via' => 'twitter'
                     ];
