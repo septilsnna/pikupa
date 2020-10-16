@@ -19,15 +19,15 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                <a class="nav-link active px-4 mx-2" style="text-align: center;" href="/home/index">HOME <span
+                    <a class="nav-link active px-4 mx-2" style="text-align: center;" href="/home/index">HOME <span
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link px-4 mx-2" style="text-align: center;" href="/about/index">ABOUT</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle px-4 mx-2" style="text-align: center;" href="#" id="navbarDropdownMenuLink"
-                        data-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle px-4 mx-2" style="text-align: center;" href="#"
+                        id="navbarDropdownMenuLink" data-toggle="dropdown">
                         PORTOFOLIOS
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
@@ -43,14 +43,15 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle px-4 mx-2" style="text-align: center;" href="#" id="navbarDropdownMenuLink"
-                        data-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle px-4 mx-2" style="text-align: center;" href="#"
+                        id="navbarDropdownMenuLink" data-toggle="dropdown">
                         ORDER
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                         style="border: none; padding:15px;text-align: center;">
                         <a class="dropdown-item" href="/order/index/twitter_profile_needs"
-                            style="background-color:#f7f7f7; color:#424242;text-align: center;">Twitter Profile Needs</a>
+                            style="background-color:#f7f7f7; color:#424242;text-align: center;">Twitter Profile
+                            Needs</a>
                         <a class="dropdown-item" href="/order/index/illustration"
                             style="background-color:#f7f7f7; color:#424242;text-align: center;">Illustration</a>
                         <a class="dropdown-item" href="/order/index/custom_design"
@@ -61,7 +62,8 @@
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <div class="navbar-nav">
-                <a class="nav-link px-2" role="button" href="/profile/index" style="text-align: center ; font-weight: 700">Halo, <?= $nama; ?>!</a>
+                <a class="nav-link px-2" role="button" href="/profile/index"
+                    style="text-align: center ; font-weight: 700">Halo, <?= $nama; ?>!</a>
                 <a class="nav-link px-2" role="button" href="/Config/logout" style="text-align: center; ">LOGOUT</a>
             </div>
         </div>
@@ -110,7 +112,7 @@
                             </div>
                         </div>
                     </div>
-                    <img src="/porto/21/1601631278_6d7729fc43718b981c2f.gif" style="position: relative; z-index: 1"
+                    <img src="/catalog/<?= $d['catalog'] ?>.jpg" style="position: relative; z-index: 1"
                         class="card-img-top">
                     <div class="card-body text-center py-3 px-3" style="height: 300px;">
                         <h5 class="card-title pt-4" style="font-size: 24px; font-weight: bold">

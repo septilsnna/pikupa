@@ -18,15 +18,15 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                <a class="nav-link active px-4 mx-2" style="text-align: center;" href="/home/index">HOME <span
+                    <a class="nav-link active px-4 mx-2" style="text-align: center;" href="/home/index">HOME <span
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link px-4 mx-2" style="text-align: center;" href="/about/index">ABOUT</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle px-4 mx-2" style="text-align: center;" href="#" id="navbarDropdownMenuLink"
-                        data-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle px-4 mx-2" style="text-align: center;" href="#"
+                        id="navbarDropdownMenuLink" data-toggle="dropdown">
                         PORTOFOLIOS
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
@@ -42,14 +42,15 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle px-4 mx-2" style="text-align: center;" href="#" id="navbarDropdownMenuLink"
-                        data-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle px-4 mx-2" style="text-align: center;" href="#"
+                        id="navbarDropdownMenuLink" data-toggle="dropdown">
                         ORDER
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                         style="border: none; padding:15px;text-align: center;">
                         <a class="dropdown-item" href="/order/index/twitter_profile_needs"
-                            style="background-color:#f7f7f7; color:#424242;text-align: center;">Twitter Profile Needs</a>
+                            style="background-color:#f7f7f7; color:#424242;text-align: center;">Twitter Profile
+                            Needs</a>
                         <a class="dropdown-item" href="/order/index/illustration"
                             style="background-color:#f7f7f7; color:#424242;text-align: center;">Illustration</a>
                         <a class="dropdown-item" href="/order/index/custom_design"
@@ -60,7 +61,8 @@
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <div class="navbar-nav">
-                <a class="nav-link px-2" role="button" href="/profile/index" style="text-align: center ; font-weight: 700">Halo, <?= $nama; ?>!</a>
+                <a class="nav-link px-2" role="button" href="/profile/index"
+                    style="text-align: center ; font-weight: 700">Halo, <?= $nama; ?>!</a>
                 <a class="nav-link px-2" role="button" href="/Config/logout" style="text-align: center; ">LOGOUT</a>
             </div>
         </div>
@@ -97,21 +99,20 @@
             <?php foreach ($categories as $d) : ?>
             <div class="col-md-4 pt-4">
                 <div class="card shadow bg-white">
-                    <div class="container px-0" style="background-color: #424242; height: 250px;">
-                        <div class="row justify-content-end">
-                            <div class="col-md-7">
-                                <div class="container"
-                                    style="font-size: 16px; background-color: #feb724; padding-top: 5px; padding-bottom:5px">
-                                    <?php if ($d['stock'] == 0) : ?>
-                                    Slot Habis
-                                    <?php else : ?>
-                                    <?= $d['stock']; ?> Slot Tersedia
-                                    <?php endif ?>
-                                </div>
+                    <div class="row" style="position: absolute; z-index: 2; right:0px;">
+                        <div class="col-md">
+                            <div class="container"
+                                style="font-size: 16px; background-color: #feb724; padding-top: 5px; padding-bottom:5px">
+                                <?php if ($d['stock'] == 0) : ?>
+                                Slot Habis
+                                <?php else : ?>
+                                <?= $d['stock']; ?> Slot Tersedia
+                                <?php endif ?>
                             </div>
                         </div>
-                        <!-- <img src="/img/twittercard.png" style="width: 100%;"> -->
                     </div>
+                    <img src="/catalog/<?= $d['catalog'] ?>.jpg" style="position: relative; z-index: 1"
+                        class="card-img-top">
                     <div class="card-body text-center py-3 px-3" style="height: 250px;">
                         <h5 class="card-title pt-4" style="font-size: 24px; font-weight: bold">
                             <?= $d['sub_category_name']; ?>
